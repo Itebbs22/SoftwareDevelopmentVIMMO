@@ -1,4 +1,3 @@
-
 from flask import send_file
 from flask_restx import Resource
 from vimmo.API import api,get_db
@@ -29,6 +28,10 @@ class PanelSearch(Resource):
     def get(self):
         # Parse arguments from the request
         args = id_parser.parse_args()
+
+        # Normalize the Rcode to uppercase if it exists
+        if args.get("Rcode"):
+            args["Rcode"] = args["Rcode"].upper()  # Convert lowercase 'r' to uppercase 'R'
 
         # Apply custom validation for the parsed arguments
         try:

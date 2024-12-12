@@ -11,7 +11,7 @@ class IDParser:
         # Argument for Panel_ID
         parser.add_argument(
             'Panel_ID',
-            type=int,
+            type=str,
             help="Provide Panel_ID. Leave blank if using 'Rcode' or 'HGNC_ID'.",
             required=False
         )
