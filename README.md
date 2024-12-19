@@ -72,7 +72,43 @@ The API will be available at:
 - Swagger UI Documentation: http://127.0.0.1:5000/
 
 
+## Version Update
+Use after git commit -m "message"
+```bash
+# Patch version (0.1.0 → 0.1.1) 
+bumpversion patch
 
+# Minor version (0.1.0 → 0.2.0):
+bumpversion minor
+
+# Major version (0.1.0 → 1.0.0):
+bumpversion major
+```
+
+## Docker
+```bash
+# file to start the docker image
+cd /Docker_git/getting-started-app
+
+docker login
+docker container ls
+docker image ls
+docker container stop "name_of_container"
+docker container restart "name_of_container"
+
+# build the image
+docker build -t getting-started .
+# start app container
+docker run -d -p 127.0.0.1:3000:3000 getting-started
+# stop the container
+docker stop <name_of_container>
+# delete the container
+docker rm <name_of_container>
+
+
+
+
+````
 
 ## Testing
 

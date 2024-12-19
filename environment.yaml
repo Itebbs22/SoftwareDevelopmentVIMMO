@@ -10,3 +10,4 @@ dependencies:
     - setuptools
     - wheel
     - twine
+    - bump2version
