@@ -3,7 +3,7 @@
 # set -e --> immediately exit if any command has non-zero exit code
 # set -u --> reference to any previously undefined variables causes error
 # set -o pipefail sets return code of a pipeline to that of the first command that fails, rather than the last executed
-set -euo pipefail
+# set -euxo pipefail
 
 
 # Get the absolute path to the current directory (where the script is being run)
@@ -85,9 +85,9 @@ else
     exit 1
 fi
 
-# Set up the new cron job, including the steps to source Conda, activate the environment, and execute the script
-(crontab -l 2>/dev/null; echo "$cron_schedule cd $repo_dir && /bin/bash -c 'source $conda_path/../etc/profile.d/conda.sh && conda activate VIMMO && /bin/bash $script_path >> $log_file 2>&1'") | crontab -
+docker_path=$(which docker)
 
-# Output confirmation with human-readable schedule
+# Set up the new cron job, including the steps to source Conda, activate the environment, and execute the script
+(crontab -l 2>/dev/null; echo "$cron_schedule $docker_path rm -f vimmo-updates && $docker_path run --name vimmo-updates -v $repo_dir/vimmo/db:/app/vimmo/db -d softwaredevelopmentvimmo-app && $docker_path exec vimmo-updates python /app/vimmo/db/scheduled_update.py && $docker_path stop vimmo-updates") | crontab -
 echo "Cron job updated to run: $schedule_text"
-echo "Log file will be saved to: $log_file"
+

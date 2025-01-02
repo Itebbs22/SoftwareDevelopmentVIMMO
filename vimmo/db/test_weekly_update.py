@@ -1,6 +1,6 @@
 from db import Database
 import random
-from weekly_update import main
+from scheduled_update import main
 
 '''
 This script adds in, removes and changes the confidence of some genes in panels 3 and 9, then calls the main function
