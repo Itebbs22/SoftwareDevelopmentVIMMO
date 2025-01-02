@@ -9,6 +9,12 @@ services:
     environment:
       - DATABASE_URL=/app/vimmo/db/panels_data.db  # Set environment variable for database path (optional, for explicit reference)
     command: ["/bin/bash", "-c", "source ~/.bashrc && conda activate VIMMO && vimmo"]  # Run the Flask app in the container
+    networks:
+      - vimmo_network 
 
 volumes:
   db_data:  # This volume is for persisting the database
+
+networks:
+  vimmo_network:
+    driver: bridge

@@ -215,12 +215,6 @@ class PanelDownload(Resource):
 
 
        
-
-
-
-
-
-
 local_download_parser=LocalDownloadParser.create_parser()
 @panels_space.route('/download/local')
 class LocalPanelDownload(Resource):
