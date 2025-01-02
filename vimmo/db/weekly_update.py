@@ -1,7 +1,7 @@
 import requests
 import logging
 import os
-import random
+from database_prework.createdb.get_version import extract_rcodes
 
 from db import Database
 
@@ -15,7 +15,7 @@ def fetch_latest_versions(api_url):
     Returns:
         latest_versions: A dictionary where the keys are panel IDs and the values are their latest versions.
     """
-    latest_versions = {}
+    latest_versions = []
 
     while api_url:
         try:
@@ -33,7 +33,9 @@ def fetch_latest_versions(api_url):
             try:
                 panel_id = item.get("id")
                 version = float(item.get("version"))  # Convert version to a float for comparison with current version
-                latest_versions[panel_id] = version
+                r_code = item.get("relevant_disorders", [])
+                r_code = ", ".join(extract_rcodes(r_code))
+                latest_versions.append([panel_id, r_code, version])
             except ValueError as e:
                 logging.warning(f"Skipping invalid version for panel {item.get('id')}: {e}")
 
@@ -68,18 +70,21 @@ def fetch_latest_version_genes(id, latest_version):
 
 def update_or_insert_panel_versions(cursor, latest_versions):
     """
-    Updates or inserts panel versions in the database, archives genes in current version and adds latest genes to
-    panel_genes
+    Updates or inserts panel versions in the database, archives genes in the current version and adds the latest genes to
+    panel_genes.
+
     Args:
         cursor: SQLite database cursor for executing queries.
-        latest_versions (dict): Dictionary of panel IDs and their latest versions.
+        latest_versions (list): A list of lists, where each sublist contains [panel_id, r_code, version].
 
     Returns:
         bool: True if any updates or inserts were made, False otherwise.
     """
     updates = False
 
-    for panel_id, latest_version in latest_versions.items():
+    for panel_info in latest_versions:
+        panel_id, r_code, latest_version = panel_info  # Unpack the sublist
+
         # Check if the panel already exists in the database
         cursor.execute('SELECT Panel_ID, Version FROM panel WHERE Panel_ID = ?', (panel_id,))
         existing_row = cursor.fetchone()
@@ -89,6 +94,8 @@ def update_or_insert_panel_versions(cursor, latest_versions):
             # Update version and archive old version genes if it differs
             if existing_version != latest_version:
                 latest_genes = fetch_latest_version_genes(panel_id, latest_version)
+
+                # Archive existing genes of the old version
                 cursor.execute(
                     '''
                     INSERT INTO panel_genes_archive (Panel_ID, HGNC_ID, Version, Confidence)
@@ -98,30 +105,32 @@ def update_or_insert_panel_versions(cursor, latest_versions):
                     ''',
                     (existing_version, panel_id)
                 )
+
+                # Update the panel version
                 cursor.execute(
                     'UPDATE panel SET Version = ? WHERE Panel_ID = ?',
                     (latest_version, panel_id)
                 )
                 logging.info(f"Updated panel {panel_id} from version {existing_version} to version {latest_version}.")
                 updates = True
-                cursor.execute(
-                    '''DELETE FROM panel_genes WHERE Panel_ID = ?''',
-                    (panel_id,)
-                )
+
+                # Delete the old genes and insert new ones
+                cursor.execute('DELETE FROM panel_genes WHERE Panel_ID = ?', (panel_id,))
                 cursor.executemany(
                     '''INSERT INTO panel_genes (Panel_ID, HGNC_ID, Confidence) VALUES (?, ?, ?)''',
                     latest_genes
                 )
 
+                # Fetch gene changes and log them
                 added_genes, removed_genes, confidence_changes = fetch_gene_changes(cursor, panel_id, existing_version)
-                logging.info(f"{panel_id} --> {added_genes} added, {removed_genes}"
-                             f" removed. Confidence changes: {confidence_changes}")
+                logging.info(
+                    f"{panel_id} --> {added_genes} added, {removed_genes} removed. Confidence changes: {confidence_changes}")
         else:
             latest_genes = fetch_latest_version_genes(panel_id, latest_version)
             # Insert new panel if it doesn't exist
             cursor.execute(
-                'INSERT INTO panel (Panel_ID, Version) VALUES (?, ?)',
-                (panel_id, latest_version)
+                'INSERT INTO panel (Panel_ID, rcodes, Version) VALUES (?, ?, ?)',
+                (panel_id, r_code, latest_version)
             )
             cursor.executemany(
                 '''INSERT INTO panel_genes (Panel_ID, HGNC_ID, Confidence) VALUES (?, ?, ?)''',
@@ -184,10 +193,19 @@ def main():
     """
     Main function to coordinate fetching panel versions and updating the database.
     """
+
+    # Determine the directory of the current script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Construct the log file path
+    log_file = os.path.join(script_dir, 'logs', 'cron_panel_updates.log')
+
+    # Ensure the logs directory exists
+    os.makedirs(os.path.dirname(log_file), exist_ok=True)
+
     # Configure logging to log to both file and console
     logging.basicConfig(
-        #filename='./logs/manual_panel_updates.log', # commented out for now as the cron job will redirect stdout to
-        # ../logs/cron_panel_updates.log
+        filename=log_file, # commented out for now as the cron job will redirect stdout to
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s',
         datefmt='%Y-%m-%d %H:%M:%S'
@@ -195,11 +213,11 @@ def main():
 
     # Add console handler for logging
 
-    # console_handler = logging.StreamHandler()
-    # console_handler.setLevel(logging.INFO)
-    # formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-    # console_handler.setFormatter(formatter)
-    # logging.getLogger().addHandler(console_handler)
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    console_handler.setFormatter(formatter)
+    logging.getLogger().addHandler(console_handler)
 
     logging.info("Starting the panel update process.")
 

@@ -68,6 +68,14 @@ def update_tester(cursor):
         (random_version,)
     )
 
+    cursor.execute(
+        '''
+        delete from panel where Panel_ID = 13
+        '''
+    )
+
+
+
     db.conn.commit()
     db.conn.close()
 

@@ -85,9 +85,8 @@ else
     exit 1
 fi
 
-# Set up the new cron job, including the steps to source Conda, activate the environment, and execute the script
-(crontab -l 2>/dev/null; echo "$cron_schedule cd $repo_dir && /bin/bash -c 'source $conda_path/../etc/profile.d/conda.sh && conda activate VIMMO && /bin/bash $script_path >> $log_file 2>&1'") | crontab -
+docker_path=$(which docker)
 
-# Output confirmation with human-readable schedule
+# Set up the new cron job, including the steps to source Conda, activate the environment, and execute the script
+(crontab -l 2>/dev/null; echo "$cron_schedule $docker_path rm -f vimmo-updates && $docker_path run --name vimmo-updates -v ../:/app/vimmo/db -d softwaredevelopmentvimmo && $docker_path exec vimmo-container python /app/vimmo/db/weekly_update.py && $docker_path stop vimmo-container") | crontab -
 echo "Cron job updated to run: $schedule_text"
-echo "Log file will be saved to: $log_file"
