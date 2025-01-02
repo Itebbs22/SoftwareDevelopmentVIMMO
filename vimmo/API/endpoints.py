@@ -8,7 +8,7 @@ try:
     from vimmo.utils.panelapp import  PanelAppClient
     from vimmo.utils.variantvalidator import VarValClient, VarValAPIError
     from vimmo.utils.localbed import local_bed_formatter
-    from vimmo.utils.arg_validator import validate_panel_id_or_Rcode_or_hgnc
+    from vimmo.utils.arg_validator import validate_panel_id_or_Rcode_or_hgnc, patient_update_validator
     from vimmo.utils.parser import (
         IDParser, 
         PatientParser,
