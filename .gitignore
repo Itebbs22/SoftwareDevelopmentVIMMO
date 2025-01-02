@@ -1,7 +1,19 @@
-.idea
-APIapp/__pycache__
-test/__pycache__
-utils/__pycache__
-db/__pycache__
-vimmo.egg-info
-dist
+# Exclude IDE-specific files
+.idea/
+.DS_Store
+
+# Exclude all __pycache__ directories recursively
+**/__pycache__/
+
+# Exclude compiled Python files (*.pyc, *.pyo)
+*.pyc
+*.pyo
+
+# Exclude egg-info and build artifacts
+*.egg-info/
+build/
+dist/
+
+# Exclude installed development mode's artifacts
+*.egg-info/
+.vimmo.*

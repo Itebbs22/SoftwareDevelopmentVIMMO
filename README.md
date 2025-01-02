@@ -11,7 +11,9 @@ A Flask-based API application for panel data analysis.
 ### Prerequisites
 
 - Conda (Miniconda or Anaconda)
-- Git
+- Git.
+### For Docker
+- Docker Desktop
 
 ### Setup Instructions
 
@@ -33,7 +35,7 @@ conda activate VIMMO
 3. Install the package:
 ```bash
 # Install in development mode
-pip install -e .
+pip install -e .[test]
 ```
 
 The package installation will automatically handle all dependencies listed in `pyproject.toml`.
@@ -72,6 +74,60 @@ The API will be available at:
 - Swagger UI Documentation: http://127.0.0.1:5000/
 
 
+## Version Update
+Use after git commit -m "message"
+```bash
+# Patch version (0.1.0 → 0.1.1) 
+bumpversion patch
 
-how to exit
+# Minor version (0.1.0 → 0.2.0):
+bumpversion minor
+
+# Major version (0.1.0 → 1.0.0):
+bumpversion major
+```
+
+## Docker
+```bash
+# to run docker make sure you are in route directory of the project
+cd <your_file_path>/SoftwareDevelopmentVIMMO
+
+# if you are on linux use
+sudo systemctl start docker
+
+#Tp build and run the image
+docker build -t vimmo_app .
+docker run -d --name my_vimmo_app -p 5000:5000 vimmo_app
+
+#to exit
+docker stop my_vimmo_app
+docker rm my_vimmo_app
+
+# <m>ake sure your docker daemon is running if you are on mac/windows use docker desktop
+  
+# # to build the image and to run the container 
+docker-compose up --build
+
+# to run it in the background use
+docker-compose up -d --build
+````
+
+## Testing
+
+In root directory (<path>/SoftwareDevelopmentVIMMO) :
+Testing requires an instance of the application to be running as it checks for various responses
+Please run the App in a seperate terminal or have an instance of Docker running in the background
+```bash
+pytest #Tests everything
+
+# for extra debugging purposes use 
+pytest -s # this prints out some of the info we recieve and should only be used for debugging purposes e.g, change in panelapp or variant validator.
+
+# To test just integration
+pytest -m integration
+
+# To test just unittest modules
+ pytest -m "not integration"
+ #Note: this does not require an instance of the app to run as it mocks responses with dummy data
+```
 
