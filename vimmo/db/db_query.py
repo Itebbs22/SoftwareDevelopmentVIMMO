@@ -433,7 +433,7 @@ class Query:
         FROM patient_data
         WHERE Rcode = ?
         """, (Rcode,)).fetchall() 
-        ## ENUMERATE
+        
         rcode_records = {} # Instantiation of object for output dict
         for i,record in enumerate(rcode_records_rows):
             rcode_records.update({i:{record["Date"]:[record["Patient_ID"], record["Version"]]}})
