@@ -140,7 +140,7 @@ cd <your_file_path>/SoftwareDevelopmentVIMMO
 docker-compose up --build
 
 # to run it in the background use
-docker-compose up -d --build
+docker compose up -d --build
 
 #to exit
 docker stop my_vimmo_app
