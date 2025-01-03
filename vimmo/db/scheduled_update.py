@@ -2,15 +2,7 @@ import requests
 import logging
 import os
 from db import Database
-import re
-
-def extract_rcodes(disorders_list):
-    rcodes = []
-    pattern = r'^R\d+(\.\d+)?$'  # Matches 'R' followed by digits, optional decimal and digits
-    for disorder in disorders_list:
-        if re.match(pattern, disorder):
-            rcodes.append(disorder)
-    return rcodes
+from database_prework.createdb.jason_all_data import extract_rcodes
 
 def fetch_latest_versions(api_url):
     """
