@@ -70,8 +70,45 @@ python -m vimmo.main
 ```
 
 The API will be available at:
-- Main API: http://127.0.0.1:5000/
-- Swagger UI Documentation: http://127.0.0.1:5000/
+- Main API: http://127.0.0.1:5001/
+- Swagger UI Documentation: http://127.0.0.1:5001/
+
+## Schedule Database Updates
+
+To set up a scheduled cron job on your system to update the 
+panel database, run the following command:
+
+```bash
+# this will prompt you for input...
+dbscheduler
+```
+
+### Choose a Schedule
+
+When prompted, type a number and press **Enter** to select the desired schedule:
+
+1. **Every minute**  
+2. **Every day at midnight**  
+3. **Every week at midnight (Sunday)**  
+4. **Every month at midnight (1st)**  
+5. **Remove schedule**  
+
+**Enter your choice (1-5):**
+
+### Managing Scheduled Updates
+
+Entering **5** in the dbscheduler will remove the scheduled update. Alternatively, you can use the following commands:
+
+```bash
+# To list cron jobs
+crontab -l
+
+# To edit the crontab (e.g. to further customise schedule)
+crontab -e
+
+# To remove all cron jobs
+crontab -r
+````
 
 
 ## Version Update
