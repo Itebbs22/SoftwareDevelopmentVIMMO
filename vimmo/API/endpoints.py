@@ -5,7 +5,7 @@ try:
     from flask import send_file
     from flask_restx import Resource
     from vimmo.API import api,get_db
-    from vimmo.API.endpoint_process_func import bed_processor
+    from vimmo.utils.endpoint_process_func import bed_processor
     from vimmo.db.db_query import Query
     from vimmo.db.db_update import Update
     from vimmo.db.db_downgrade import Downgrade
@@ -24,9 +24,9 @@ try:
         DowngradeParser
     )
     
-    logger.info("Everything imported")
+    logger.info("Import Success")
 except Exception as err:
-    logger.critical("Importing Modules failed, please check {err}")
+    logger.critical(f"Importing Modules failed, please check {err}")
     sys.exit(1)
 
 
