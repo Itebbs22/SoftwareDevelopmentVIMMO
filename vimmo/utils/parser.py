@@ -373,7 +373,8 @@ class DowngradeParser:
         parser.add_argument(
             'version',
             type=str,
-            help='type in a previous version',
+            help=("WARNING!!!!! >>> This is for productions use only and should not be used without knowledge of databse"
+                  "Type in a previous version"),
             required = True
         )
 

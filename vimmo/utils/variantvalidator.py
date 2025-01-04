@@ -220,7 +220,7 @@ class VarValClient:
         return (chrom_number, start, end)
 
 
-    def parse_to_bed(self, gene_query, genome_build='GRCh38', transcript_set='all', limit_transcripts='mane_select'):
+    def parse_to_bed(self, gene_query, genome_build='GRCh38', transcript_set='all', limit_transcripts='mane_select', padding=0):
         """
         Fetches gene data from the API and converts it to BED file format.
 
@@ -289,8 +289,8 @@ class VarValClient:
                             for exon in spans['exon_structure']:
                                 bed_rows.append({
                                     'chrom': chromosome,
-                                    'start': exon['genomic_start'],
-                                    'end': exon['genomic_end'],
+                                    'start': int(exon['genomic_start'])- padding,
+                                    'end': int(exon['genomic_end']) + padding,
                                     'name': f"{gene['current_symbol']}_exon{exon['exon_number']}_{reference}",
                                     'strand': orientation
                                 })

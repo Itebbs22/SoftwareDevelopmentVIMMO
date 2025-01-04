@@ -468,6 +468,13 @@ class PatientBed(Resource):
         genome_build = args.get('genome_build', 'GRCh38')
         transcript_set = args.get('transcript_set', 'all')
         limit_transcripts = args.get('limit_transcripts', 'mane_select')
+        try:
+            padding = args.get('Padding', 0)
+            padding = int(padding) if padding else 0
+            if padding > 0:
+                padding = min(padding, 250)
+        except (ValueError, TypeError):
+            padding = 0
         # Fetch the database and connect
         db = get_db()
         logger.info("DBconnection made from patient bed endpoint")
@@ -493,7 +500,8 @@ class PatientBed(Resource):
                 gene_query=gene_query,
                 genome_build=genome_build,
                 transcript_set=transcript_set,
-                limit_transcripts=limit_transcripts
+                limit_transcripts=limit_transcripts,
+                padding=padding
             )
         except VarValAPIError as e:
             logger.error(f"Varval returned an error {str(e)}")
@@ -534,6 +542,13 @@ class PatientLocalBed(Resource):
         r_code=args.get("R code",None)
         version=args.get("version",None)
         genome_build = args.get('genome_build', 'GRCh38')
+        try:
+            padding = args.get('Padding', 0)
+            padding = int(padding) if padding else 0
+            if padding > 0:
+                padding = min(padding, 250)
+        except (ValueError, TypeError):
+            padding = 0
         # Fetch the database and connect
         db = get_db()
         logger.info("DB connection made from patient local bed endpoint")
@@ -548,7 +563,7 @@ class PatientLocalBed(Resource):
             return processed_info["data"]
     
         local_bed_records=query.local_bed(gene_query,genome_build)
-        bed_file=local_bed_formatter(local_bed_records)
+        bed_file=local_bed_formatter(local_bed_records,padding)
 
         filename = f"{patient_id}_{r_code}_{genome_build}_Gencode.bed"
 
