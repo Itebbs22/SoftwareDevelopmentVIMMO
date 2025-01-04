@@ -61,6 +61,7 @@ class PanelSearch(Resource):
             args["Rcode"] = args["Rcode"].upper()  # Convert lowercase 'r' to uppercase 'R'
 
 
+
         # Apply custom validation for the parsed arguments
         try:
             validate_panel_id_or_Rcode_or_hgnc(args,panel_space=True)  # Ensure only one valid parameter is provided
@@ -253,6 +254,7 @@ class LocalPanelDownload(Resource):
         r_code=args.get("Rcode",None)
         matches=args.get("Similar_Matches",None)
         HGNC_ID=args.get("HGNC_ID",None)
+        confidence=args.get("Confidence",'All')
 
 
         # Retrieve the database connection
@@ -262,7 +264,7 @@ class LocalPanelDownload(Resource):
         logger.info("DB connection made from local bed endpoint")
 
         if not HGNC_ID:
-            gene_query=query.get_gene_list(panel_id,r_code,matches)
+            gene_query=query.get_gene_list(panel_id,r_code,matches,confidence)
             # Check if gene_query is a set of HGNC IDs
             if isinstance(gene_query, dict) and "Message" in gene_query:
                 return gene_query, 400

@@ -499,12 +499,12 @@ class TestQuery(BaseTestCase):
         # Test invalid panel ID
         result = self.query.get_panel_data(panel_id=999999)
         self.assertIn("Message", result)
-        self.assertEqual(result["Message"], "No matches found.")
+        self.assertEqual(result["Message"], "No matches found for this panel id with confidence : All.")
         
         # Test non-existent R-code
         result = self.query.get_panels_by_rcode(rcode="R000.00")
         self.assertIn("Message", result)
-        self.assertEqual(result["Message"], "No matches found for this rcode.")
+        self.assertEqual(result["Message"], "No matches found for this rcode with confidence : All.")
         
         # Test empty gene list
         result = self.query.get_panels_from_gene_list([])

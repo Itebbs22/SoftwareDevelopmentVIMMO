@@ -40,6 +40,13 @@ class IDParser:
             required=False,
             default=False
         )
+        parser.add_argument(
+            'Confidence',
+            choices=['Green', 'Amber', 'Red', 'All'],
+            help="Specify the gene confidence to restrict gene relevence.",
+            required=True,
+            default='All'
+        )
         
         return parser
 
@@ -258,13 +265,6 @@ class DownloadParser:
             ),
             required=True,
             default='mane_select'
-        )
-        parser.add_argument(
-            'Confidence',
-            choices=['Green', 'Amber', 'Red', 'All'],
-            help="Specify the gene confidence to restrict gene relevence.",
-            required=True,
-            default='All'
         )
 
 

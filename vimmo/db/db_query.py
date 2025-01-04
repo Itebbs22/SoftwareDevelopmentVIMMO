@@ -41,9 +41,8 @@ class Query:
         if panel_id is None:
             logger.error("ValueError - Panel_ID must be provided")
             raise ValueError("Panel_ID must be provided.")
-        print(confidence, "Hi")
+        org_conf=confidence
         confidence = self._map_confidence(confidence)
-        print(confidence, "BYE")
         
         base_query = '''
             SELECT panel.Panel_ID, panel.rcodes, panel.Version, genes_info.HGNC_ID, 
@@ -78,40 +77,60 @@ class Query:
             logger.warning("No matches found for Panel_ID: %s.", panel_id)
             return {
                 "Panel_ID": panel_id,
-                "Message": "No matches found."
+                "Message": f"No matches found for this panel id with confidence : {org_conf}."
             }
 
 
-    def get_panels_by_rcode(self, rcode: str, matches: bool = False):
-        """Retrieve all records associated with a specific rcode."""
+    def get_panels_by_rcode(self, rcode: str, matches: bool = False, confidence: str = 'All'):
+        """Retrieve all records associated with a specific rcode.
+        
+        Args:
+            rcode: The R-code to search for
+            matches: Whether to use LIKE for pattern matching
+            confidence: Confidence level filter ('Green', 'Amber', 'Red', 'All')
+        
+        Returns:
+            dict: Results dictionary containing rcode and associated records or message
+        
+        Raises:
+            ValueError: If rcode is None
+        """
         logger.info("Pulling all records associated with R_code: %s.", rcode)
 
         if rcode is None:
-            logger.error("ValueError- R_code must be provided")
-            raise ValueError("R_code must be provided.")
-        cursor = self.conn.cursor()
+            logger.error("ValueError- R_code is missing when get_panels_by_rcode func is triggered")
+            raise ValueError("R_code could not be retrieved something went wrong, please raise an issue")
+        org_conf= confidence
+        confidence = self._map_confidence(confidence)
         operator = "LIKE" if matches else "="
         rcode_query = f"%{rcode}%" if matches else rcode
-
+        
         logger.debug("Using operator '%s' with R_code query: %s.", operator, rcode_query)
 
-        # Query by rcode
-        query = f'''
+        base_query = f'''
         SELECT panel.Panel_ID, panel.rcodes, panel.Version, panel_genes.Confidence, genes_info.HGNC_ID, 
-               genes_info.Gene_Symbol, genes_info.HGNC_symbol, genes_info.GRCh38_Chr, 
-               genes_info.GRCh38_start, genes_info.GRCh38_stop, genes_info.GRCh37_Chr,
-                genes_info.GRCh37_start, genes_info.GRCh37_stop
+            genes_info.Gene_Symbol, genes_info.HGNC_symbol, genes_info.GRCh38_Chr, 
+            genes_info.GRCh38_start, genes_info.GRCh38_stop, genes_info.GRCh37_Chr,
+            genes_info.GRCh37_start, genes_info.GRCh37_stop
         FROM panel
         JOIN panel_genes ON panel.Panel_ID = panel_genes.Panel_ID
         JOIN genes_info ON panel_genes.HGNC_ID = genes_info.HGNC_ID
         WHERE panel.rcodes {operator} ?
         '''
-        logger.debug("Running SQL query: %s.", query)
 
-        result = cursor.execute(query, (rcode_query,)).fetchall()
+        params = [rcode_query]
+        
+        if confidence is not None:
+            base_query += " AND panel_genes.Confidence = ?"
+            params.append(confidence)
+
+        logger.debug("Running SQL query: %s with params: %s", base_query, params)
+
+        cursor = self.conn.cursor()
+        result = cursor.execute(base_query, tuple(params)).fetchall()
         logger.info("Query ran successfully for R_code: %s, and retrieved %d records.", rcode, len(result))
 
-        logger.debug(f"R_code Query: {rcode_query}, Result: {result}")
+        logger.debug("R_code Query: %s, Result: %s", rcode_query, result)
         
         if result:
             logger.info("Returning %d records for R_code: %s.", len(result), rcode)
@@ -120,11 +139,12 @@ class Query:
                 "Associated Gene Records": [dict(row) for row in result]
             }
         else:
-            logger.warning("No matches found for R_code: %s.", rcode)
+            logger.debug("No matches found for R_code: %s.", rcode)
             return {
                 "Rcode": rcode,
-                "Message": "No matches found for this rcode."
+                "Message": f"No matches found for this rcode with confidence : {org_conf}."
             }
+
 
     def get_panels_from_gene_list(self, hgnc_ids: list[str], matches: bool=False) -> list[dict]:
         """
