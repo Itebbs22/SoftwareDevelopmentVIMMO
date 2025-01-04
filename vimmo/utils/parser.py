@@ -138,6 +138,13 @@ class PatientBedParser:
             default='mane_select'
         )
 
+        parser.add_argument(
+            'Padding',
+            type=int,
+            help='Please provide a value to pad the bed records by +/- N bp',
+            required=False
+        )
+
         return parser
     
 
@@ -253,10 +260,11 @@ class DownloadParser:
             default='mane_select'
         )
         parser.add_argument(
-            'Padding',
-            type=int,
-            help='Please provide a value to pad the bed records by +/- N bp',
-            required=False
+            'Confidence',
+            choices=['Green', 'Amber', 'Red', 'All'],
+            help="Specify the gene confidence to restrict gene relevence.",
+            required=True,
+            default='All'
         )
 
 
@@ -309,10 +317,11 @@ class LocalDownloadParser:
             default='all'
         )
         parser.add_argument(
-            'Padding',
-            type=int,
-            help='Please provide a value to pad the bed records by +/- N bp',
-            required=False
+            'Confidence',
+            choices=['Green', 'Amber', 'Red', 'All'],
+            help="Specify the gene confidence to restrict gene relevence.",
+            required=True,
+            default='All'
         )
 
 

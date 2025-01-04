@@ -79,12 +79,14 @@ class PanelSearch(Resource):
         # Handle requests based on the provided argument
         if args.get("Panel_ID"):
             # Fetch panel data by Panel_ID with optional similar matches
-            panel_data = query.get_panel_data(panel_id=args.get("Panel_ID"), matches=args.get("Similar_Matches"))
+            panel_data = query.get_panel_data(panel_id=args.get("Panel_ID"), matches=args.get("Similar_Matches"),
+                                              confidence=args.get('Confidence'))
             return panel_data
 
         elif args.get("Rcode"):
             # Fetch panel data by Rcode with optional similar matches
-            panel_data = query.get_panels_by_rcode(rcode=args.get("Rcode"), matches=args.get("Similar_Matches"))
+            panel_data = query.get_panels_by_rcode(rcode=args.get("Rcode"), matches=args.get("Similar_Matches"),
+                                                   confidence=args.get('Confidence'))
             return panel_data
 
         elif args.get("HGNC_ID"):
@@ -134,6 +136,7 @@ class PanelDownload(Resource):
         r_code=args.get("Rcode",None)
         matches=args.get("Similar_Matches",None)
         HGNC_ID=args.get("HGNC_ID",None)
+        confidence =args.get('Confidence')
 
 
         # Retrieve the database connection
@@ -144,19 +147,21 @@ class PanelDownload(Resource):
         
         if not args["HGNC_ID"]:
             if panel_id:
-                panel_data = query.get_panel_data(panel_id=args.get("Panel_ID"), matches=args.get("Similar_Matches"))
+                panel_data = query.get_panel_data(panel_id=args.get("Panel_ID"), matches=args.get("Similar_Matches"),
+                                                   confidence=confidence)
                 if "Message" in panel_data:
                     logger.info(f"Panel_data: {panel_data}")
                     return panel_data
                 gene_query={record["HGNC_ID"] for record in panel_data["Associated Gene Records"]}
             elif r_code:
-                panel_data = query.get_panels_by_rcode(rcode=args.get("Rcode"), matches=args.get("Similar_Matches"))
+                panel_data = query.get_panels_by_rcode(rcode=args.get("Rcode"), matches=args.get("Similar_Matches"),
+                                                       confidence=confidence)
                 if "Message" in panel_data:
                     logger.info(f"Panel_data: {panel_data}")
                     return panel_data
                 gene_query={record["HGNC_ID"] for record in panel_data["Associated Gene Records"]}
 
-            gene_query=query.get_gene_list(panel_id,r_code,matches)
+            gene_query=query.get_gene_list(panel_id,r_code,matches,confidence=confidence)
             # Check if gene_query is a set of HGNC IDs
             if isinstance(gene_query, dict) and "Message" in gene_query:
                 return gene_query, 400
