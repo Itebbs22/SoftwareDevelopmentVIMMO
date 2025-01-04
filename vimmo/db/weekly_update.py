@@ -1,7 +1,5 @@
 import requests
 import logging
-import os
-import random
 
 from db import Database
 

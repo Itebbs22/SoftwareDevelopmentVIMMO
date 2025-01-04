@@ -1,0 +1,20 @@
+services:
+  app:
+    build: .
+    container_name: vimmo_app
+    ports:
+      - "5001:5001"  # Map host port 5001 to container port 5001
+    volumes:
+      - ./vimmo/db:/app/vimmo/db  # Mount local db directory into the container's db directory
+    environment:
+      - DATABASE_URL=/app/vimmo/db/panels_data.db  # Set environment variable for database path (optional, for explicit reference)
+    command: ["/bin/bash", "-c", "source ~/.bashrc && conda activate VIMMO && vimmo"]  # Run the Flask app in the container
+    networks:
+      - vimmo_network 
+
+volumes:
+  db_data:  # This volume is for persisting the database
+
+networks:
+  vimmo_network:
+    driver: bridge

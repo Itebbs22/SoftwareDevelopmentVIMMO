@@ -1,0 +1,420 @@
+2025-01-02 17:37:40,349 - VIMMO - INFO - Everything imported
+2025-01-02 17:37:48,065 - VIMMO - INFO - Everything imported
+2025-01-02 17:38:30,566 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-02 17:38:30,567 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-02 17:46:00,946 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-02 17:46:00,947 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-02 17:46:24,385 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-02 17:46:24,387 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-02 17:50:56,138 - VIMMO - INFO - Everything imported
+2025-01-02 17:50:56,291 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-02 17:50:56,292 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-02 17:52:53,341 - VIMMO - INFO - Everything imported
+2025-01-02 17:52:53,876 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-02 17:52:53,877 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-03 16:14:51,766 - VIMMO - CRITICAL - Importing Modules failed, please check {err}
+2025-01-03 16:16:36,033 - VIMMO - INFO - Everything imported
+2025-01-03 16:16:39,804 - VIMMO - INFO - Everything imported
+2025-01-03 16:17:42,823 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-03 16:17:42,824 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-03 16:17:42,842 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-03 16:17:42,853 - VIMMO - INFO - Entry not made in db, patient: 123 already present in db with current version
+2025-01-03 16:32:33,443 - VIMMO - INFO - Everything imported
+2025-01-03 16:32:37,531 - VIMMO - INFO - Everything imported
+2025-01-04 12:39:55,552 - VIMMO - INFO - Everything imported
+2025-01-04 12:46:12,222 - VIMMO - INFO - Everything imported
+2025-01-04 12:48:06,722 - VIMMO - INFO - Everything imported
+2025-01-04 12:48:16,216 - VIMMO - INFO - Everything imported
+2025-01-04 14:26:38,737 - VIMMO - INFO - Everything imported
+2025-01-04 14:26:43,688 - VIMMO - INFO - Everything imported
+2025-01-04 14:26:52,439 - VIMMO - INFO - Patient space recieved valid input
+2025-01-04 14:26:52,439 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 14:26:52,440 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 14:26:52,456 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-04 14:26:52,470 - VIMMO - INFO - No input Rcode - Returning all records for patient 123
+2025-01-04 14:30:08,886 - VIMMO - INFO - Everything imported
+2025-01-04 14:30:21,332 - VIMMO - INFO - Everything imported
+2025-01-04 14:30:26,289 - VIMMO - INFO - Patient space recieved valid input
+2025-01-04 14:30:26,289 - VIMMO - ERROR - Value Error raised by input args Invalid format for 'Rcode': Must start with 'R' followed by digits only (e.g., 'R123').
+2025-01-04 14:40:04,027 - VIMMO - INFO - Everything imported
+2025-01-04 14:40:34,582 - VIMMO - INFO - Everything imported
+2025-01-04 14:48:27,717 - VIMMO - INFO - Everything imported
+2025-01-04 14:56:18,031 - VIMMO - INFO - Everything imported
+2025-01-04 14:56:18,497 - VIMMO - ERROR - Value Error raised by input args Invalid format for 'Rcode': Must start with 'R' followed by digits only (e.g., 'R123').
+2025-01-04 14:58:00,597 - VIMMO - INFO - Patient space recieved valid input
+2025-01-04 14:58:00,598 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 14:58:00,599 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 14:58:00,602 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-04 14:58:00,602 - VIMMO - INFO - Both Patient ID: 123 & Rcode: R205 provided
+2025-01-04 14:58:00,604 - VIMMO - INFO - Starting get_latest_online_version for panel_id: None
+2025-01-04 14:58:00,626 - VIMMO - WARNING - Connection error while accessing PanelApp API: HTTPSConnectionPool(host='panelapp.genomicsengland.co.uk', port=443): Max retries exceeded with url: /api/v1/panels/signedoff/?panel_id=None&display=latest (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000298988B0AD0>: Failed to resolve 'panelapp.genomicsengland.co.uk' ([Errno 11001] getaddrinfo failed)"))
+2025-01-04 14:58:00,626 - VIMMO - INFO - Database not updated during query
+2025-01-04 15:07:09,294 - VIMMO - INFO - Everything imported
+2025-01-04 15:11:35,329 - VIMMO - INFO - Everything imported
+2025-01-04 15:14:13,372 - VIMMO - INFO - Patient space recieved valid input
+2025-01-04 15:14:13,372 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 15:14:13,373 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 15:14:13,374 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-04 15:14:13,374 - VIMMO - INFO - Both Patient ID: 123 & Rcode: R208 provided
+2025-01-04 15:14:13,376 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 635
+2025-01-04 15:14:13,849 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 635
+2025-01-04 15:14:13,850 - VIMMO - INFO - Extracted version: 2.5 for panel_id: 635
+2025-01-04 15:14:13,852 - VIMMO - INFO - No change in panel version detected for patient: 123 rcode: R208
+2025-01-04 15:15:58,228 - VIMMO - INFO - Everything imported
+2025-01-04 15:19:14,517 - VIMMO - INFO - Everything imported
+2025-01-04 15:19:43,740 - VIMMO - INFO - Everything imported
+2025-01-04 15:19:46,419 - VIMMO - INFO - Patient space recieved valid input
+2025-01-04 15:19:46,419 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 15:19:46,420 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 15:19:46,421 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-04 15:19:46,421 - VIMMO - INFO - Both Patient ID: 123 & Rcode: R208 provided
+2025-01-04 15:19:46,424 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 635
+2025-01-04 15:19:46,710 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 635
+2025-01-04 15:19:46,710 - VIMMO - INFO - Extracted version: 2.5 for panel_id: 635
+2025-01-04 15:19:46,710 - VIMMO - INFO - No change in panel version detected for patient: 123 rcode: R208
+2025-01-04 15:20:59,806 - VIMMO - CRITICAL - Importing Modules failed, please check {err}
+2025-01-04 15:21:27,263 - VIMMO - INFO - Everything imported
+2025-01-04 15:21:31,080 - VIMMO - INFO - Everything imported
+2025-01-04 15:21:34,130 - VIMMO - INFO - Patient space recieved valid input
+2025-01-04 15:21:34,131 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 15:21:34,133 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 15:21:34,134 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-04 15:21:34,134 - VIMMO - INFO - Both Patient ID: 123 & Rcode: R208 provided
+2025-01-04 15:21:34,138 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 635
+2025-01-04 15:21:34,476 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 635
+2025-01-04 15:21:34,477 - VIMMO - INFO - Extracted version: 2.5 for panel_id: 635
+2025-01-04 15:21:34,477 - VIMMO - INFO - No change in panel version detected for patient: 123 rcode: R208
+2025-01-04 15:24:44,356 - VIMMO - INFO - Everything imported
+2025-01-04 15:24:46,264 - VIMMO - INFO - Patient space recieved valid input
+2025-01-04 15:24:46,265 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 15:24:46,265 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 15:24:46,267 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-04 15:24:46,268 - VIMMO - INFO - Both Patient ID: 123 & Rcode: R208 provided
+2025-01-04 15:24:46,272 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 635
+2025-01-04 15:24:47,588 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 635
+2025-01-04 15:24:47,588 - VIMMO - INFO - Extracted version: 2.5 for panel_id: 635
+2025-01-04 15:24:47,589 - VIMMO - INFO - No change in panel version detected for patient: 123 rcode: R208
+2025-01-04 15:34:05,216 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 15:34:05,217 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 15:34:05,220 - VIMMO - INFO - requesting data from endpoint: https://panelapp.genomicsengland.co.uk/api/v1/panels/65/?version=2.2
+2025-01-04 15:34:05,916 - VIMMO - INFO - Successfully fetched data for panel_id: 65, version: 2.2
+2025-01-04 15:34:05,920 - VIMMO - INFO - Db is using transaction to downgrade
+2025-01-04 15:34:05,921 - VIMMO - INFO - Updating panel version: 2.2, 65, R136
+2025-01-04 15:34:05,950 - VIMMO - INFO - Db deleting records 65
+2025-01-04 15:34:05,956 - VIMMO - INFO - Db is updating 65, HGNC:219, 3
+2025-01-04 15:34:05,956 - VIMMO - INFO - Db is updating 65, HGNC:1097, 3
+2025-01-04 15:34:05,957 - VIMMO - INFO - Db is updating 65, HGNC:1541, 3
+2025-01-04 15:34:05,957 - VIMMO - INFO - Db is updating 65, HGNC:29426, 3
+2025-01-04 15:34:05,958 - VIMMO - INFO - Db is updating 65, HGNC:1850, 3
+2025-01-04 15:34:05,958 - VIMMO - INFO - Db is updating 65, HGNC:20626, 3
+2025-01-04 15:34:05,958 - VIMMO - INFO - Db is updating 65, HGNC:3395, 3
+2025-01-04 15:34:05,959 - VIMMO - INFO - Db is updating 65, HGNC:23109, 3
+2025-01-04 15:34:05,959 - VIMMO - INFO - Db is updating 65, HGNC:3767, 3
+2025-01-04 15:34:05,959 - VIMMO - INFO - Db is updating 65, HGNC:3801, 3
+2025-01-04 15:34:05,959 - VIMMO - INFO - Db is updating 65, HGNC:4171, 3
+2025-01-04 15:34:05,959 - VIMMO - INFO - Db is updating 65, HGNC:4274, 3
+2025-01-04 15:34:05,959 - VIMMO - INFO - Db is updating 65, HGNC:17494, 3
+2025-01-04 15:34:05,960 - VIMMO - INFO - Db is updating 65, HGNC:5173, 3
+2025-01-04 15:34:05,960 - VIMMO - INFO - Db is updating 65, HGNC:5961, 3
+2025-01-04 15:34:05,960 - VIMMO - INFO - Db is updating 65, HGNC:6388, 3
+2025-01-04 15:34:05,961 - VIMMO - INFO - Db is updating 65, HGNC:6407, 3
+2025-01-04 15:34:05,961 - VIMMO - INFO - Db is updating 65, HGNC:6742, 3
+2025-01-04 15:34:05,961 - VIMMO - INFO - Db is updating 65, HGNC:6840, 3
+2025-01-04 15:34:05,961 - VIMMO - INFO - Db is updating 65, HGNC:6842, 3
+2025-01-04 15:34:05,961 - VIMMO - INFO - Db is updating 65, HGNC:7765, 3
+2025-01-04 15:34:05,962 - VIMMO - INFO - Db is updating 65, HGNC:7989, 3
+2025-01-04 15:34:05,962 - VIMMO - INFO - Db is updating 65, HGNC:14234, 3
+2025-01-04 15:34:05,962 - VIMMO - INFO - Db is updating 65, HGNC:28993, 3
+2025-01-04 15:34:05,962 - VIMMO - INFO - Db is updating 65, HGNC:9115, 3
+2025-01-04 15:34:05,963 - VIMMO - INFO - Db is updating 65, HGNC:9282, 3
+2025-01-04 15:34:05,963 - VIMMO - INFO - Db is updating 65, HGNC:9644, 3
+2025-01-04 15:34:05,963 - VIMMO - INFO - Db is updating 65, HGNC:9647, 3
+2025-01-04 15:34:05,963 - VIMMO - INFO - Db is updating 65, HGNC:9829, 3
+2025-01-04 15:34:05,963 - VIMMO - INFO - Db is updating 65, HGNC:9871, 3
+2025-01-04 15:34:05,963 - VIMMO - INFO - Db is updating 65, HGNC:10023, 3
+2025-01-04 15:34:05,964 - VIMMO - INFO - Db is updating 65, HGNC:14294, 3
+2025-01-04 15:34:05,964 - VIMMO - INFO - Db is updating 65, HGNC:15454, 3
+2025-01-04 15:34:05,965 - VIMMO - INFO - Db is updating 65, HGNC:11187, 3
+2025-01-04 15:34:05,965 - VIMMO - INFO - Db is updating 65, HGNC:11188, 3
+2025-01-04 15:34:05,965 - VIMMO - INFO - Db is updating 65, HGNC:11194, 3
+2025-01-04 15:34:05,965 - VIMMO - INFO - Db is updating 65, HGNC:20249, 3
+2025-01-04 15:34:05,965 - VIMMO - INFO - Db is updating 65, HGNC:12362, 3
+2025-01-04 15:34:05,965 - VIMMO - INFO - Db is updating 65, HGNC:12363, 3
+2025-01-04 15:34:05,965 - VIMMO - INFO - Db is updating 65, HGNC:12682, 3
+2025-01-04 15:34:05,966 - VIMMO - INFO - Db is updating 65, HGNC:13681, 2
+2025-01-04 15:34:05,966 - VIMMO - INFO - Db is updating 65, HGNC:23161, 1
+2025-01-04 15:34:05,966 - VIMMO - INFO - Db is updating 65, HGNC:449, 1
+2025-01-04 15:34:05,966 - VIMMO - INFO - Db is updating 65, HGNC:633, 1
+2025-01-04 15:34:05,966 - VIMMO - INFO - Db is updating 65, HGNC:25523, 1
+2025-01-04 15:34:05,966 - VIMMO - INFO - Db is updating 65, HGNC:1736, 1
+2025-01-04 15:34:05,966 - VIMMO - INFO - Db is updating 65, HGNC:4893, 1
+2025-01-04 15:34:05,966 - VIMMO - INFO - Db is updating 65, HGNC:7029, 1
+2025-01-04 15:34:05,967 - VIMMO - INFO - Db is updating 65, HGNC:7216, 1
+2025-01-04 15:34:05,967 - VIMMO - INFO - Db is updating 65, HGNC:12405, 1
+2025-01-04 15:34:05,967 - VIMMO - INFO - Db is updating 65, HGNC:12309, 1
+2025-01-04 15:50:45,960 - VIMMO - INFO - Everything imported
+2025-01-04 15:50:46,051 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 15:50:46,052 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 15:50:46,053 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-04 15:50:46,067 - VIMMO - INFO - Patient record added: 404 R136
+2025-01-04 15:56:10,751 - VIMMO - INFO - Everything imported
+2025-01-04 15:58:12,153 - VIMMO - INFO - Everything imported
+2025-01-04 15:58:44,482 - VIMMO - INFO - Patient space recieved valid input
+2025-01-04 15:58:44,482 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 15:58:44,484 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 15:58:44,489 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-04 15:58:44,490 - VIMMO - INFO - Both Patient ID: 404 & Rcode: R136 provided
+2025-01-04 15:58:44,492 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-04 15:58:44,858 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-04 15:58:44,858 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-04 15:58:44,858 - VIMMO - INFO - Differerence between Vimmo db and latest online panel version
+2025-01-04 15:58:45,424 - VIMMO - INFO - UPDATE database - R136  2.2 --> 3.0
+2025-01-04 15:58:45,428 - VIMMO - INFO - Panel comparison successfully returned
+2025-01-04 16:06:44,076 - VIMMO - INFO - Everything imported
+2025-01-04 16:08:19,518 - VIMMO - INFO - Everything imported
+2025-01-04 16:08:22,434 - VIMMO - INFO - Everything imported
+2025-01-04 16:08:35,973 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 16:08:35,974 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 16:08:35,999 - VIMMO - INFO - requesting data from endpoint: https://panelapp.genomicsengland.co.uk/api/v1/panels/65/?version=2.2
+2025-01-04 16:08:36,464 - VIMMO - INFO - Successfully fetched data for panel_id: 65, version: 2.2
+2025-01-04 16:08:36,465 - VIMMO - INFO - Db is using transaction to downgrade
+2025-01-04 16:08:36,465 - VIMMO - INFO - Updating panel version: 2.2, 65, R136
+2025-01-04 16:08:36,475 - VIMMO - INFO - Db deleting records 65
+2025-01-04 16:08:36,480 - VIMMO - INFO - Db is updating 65, HGNC:219, 3
+2025-01-04 16:08:36,481 - VIMMO - INFO - Db is updating 65, HGNC:1097, 3
+2025-01-04 16:08:36,481 - VIMMO - INFO - Db is updating 65, HGNC:1541, 3
+2025-01-04 16:08:36,481 - VIMMO - INFO - Db is updating 65, HGNC:29426, 3
+2025-01-04 16:08:36,481 - VIMMO - INFO - Db is updating 65, HGNC:1850, 3
+2025-01-04 16:08:36,481 - VIMMO - INFO - Db is updating 65, HGNC:20626, 3
+2025-01-04 16:08:36,481 - VIMMO - INFO - Db is updating 65, HGNC:3395, 3
+2025-01-04 16:08:36,482 - VIMMO - INFO - Db is updating 65, HGNC:23109, 3
+2025-01-04 16:08:36,482 - VIMMO - INFO - Db is updating 65, HGNC:3767, 3
+2025-01-04 16:08:36,482 - VIMMO - INFO - Db is updating 65, HGNC:3801, 3
+2025-01-04 16:08:36,482 - VIMMO - INFO - Db is updating 65, HGNC:4171, 3
+2025-01-04 16:08:36,482 - VIMMO - INFO - Db is updating 65, HGNC:4274, 3
+2025-01-04 16:08:36,482 - VIMMO - INFO - Db is updating 65, HGNC:17494, 3
+2025-01-04 16:08:36,482 - VIMMO - INFO - Db is updating 65, HGNC:5173, 3
+2025-01-04 16:08:36,482 - VIMMO - INFO - Db is updating 65, HGNC:5961, 3
+2025-01-04 16:08:36,483 - VIMMO - INFO - Db is updating 65, HGNC:6388, 3
+2025-01-04 16:08:36,483 - VIMMO - INFO - Db is updating 65, HGNC:6407, 3
+2025-01-04 16:08:36,483 - VIMMO - INFO - Db is updating 65, HGNC:6742, 3
+2025-01-04 16:08:36,483 - VIMMO - INFO - Db is updating 65, HGNC:6840, 3
+2025-01-04 16:08:36,484 - VIMMO - INFO - Db is updating 65, HGNC:6842, 3
+2025-01-04 16:08:36,484 - VIMMO - INFO - Db is updating 65, HGNC:7765, 3
+2025-01-04 16:08:36,484 - VIMMO - INFO - Db is updating 65, HGNC:7989, 3
+2025-01-04 16:08:36,484 - VIMMO - INFO - Db is updating 65, HGNC:14234, 3
+2025-01-04 16:08:36,485 - VIMMO - INFO - Db is updating 65, HGNC:28993, 3
+2025-01-04 16:08:36,485 - VIMMO - INFO - Db is updating 65, HGNC:9115, 3
+2025-01-04 16:08:36,486 - VIMMO - INFO - Db is updating 65, HGNC:9282, 3
+2025-01-04 16:08:36,486 - VIMMO - INFO - Db is updating 65, HGNC:9644, 3
+2025-01-04 16:08:36,486 - VIMMO - INFO - Db is updating 65, HGNC:9647, 3
+2025-01-04 16:08:36,487 - VIMMO - INFO - Db is updating 65, HGNC:9829, 3
+2025-01-04 16:08:36,487 - VIMMO - INFO - Db is updating 65, HGNC:9871, 3
+2025-01-04 16:08:36,488 - VIMMO - INFO - Db is updating 65, HGNC:10023, 3
+2025-01-04 16:08:36,488 - VIMMO - INFO - Db is updating 65, HGNC:14294, 3
+2025-01-04 16:08:36,488 - VIMMO - INFO - Db is updating 65, HGNC:15454, 3
+2025-01-04 16:08:36,489 - VIMMO - INFO - Db is updating 65, HGNC:11187, 3
+2025-01-04 16:08:36,489 - VIMMO - INFO - Db is updating 65, HGNC:11188, 3
+2025-01-04 16:08:36,489 - VIMMO - INFO - Db is updating 65, HGNC:11194, 3
+2025-01-04 16:08:36,489 - VIMMO - INFO - Db is updating 65, HGNC:20249, 3
+2025-01-04 16:08:36,490 - VIMMO - INFO - Db is updating 65, HGNC:12362, 3
+2025-01-04 16:08:36,490 - VIMMO - INFO - Db is updating 65, HGNC:12363, 3
+2025-01-04 16:08:36,490 - VIMMO - INFO - Db is updating 65, HGNC:12682, 3
+2025-01-04 16:08:36,490 - VIMMO - INFO - Db is updating 65, HGNC:13681, 2
+2025-01-04 16:08:36,490 - VIMMO - INFO - Db is updating 65, HGNC:23161, 1
+2025-01-04 16:08:36,490 - VIMMO - INFO - Db is updating 65, HGNC:449, 1
+2025-01-04 16:08:36,490 - VIMMO - INFO - Db is updating 65, HGNC:633, 1
+2025-01-04 16:08:36,491 - VIMMO - INFO - Db is updating 65, HGNC:25523, 1
+2025-01-04 16:08:36,491 - VIMMO - INFO - Db is updating 65, HGNC:1736, 1
+2025-01-04 16:08:36,491 - VIMMO - INFO - Db is updating 65, HGNC:4893, 1
+2025-01-04 16:08:36,491 - VIMMO - INFO - Db is updating 65, HGNC:7029, 1
+2025-01-04 16:08:36,491 - VIMMO - INFO - Db is updating 65, HGNC:7216, 1
+2025-01-04 16:08:36,492 - VIMMO - INFO - Db is updating 65, HGNC:12405, 1
+2025-01-04 16:08:36,492 - VIMMO - INFO - Db is updating 65, HGNC:12309, 1
+2025-01-04 16:08:52,159 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 16:08:52,160 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 16:08:52,161 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-04 16:08:52,163 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-04 16:08:52,415 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-04 16:08:52,415 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-04 16:08:53,184 - VIMMO - INFO - Patient record added: 404 R136 v3.0
+2025-01-04 16:09:01,142 - VIMMO - INFO - Patient space recieved valid input
+2025-01-04 16:09:01,143 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 16:09:01,144 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 16:09:01,145 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-04 16:09:01,145 - VIMMO - INFO - Both Patient ID: 404 & Rcode: R136 provided
+2025-01-04 16:09:01,147 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-04 16:09:01,449 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-04 16:09:01,450 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-04 16:09:01,456 - VIMMO - INFO - No change in panel version detected for patient: 404 rcode: R136
+2025-01-04 16:11:18,096 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 16:11:18,097 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 16:11:18,099 - VIMMO - INFO - requesting data from endpoint: https://panelapp.genomicsengland.co.uk/api/v1/panels/65/?version=2.2
+2025-01-04 16:11:18,439 - VIMMO - INFO - Successfully fetched data for panel_id: 65, version: 2.2
+2025-01-04 16:11:18,440 - VIMMO - INFO - Db is using transaction to downgrade
+2025-01-04 16:11:18,441 - VIMMO - INFO - Updating panel version: 2.2, 65, R136
+2025-01-04 16:11:18,458 - VIMMO - INFO - Db deleting records 65
+2025-01-04 16:11:18,461 - VIMMO - INFO - Db is updating 65, HGNC:219, 3
+2025-01-04 16:11:18,461 - VIMMO - INFO - Db is updating 65, HGNC:1097, 3
+2025-01-04 16:11:18,462 - VIMMO - INFO - Db is updating 65, HGNC:1541, 3
+2025-01-04 16:11:18,462 - VIMMO - INFO - Db is updating 65, HGNC:29426, 3
+2025-01-04 16:11:18,462 - VIMMO - INFO - Db is updating 65, HGNC:1850, 3
+2025-01-04 16:11:18,462 - VIMMO - INFO - Db is updating 65, HGNC:20626, 3
+2025-01-04 16:11:18,462 - VIMMO - INFO - Db is updating 65, HGNC:3395, 3
+2025-01-04 16:11:18,462 - VIMMO - INFO - Db is updating 65, HGNC:23109, 3
+2025-01-04 16:11:18,462 - VIMMO - INFO - Db is updating 65, HGNC:3767, 3
+2025-01-04 16:11:18,462 - VIMMO - INFO - Db is updating 65, HGNC:3801, 3
+2025-01-04 16:11:18,463 - VIMMO - INFO - Db is updating 65, HGNC:4171, 3
+2025-01-04 16:11:18,463 - VIMMO - INFO - Db is updating 65, HGNC:4274, 3
+2025-01-04 16:11:18,463 - VIMMO - INFO - Db is updating 65, HGNC:17494, 3
+2025-01-04 16:11:18,463 - VIMMO - INFO - Db is updating 65, HGNC:5173, 3
+2025-01-04 16:11:18,463 - VIMMO - INFO - Db is updating 65, HGNC:5961, 3
+2025-01-04 16:11:18,463 - VIMMO - INFO - Db is updating 65, HGNC:6388, 3
+2025-01-04 16:11:18,463 - VIMMO - INFO - Db is updating 65, HGNC:6407, 3
+2025-01-04 16:11:18,463 - VIMMO - INFO - Db is updating 65, HGNC:6742, 3
+2025-01-04 16:11:18,463 - VIMMO - INFO - Db is updating 65, HGNC:6840, 3
+2025-01-04 16:11:18,464 - VIMMO - INFO - Db is updating 65, HGNC:6842, 3
+2025-01-04 16:11:18,464 - VIMMO - INFO - Db is updating 65, HGNC:7765, 3
+2025-01-04 16:11:18,464 - VIMMO - INFO - Db is updating 65, HGNC:7989, 3
+2025-01-04 16:11:18,464 - VIMMO - INFO - Db is updating 65, HGNC:14234, 3
+2025-01-04 16:11:18,464 - VIMMO - INFO - Db is updating 65, HGNC:28993, 3
+2025-01-04 16:11:18,464 - VIMMO - INFO - Db is updating 65, HGNC:9115, 3
+2025-01-04 16:11:18,464 - VIMMO - INFO - Db is updating 65, HGNC:9282, 3
+2025-01-04 16:11:18,464 - VIMMO - INFO - Db is updating 65, HGNC:9644, 3
+2025-01-04 16:11:18,464 - VIMMO - INFO - Db is updating 65, HGNC:9647, 3
+2025-01-04 16:11:18,465 - VIMMO - INFO - Db is updating 65, HGNC:9829, 3
+2025-01-04 16:11:18,465 - VIMMO - INFO - Db is updating 65, HGNC:9871, 3
+2025-01-04 16:11:18,465 - VIMMO - INFO - Db is updating 65, HGNC:10023, 3
+2025-01-04 16:11:18,465 - VIMMO - INFO - Db is updating 65, HGNC:14294, 3
+2025-01-04 16:11:18,465 - VIMMO - INFO - Db is updating 65, HGNC:15454, 3
+2025-01-04 16:11:18,465 - VIMMO - INFO - Db is updating 65, HGNC:11187, 3
+2025-01-04 16:11:18,465 - VIMMO - INFO - Db is updating 65, HGNC:11188, 3
+2025-01-04 16:11:18,465 - VIMMO - INFO - Db is updating 65, HGNC:11194, 3
+2025-01-04 16:11:18,465 - VIMMO - INFO - Db is updating 65, HGNC:20249, 3
+2025-01-04 16:11:18,466 - VIMMO - INFO - Db is updating 65, HGNC:12362, 3
+2025-01-04 16:11:18,466 - VIMMO - INFO - Db is updating 65, HGNC:12363, 3
+2025-01-04 16:11:18,466 - VIMMO - INFO - Db is updating 65, HGNC:12682, 3
+2025-01-04 16:11:18,466 - VIMMO - INFO - Db is updating 65, HGNC:13681, 2
+2025-01-04 16:11:18,466 - VIMMO - INFO - Db is updating 65, HGNC:23161, 1
+2025-01-04 16:11:18,466 - VIMMO - INFO - Db is updating 65, HGNC:449, 1
+2025-01-04 16:11:18,466 - VIMMO - INFO - Db is updating 65, HGNC:633, 1
+2025-01-04 16:11:18,466 - VIMMO - INFO - Db is updating 65, HGNC:25523, 1
+2025-01-04 16:11:18,466 - VIMMO - INFO - Db is updating 65, HGNC:1736, 1
+2025-01-04 16:11:18,467 - VIMMO - INFO - Db is updating 65, HGNC:4893, 1
+2025-01-04 16:11:18,467 - VIMMO - INFO - Db is updating 65, HGNC:7029, 1
+2025-01-04 16:11:18,467 - VIMMO - INFO - Db is updating 65, HGNC:7216, 1
+2025-01-04 16:11:18,467 - VIMMO - INFO - Db is updating 65, HGNC:12405, 1
+2025-01-04 16:11:18,467 - VIMMO - INFO - Db is updating 65, HGNC:12309, 1
+2025-01-04 16:11:30,358 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 16:11:30,359 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 16:11:30,360 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-04 16:11:30,361 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-04 16:11:30,659 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-04 16:11:30,659 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-04 16:11:31,199 - VIMMO - INFO - Patient record added: 405 R136 v3.0
+2025-01-04 16:12:40,238 - VIMMO - INFO - Everything imported
+2025-01-04 16:13:02,123 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 16:13:02,125 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 16:13:02,129 - VIMMO - INFO - requesting data from endpoint: https://panelapp.genomicsengland.co.uk/api/v1/panels/65/?version=2.2
+2025-01-04 16:13:02,441 - VIMMO - INFO - Successfully fetched data for panel_id: 65, version: 2.2
+2025-01-04 16:13:02,441 - VIMMO - INFO - Db is using transaction to downgrade
+2025-01-04 16:13:02,442 - VIMMO - INFO - Updating panel version: 2.2, 65, R136
+2025-01-04 16:13:02,460 - VIMMO - INFO - Db deleting records 65
+2025-01-04 16:13:02,465 - VIMMO - INFO - Db is updating 65, HGNC:219, 3
+2025-01-04 16:13:02,466 - VIMMO - INFO - Db is updating 65, HGNC:1097, 3
+2025-01-04 16:13:02,466 - VIMMO - INFO - Db is updating 65, HGNC:1541, 3
+2025-01-04 16:13:02,466 - VIMMO - INFO - Db is updating 65, HGNC:29426, 3
+2025-01-04 16:13:02,467 - VIMMO - INFO - Db is updating 65, HGNC:1850, 3
+2025-01-04 16:13:02,467 - VIMMO - INFO - Db is updating 65, HGNC:20626, 3
+2025-01-04 16:13:02,467 - VIMMO - INFO - Db is updating 65, HGNC:3395, 3
+2025-01-04 16:13:02,467 - VIMMO - INFO - Db is updating 65, HGNC:23109, 3
+2025-01-04 16:13:02,468 - VIMMO - INFO - Db is updating 65, HGNC:3767, 3
+2025-01-04 16:13:02,468 - VIMMO - INFO - Db is updating 65, HGNC:3801, 3
+2025-01-04 16:13:02,469 - VIMMO - INFO - Db is updating 65, HGNC:4171, 3
+2025-01-04 16:13:02,469 - VIMMO - INFO - Db is updating 65, HGNC:4274, 3
+2025-01-04 16:13:02,469 - VIMMO - INFO - Db is updating 65, HGNC:17494, 3
+2025-01-04 16:13:02,469 - VIMMO - INFO - Db is updating 65, HGNC:5173, 3
+2025-01-04 16:13:02,470 - VIMMO - INFO - Db is updating 65, HGNC:5961, 3
+2025-01-04 16:13:02,470 - VIMMO - INFO - Db is updating 65, HGNC:6388, 3
+2025-01-04 16:13:02,471 - VIMMO - INFO - Db is updating 65, HGNC:6407, 3
+2025-01-04 16:13:02,472 - VIMMO - INFO - Db is updating 65, HGNC:6742, 3
+2025-01-04 16:13:02,473 - VIMMO - INFO - Db is updating 65, HGNC:6840, 3
+2025-01-04 16:13:02,473 - VIMMO - INFO - Db is updating 65, HGNC:6842, 3
+2025-01-04 16:13:02,473 - VIMMO - INFO - Db is updating 65, HGNC:7765, 3
+2025-01-04 16:13:02,474 - VIMMO - INFO - Db is updating 65, HGNC:7989, 3
+2025-01-04 16:13:02,474 - VIMMO - INFO - Db is updating 65, HGNC:14234, 3
+2025-01-04 16:13:02,474 - VIMMO - INFO - Db is updating 65, HGNC:28993, 3
+2025-01-04 16:13:02,474 - VIMMO - INFO - Db is updating 65, HGNC:9115, 3
+2025-01-04 16:13:02,475 - VIMMO - INFO - Db is updating 65, HGNC:9282, 3
+2025-01-04 16:13:02,475 - VIMMO - INFO - Db is updating 65, HGNC:9644, 3
+2025-01-04 16:13:02,475 - VIMMO - INFO - Db is updating 65, HGNC:9647, 3
+2025-01-04 16:13:02,475 - VIMMO - INFO - Db is updating 65, HGNC:9829, 3
+2025-01-04 16:13:02,476 - VIMMO - INFO - Db is updating 65, HGNC:9871, 3
+2025-01-04 16:13:02,476 - VIMMO - INFO - Db is updating 65, HGNC:10023, 3
+2025-01-04 16:13:02,476 - VIMMO - INFO - Db is updating 65, HGNC:14294, 3
+2025-01-04 16:13:02,477 - VIMMO - INFO - Db is updating 65, HGNC:15454, 3
+2025-01-04 16:13:02,477 - VIMMO - INFO - Db is updating 65, HGNC:11187, 3
+2025-01-04 16:13:02,478 - VIMMO - INFO - Db is updating 65, HGNC:11188, 3
+2025-01-04 16:13:02,478 - VIMMO - INFO - Db is updating 65, HGNC:11194, 3
+2025-01-04 16:13:02,478 - VIMMO - INFO - Db is updating 65, HGNC:20249, 3
+2025-01-04 16:13:02,478 - VIMMO - INFO - Db is updating 65, HGNC:12362, 3
+2025-01-04 16:13:02,479 - VIMMO - INFO - Db is updating 65, HGNC:12363, 3
+2025-01-04 16:13:02,479 - VIMMO - INFO - Db is updating 65, HGNC:12682, 3
+2025-01-04 16:13:02,479 - VIMMO - INFO - Db is updating 65, HGNC:13681, 2
+2025-01-04 16:13:02,479 - VIMMO - INFO - Db is updating 65, HGNC:23161, 1
+2025-01-04 16:13:02,480 - VIMMO - INFO - Db is updating 65, HGNC:449, 1
+2025-01-04 16:13:02,480 - VIMMO - INFO - Db is updating 65, HGNC:633, 1
+2025-01-04 16:13:02,480 - VIMMO - INFO - Db is updating 65, HGNC:25523, 1
+2025-01-04 16:13:02,480 - VIMMO - INFO - Db is updating 65, HGNC:1736, 1
+2025-01-04 16:13:02,480 - VIMMO - INFO - Db is updating 65, HGNC:4893, 1
+2025-01-04 16:13:02,481 - VIMMO - INFO - Db is updating 65, HGNC:7029, 1
+2025-01-04 16:13:02,481 - VIMMO - INFO - Db is updating 65, HGNC:7216, 1
+2025-01-04 16:13:02,481 - VIMMO - INFO - Db is updating 65, HGNC:12405, 1
+2025-01-04 16:13:02,481 - VIMMO - INFO - Db is updating 65, HGNC:12309, 1
+2025-01-04 16:13:38,807 - VIMMO - INFO - Everything imported
+2025-01-04 16:13:43,452 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 16:13:43,453 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 16:13:43,455 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-04 16:14:10,326 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 16:14:10,327 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 16:14:10,328 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-04 16:14:10,329 - VIMMO - INFO - Entry not made in db, patient: 406 already present in db with current version
+2025-01-04 16:14:44,199 - VIMMO - INFO - Patient space recieved valid input
+2025-01-04 16:14:44,199 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 16:14:44,200 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 16:14:44,200 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-04 16:14:44,201 - VIMMO - INFO - Both Patient ID: 406 & Rcode: R136 provided
+2025-01-04 16:14:44,202 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-04 16:14:44,548 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-04 16:14:44,549 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-04 16:14:44,549 - VIMMO - INFO - Differerence between Vimmo db and latest online panel version
+2025-01-04 16:14:45,044 - VIMMO - INFO - UPDATE database - R136  2.2 --> 3.0
+2025-01-04 16:14:45,053 - VIMMO - INFO - Panel comparison successfully returned
+2025-01-04 16:14:49,602 - VIMMO - INFO - Patient space recieved valid input
+2025-01-04 16:14:49,603 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 16:14:49,604 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 16:14:49,606 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-04 16:14:49,606 - VIMMO - INFO - Both Patient ID: 406 & Rcode: R136 provided
+2025-01-04 16:14:49,607 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-04 16:14:49,843 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-04 16:14:49,844 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-04 16:14:49,849 - VIMMO - INFO - Panel comparison successfully returned
+2025-01-04 16:14:56,195 - VIMMO - INFO - Patient space recieved valid input
+2025-01-04 16:14:56,196 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 16:14:56,198 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 16:14:56,199 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-04 16:14:56,200 - VIMMO - INFO - Both Patient ID: 405 & Rcode: R136 provided
+2025-01-04 16:14:56,203 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-04 16:14:56,491 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-04 16:14:56,492 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-04 16:14:56,492 - VIMMO - INFO - No change in panel version detected for patient: 405 rcode: R136
+2025-01-04 16:15:30,312 - VIMMO - INFO - Everything imported
+2025-01-04 16:15:30,381 - VIMMO - INFO - Patient space recieved valid input
+2025-01-04 16:15:30,382 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-04 16:15:30,382 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-04 16:15:30,383 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-04 16:15:30,383 - VIMMO - INFO - Both Patient ID: 405 & Rcode: R136 provided
+2025-01-04 16:15:30,385 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-04 16:15:30,686 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-04 16:15:30,686 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-04 16:15:30,687 - VIMMO - INFO - No change in panel version detected for patient: 405 rcode: R136

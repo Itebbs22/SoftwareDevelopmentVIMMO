@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vimmo"
-version = "0.1.3"
+version = "1.0.0"
 description = "App that gives you stuff"
 readme = "README.md"
 authors = [
@@ -26,17 +26,26 @@ dependencies = [
 
 [tool.setuptools]
 include-package-data = true
+package-dir = {"" = "."}
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["vimmo*"]
+include = ["vimmo*", "test_vimmo*"]  # Added test directory
 
 [tool.setuptools.package-data]
-"vimmo" = ["db/*.db"]
+"vimmo" = [
+    "db/*.db",
+    "utils/*.txt",  # Added to include problem_genes.txt
+    "db/logs/*"     # Added to include logs
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+    "unittest2"
+]
 
 [project.scripts]
 vimmo = "vimmo.main:main"
-dbscheduler = "vimmo.db.scheduler:run_scheduler"
-[tool.setuptools_scm]
-write_to = "vimmo/_version.py"
-
+dbscheduler = "vimmo.db.scheduler:main"

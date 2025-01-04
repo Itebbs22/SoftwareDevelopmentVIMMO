@@ -6,8 +6,8 @@ dependencies:
   - python=3.13
   - pip
   - pip:
-    - build
-    - setuptools
-    - wheel
-    - twine
-    - bump2version
+    - build==1.2.2.post1
+    - setuptools==75.6.0
+    - wheel==0.45.1
+    - twine==6.0.1
+    - bump2version==1.0.1

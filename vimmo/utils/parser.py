@@ -252,6 +252,13 @@ class DownloadParser:
             required=True,
             default='mane_select'
         )
+        parser.add_argument(
+            'Padding',
+            type=int,
+            help='Please provide a value to pad the bed records by +/- N bp',
+            required=False
+        )
+
 
         return parser
 
@@ -301,6 +308,13 @@ class LocalDownloadParser:
             required=True,
             default='all'
         )
+        parser.add_argument(
+            'Padding',
+            type=int,
+            help='Please provide a value to pad the bed records by +/- N bp',
+            required=False
+        )
+
 
         return parser
 
@@ -326,7 +340,7 @@ class UpdateParser:
         )
         parser.add_argument(
             'R code',
-            type=str,
+            type=UpdateParser.upper_rcode,
             help='Type in R code (Required)',
             required = True
         )
