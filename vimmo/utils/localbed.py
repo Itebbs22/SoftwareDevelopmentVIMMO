@@ -3,15 +3,15 @@ import pandas as pd
 from io import BytesIO
 
 
-def local_bed_formatter(db_records):
+def local_bed_formatter(db_records, padding=0):
     logger.debug(f"Local bed records: {db_records}")
     if db_records:
         bed_rows = []
         for row in db_records:
             bed_rows.append({
                 'chrom': row['Chromosome'],
-                'chromStart': row['Start'],
-                'chromEnd': row['End'],
+                'chromStart': int(row['Start'])-padding,
+                'chromEnd': int(row['End'])+padding,
                 'name': row['Name'],
                 'strand': row['Strand'],
                 'transcript': row['Transcript'],

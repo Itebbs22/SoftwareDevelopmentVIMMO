@@ -61,6 +61,7 @@ class PanelSearch(Resource):
             args["Rcode"] = args["Rcode"].upper()  # Convert lowercase 'r' to uppercase 'R'
 
 
+
         # Apply custom validation for the parsed arguments
         try:
             validate_panel_id_or_Rcode_or_hgnc(args,panel_space=True)  # Ensure only one valid parameter is provided
@@ -79,12 +80,14 @@ class PanelSearch(Resource):
         # Handle requests based on the provided argument
         if args.get("Panel_ID"):
             # Fetch panel data by Panel_ID with optional similar matches
-            panel_data = query.get_panel_data(panel_id=args.get("Panel_ID"), matches=args.get("Similar_Matches"))
+            panel_data = query.get_panel_data(panel_id=args.get("Panel_ID"), matches=args.get("Similar_Matches"),
+                                              confidence=args.get('Confidence'))
             return panel_data
 
         elif args.get("Rcode"):
             # Fetch panel data by Rcode with optional similar matches
-            panel_data = query.get_panels_by_rcode(rcode=args.get("Rcode"), matches=args.get("Similar_Matches"))
+            panel_data = query.get_panels_by_rcode(rcode=args.get("Rcode"), matches=args.get("Similar_Matches"),
+                                                   confidence=args.get('Confidence'))
             return panel_data
 
         elif args.get("HGNC_ID"):
@@ -134,6 +137,7 @@ class PanelDownload(Resource):
         r_code=args.get("Rcode",None)
         matches=args.get("Similar_Matches",None)
         HGNC_ID=args.get("HGNC_ID",None)
+        confidence =args.get('Confidence')
 
 
         # Retrieve the database connection
@@ -144,19 +148,21 @@ class PanelDownload(Resource):
         
         if not args["HGNC_ID"]:
             if panel_id:
-                panel_data = query.get_panel_data(panel_id=args.get("Panel_ID"), matches=args.get("Similar_Matches"))
+                panel_data = query.get_panel_data(panel_id=args.get("Panel_ID"), matches=args.get("Similar_Matches"),
+                                                   confidence=confidence)
                 if "Message" in panel_data:
                     logger.info(f"Panel_data: {panel_data}")
                     return panel_data
                 gene_query={record["HGNC_ID"] for record in panel_data["Associated Gene Records"]}
             elif r_code:
-                panel_data = query.get_panels_by_rcode(rcode=args.get("Rcode"), matches=args.get("Similar_Matches"))
+                panel_data = query.get_panels_by_rcode(rcode=args.get("Rcode"), matches=args.get("Similar_Matches"),
+                                                       confidence=confidence)
                 if "Message" in panel_data:
                     logger.info(f"Panel_data: {panel_data}")
                     return panel_data
                 gene_query={record["HGNC_ID"] for record in panel_data["Associated Gene Records"]}
 
-            gene_query=query.get_gene_list(panel_id,r_code,matches)
+            gene_query=query.get_gene_list(panel_id,r_code,matches,confidence=confidence)
             # Check if gene_query is a set of HGNC IDs
             if isinstance(gene_query, dict) and "Message" in gene_query:
                 return gene_query, 400
@@ -248,6 +254,7 @@ class LocalPanelDownload(Resource):
         r_code=args.get("Rcode",None)
         matches=args.get("Similar_Matches",None)
         HGNC_ID=args.get("HGNC_ID",None)
+        confidence=args.get("Confidence",'All')
 
 
         # Retrieve the database connection
@@ -257,7 +264,7 @@ class LocalPanelDownload(Resource):
         logger.info("DB connection made from local bed endpoint")
 
         if not HGNC_ID:
-            gene_query=query.get_gene_list(panel_id,r_code,matches)
+            gene_query=query.get_gene_list(panel_id,r_code,matches,confidence)
             # Check if gene_query is a set of HGNC IDs
             if isinstance(gene_query, dict) and "Message" in gene_query:
                 return gene_query, 400
@@ -461,6 +468,13 @@ class PatientBed(Resource):
         genome_build = args.get('genome_build', 'GRCh38')
         transcript_set = args.get('transcript_set', 'all')
         limit_transcripts = args.get('limit_transcripts', 'mane_select')
+        try:
+            padding = args.get('Padding', 0)
+            padding = int(padding) if padding else 0
+            if padding > 0:
+                padding = min(padding, 250)
+        except (ValueError, TypeError):
+            padding = 0
         # Fetch the database and connect
         db = get_db()
         logger.info("DBconnection made from patient bed endpoint")
@@ -486,7 +500,8 @@ class PatientBed(Resource):
                 gene_query=gene_query,
                 genome_build=genome_build,
                 transcript_set=transcript_set,
-                limit_transcripts=limit_transcripts
+                limit_transcripts=limit_transcripts,
+                padding=padding
             )
         except VarValAPIError as e:
             logger.error(f"Varval returned an error {str(e)}")
@@ -527,6 +542,13 @@ class PatientLocalBed(Resource):
         r_code=args.get("R code",None)
         version=args.get("version",None)
         genome_build = args.get('genome_build', 'GRCh38')
+        try:
+            padding = args.get('Padding', 0)
+            padding = int(padding) if padding else 0
+            if padding > 0:
+                padding = min(padding, 250)
+        except (ValueError, TypeError):
+            padding = 0
         # Fetch the database and connect
         db = get_db()
         logger.info("DB connection made from patient local bed endpoint")
@@ -541,7 +563,7 @@ class PatientLocalBed(Resource):
             return processed_info["data"]
     
         local_bed_records=query.local_bed(gene_query,genome_build)
-        bed_file=local_bed_formatter(local_bed_records)
+        bed_file=local_bed_formatter(local_bed_records,padding)
 
         filename = f"{patient_id}_{r_code}_{genome_build}_Gencode.bed"
 

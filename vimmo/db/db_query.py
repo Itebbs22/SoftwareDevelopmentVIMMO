@@ -5,49 +5,64 @@ class Query:
     def __init__(self, connection):
         self.conn = connection
 
-    def get_panel_data(self, panel_id: Optional[int] = None, matches: bool=False):
-        """Retrieve all records associated with a specific Panel_ID."""
+    def _map_confidence(self, confidence: str) -> Optional[int]:
+        """Map user-friendly confidence levels to numeric values.
+        
+        Args:
+            confidence: String representation of confidence level ('Green', 'Amber', 'Red', 'All')
+        
+        Returns:
+            Optional[int]: Mapped numeric confidence value or None for 'All'
+        """
+        confidence_mapper = {  # Fixed typo in variable name
+            'Green': 3,
+            'Amber': 2,
+            'Red': 1,
+            'All': None
+        }
+        return confidence_mapper.get(confidence.title(), None)  # Added .title() for case insensitivity
+
+    def get_panel_data(self, panel_id: Optional[int] = None, matches: bool = False, confidence: str = 'All'):
+        """Retrieve all records associated with a specific Panel_ID.
+        
+        Args:
+            panel_id: The panel ID to search for
+            matches: Whether to use LIKE for pattern matching
+            confidence: Confidence level filter ('Green', 'Amber', 'Red', 'All')
+        
+        Returns:
+            List of records matching the criteria
+        
+        Raises:
+            ValueError: If panel_id is None
+        """
         logger.info("Pulling all records associated with Panel_ID: %s", panel_id)
-
+        
         if panel_id is None:
-            logger.error("ValueError- Panel_ID must be provided")
+            logger.error("ValueError - Panel_ID must be provided")
             raise ValueError("Panel_ID must be provided.")
-
+        org_conf=confidence
+        confidence = self._map_confidence(confidence)
+        
+        base_query = '''
+            SELECT panel.Panel_ID, panel.rcodes, panel.Version, genes_info.HGNC_ID, 
+                genes_info.Gene_Symbol, genes_info.HGNC_symbol, genes_info.GRCh38_Chr, 
+                genes_info.GRCh38_start, genes_info.GRCh38_stop, genes_info.GRCh37_Chr,
+                genes_info.GRCh37_start, genes_info.GRCh37_stop, panel_genes.Confidence
+            FROM panel
+            JOIN panel_genes ON panel.Panel_ID = panel_genes.Panel_ID
+            JOIN genes_info ON panel_genes.HGNC_ID = genes_info.HGNC_ID
+            WHERE panel.Panel_ID {} ?
+        '''.format('LIKE' if matches else '=')
+        
         cursor = self.conn.cursor()
-        operator = "LIKE" if matches else "="
-
-        # For numeric Panel_ID, LIKE is not typically used. Consider enforcing exact matches.
-        if matches:
-            # If 'matches' is True, you might want to convert the panel_id to a string and use LIKE
-            logger.debug("Using the LIKE query for Panel_ID: %s", panel_id)
-            # However, this is unusual for numeric IDs. Consider whether this is necessary.
-            panel_id_query = f"%{panel_id}%"
-            query = f'''
-            SELECT panel.Panel_ID, panel.rcodes, panel.Version, genes_info.HGNC_ID, 
-                   genes_info.Gene_Symbol, genes_info.HGNC_symbol, genes_info.GRCh38_Chr, 
-                   genes_info.GRCh38_start, genes_info.GRCh38_stop, genes_info.GRCh37_Chr,
-                   genes_info.GRCh37_start, genes_info.GRCh37_stop
-            FROM panel
-            JOIN panel_genes ON panel.Panel_ID = panel_genes.Panel_ID
-            JOIN genes_info ON panel_genes.HGNC_ID = genes_info.HGNC_ID
-            WHERE panel.Panel_ID LIKE ?
-            '''
-            result = cursor.execute(query, (panel_id_query,)).fetchall()
-
-        else:
-            # Exact match for Panel_ID
-            logger.info("Exact match for Panel_ID: %s", panel_id)
-            query = f'''
-            SELECT panel.Panel_ID, panel.rcodes, panel.Version, genes_info.HGNC_ID, 
-                   genes_info.Gene_Symbol, genes_info.HGNC_symbol, genes_info.GRCh38_Chr, 
-                   genes_info.GRCh38_start, genes_info.GRCh38_stop, genes_info.GRCh37_Chr,
-                   genes_info.GRCh37_start, genes_info.GRCh37_stop
-            FROM panel
-            JOIN panel_genes ON panel.Panel_ID = panel_genes.Panel_ID
-            JOIN genes_info ON panel_genes.HGNC_ID = genes_info.HGNC_ID
-            WHERE panel.Panel_ID = ?
-            '''
-            result = cursor.execute(query, (panel_id,)).fetchall()
+        params = [f"%{panel_id}%" if matches else panel_id]
+        
+        if confidence is not None:
+            base_query += " AND panel_genes.Confidence = ?"
+            params.append(confidence)
+        
+        result= cursor.execute(base_query, tuple(params)).fetchall()
         logger.info("The run was successful for Panel_ID: %s, and retrieved %d records.", panel_id, len(result))
         logger.debug(f"Panel_ID: {panel_id}, Result: {result}")
 
@@ -62,40 +77,60 @@ class Query:
             logger.warning("No matches found for Panel_ID: %s.", panel_id)
             return {
                 "Panel_ID": panel_id,
-                "Message": "No matches found."
+                "Message": f"No matches found for this panel id with confidence : {org_conf}."
             }
 
 
-    def get_panels_by_rcode(self, rcode: str, matches: bool = False):
-        """Retrieve all records associated with a specific rcode."""
+    def get_panels_by_rcode(self, rcode: str, matches: bool = False, confidence: str = 'All'):
+        """Retrieve all records associated with a specific rcode.
+        
+        Args:
+            rcode: The R-code to search for
+            matches: Whether to use LIKE for pattern matching
+            confidence: Confidence level filter ('Green', 'Amber', 'Red', 'All')
+        
+        Returns:
+            dict: Results dictionary containing rcode and associated records or message
+        
+        Raises:
+            ValueError: If rcode is None
+        """
         logger.info("Pulling all records associated with R_code: %s.", rcode)
 
         if rcode is None:
-            logger.error("ValueError- R_code must be provided")
-            raise ValueError("R_code must be provided.")
-        cursor = self.conn.cursor()
+            logger.error("ValueError- R_code is missing when get_panels_by_rcode func is triggered")
+            raise ValueError("R_code could not be retrieved something went wrong, please raise an issue")
+        org_conf= confidence
+        confidence = self._map_confidence(confidence)
         operator = "LIKE" if matches else "="
         rcode_query = f"%{rcode}%" if matches else rcode
-
+        
         logger.debug("Using operator '%s' with R_code query: %s.", operator, rcode_query)
 
-        # Query by rcode
-        query = f'''
+        base_query = f'''
         SELECT panel.Panel_ID, panel.rcodes, panel.Version, panel_genes.Confidence, genes_info.HGNC_ID, 
-               genes_info.Gene_Symbol, genes_info.HGNC_symbol, genes_info.GRCh38_Chr, 
-               genes_info.GRCh38_start, genes_info.GRCh38_stop, genes_info.GRCh37_Chr,
-                genes_info.GRCh37_start, genes_info.GRCh37_stop
+            genes_info.Gene_Symbol, genes_info.HGNC_symbol, genes_info.GRCh38_Chr, 
+            genes_info.GRCh38_start, genes_info.GRCh38_stop, genes_info.GRCh37_Chr,
+            genes_info.GRCh37_start, genes_info.GRCh37_stop
         FROM panel
         JOIN panel_genes ON panel.Panel_ID = panel_genes.Panel_ID
         JOIN genes_info ON panel_genes.HGNC_ID = genes_info.HGNC_ID
         WHERE panel.rcodes {operator} ?
         '''
-        logger.debug("Running SQL query: %s.", query)
 
-        result = cursor.execute(query, (rcode_query,)).fetchall()
+        params = [rcode_query]
+        
+        if confidence is not None:
+            base_query += " AND panel_genes.Confidence = ?"
+            params.append(confidence)
+
+        logger.debug("Running SQL query: %s with params: %s", base_query, params)
+
+        cursor = self.conn.cursor()
+        result = cursor.execute(base_query, tuple(params)).fetchall()
         logger.info("Query ran successfully for R_code: %s, and retrieved %d records.", rcode, len(result))
 
-        logger.debug(f"R_code Query: {rcode_query}, Result: {result}")
+        logger.debug("R_code Query: %s, Result: %s", rcode_query, result)
         
         if result:
             logger.info("Returning %d records for R_code: %s.", len(result), rcode)
@@ -104,11 +139,12 @@ class Query:
                 "Associated Gene Records": [dict(row) for row in result]
             }
         else:
-            logger.warning("No matches found for R_code: %s.", rcode)
+            logger.debug("No matches found for R_code: %s.", rcode)
             return {
                 "Rcode": rcode,
-                "Message": "No matches found for this rcode."
+                "Message": f"No matches found for this rcode with confidence : {org_conf}."
             }
+
 
     def get_panels_from_gene_list(self, hgnc_ids: list[str], matches: bool=False) -> list[dict]:
         """
@@ -181,12 +217,12 @@ class Query:
                     "Message": "Could not find any match for the provided HGNC IDs."
                 }
         
-    def get_gene_list(self,panel_id=None,r_code=None,matches=False):
+    def get_gene_list(self,panel_id=None,r_code=None,matches=False, confidence='All'):
         logger.info("Pulling the gene list associated with Panel_ID: %s, R_code: %s.", panel_id, r_code)
 
         if panel_id:
             logger.debug("Pulling the panel data for Panel_ID: %s.", panel_id)
-            panel_data = self.get_panel_data(panel_id=panel_id, matches=matches)
+            panel_data = self.get_panel_data(panel_id=panel_id, matches=matches,confidence=confidence)
             if "Message" in panel_data:
                 logger.warning("No panel data found for Panel_ID: %s.", panel_id)
                 return panel_data
