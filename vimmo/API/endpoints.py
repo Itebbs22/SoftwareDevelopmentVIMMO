@@ -579,7 +579,9 @@ class UpdateClass(Resource):
         args = update_parser.parse_args()
         try: 
             patient_update_validator(args)
+            logger.info(f"Valid arguments given to update space: Patient ID = {args["Patient ID"]}, Rcode = {args['R code']}")
         except ValueError as e:
+            logger.error(f"Value error raised by arg parser: {e}")
             return {"error": str(e)}, 400
 
         db = get_db()
@@ -589,30 +591,30 @@ class UpdateClass(Resource):
         query = Query(db.conn)   # Instantiate an Query  class object
         panel_app_client = PanelAppClient()
         # Check the database is up to date before updating the db with the now current current verison
-        panel_id = query.rcode_to_panelID(args["R code"]) # Convert the rcode into the panel id
+        panel_id = query.rcode_to_panelID(args["R code"])  # Convert the rcode into the panel id
         database_version = query.get_db_latest_version(args["R code"])
         latest_online_version = panel_app_client.get_latest_online_version(panel_id)
  
         
-        # if database_version != latest_online_version:
-        #         # Update version and panel contents (panel and panel_contents tables)
+        if database_version != latest_online_version:
+                # Update version and panel contents (panel and panel_contents tables)
             
-        #     try:
-        #         # Update the panel version in 'panels' table
-        #         update.update_panels_version(args["R code"], latest_online_version, panel_id)
-        #         # Archive the old panel verison to 'archive_panel_genes'
-        #         update.archive_panel_contents(panel_id, database_version)         
-        #         # Update the version in the 'panel_genes' table
-        #         update.update_gene_contents(args["R code"],panel_id)
-                
-        #         database_version = query.get_db_latest_version(args["R code"])  # Retrieve newly updated db panel version
+            try:
+                # Update the panel version in 'panels' table
+                update.update_panels_version(args["R code"], latest_online_version, panel_id)
+                # Archive the old panel verison to 'archive_panel_genes'
+                update.archive_panel_contents(panel_id, database_version)         
+                # Update the version in the 'panel_genes' table
+                update.update_gene_contents(args["R code"],panel_id)
+                logger.info(f"UPDATE database - {args['R code']}  {database_version} --> {latest_online_version}")
+                database_version = query.get_db_latest_version(args["R code"])  # Retrieve newly updated db panel version
 
-        #     except KeyError: 
-        #         return "The database could not be updated at this point"
-
+            except KeyError: 
+                logger.error("Database could not be updated")
+                return "The database could not be updated at this point"
             
-        # else:
-        #     pass
+        else:
+            pass
         
         is_present = update.check_presence(args["Patient ID"], args["R code"])  # Check presence pre-existing record with patient ID, R code and Version
         if is_present is False:
