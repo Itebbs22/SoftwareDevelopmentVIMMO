@@ -139,7 +139,7 @@ class PanelAppClient:
         logger.info(f"Starting get_latest_online_version for panel_id: {panel_id}")
 
         url = f'{self.base_url}/signedoff/?panel_id={panel_id}&display=latest'  # Set the URL
-        logger.debug(f"Constructed URL: {url}")
+        logger.info(f"Constructed URL Panel app api: {url}")
         json_data = self._check_response(url)  # Send get request to URL, if 200 return json format of the response
         logger.info(f"Successfully retrieved JSON data for panel_id: {panel_id}")
 
