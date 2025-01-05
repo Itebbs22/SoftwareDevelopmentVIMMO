@@ -132,7 +132,7 @@ class VarValClient:
                 final_output.add(id_to_symbol[hgnc_id])
             else:
                 final_output.add(hgnc_id)
-        logger.info(f"Gene query output: {final_output}")
+        logger.debug(f"Gene query output: {final_output}")
 
         return "|".join(final_output)
 
@@ -216,7 +216,7 @@ class VarValClient:
             end = float('inf')
         
         # Return the sorting key tuple.
-        logger.info(f"sorted key: {chrom_number}, {start}, {end}")
+        logger.debug(f"sorted key: {chrom_number}, {start}, {end}")
         return (chrom_number, start, end)
 
 
@@ -254,7 +254,7 @@ class VarValClient:
                 transcript_set=transcript_set,
                 limit_transcripts=limit_transcripts
             )
-            logger.info(f"var val params: {gene_data}")
+            logger.debug(f"var val params: {gene_data}")
         except VarValAPIError as e:
             logger.debug(f"Error fetching data from VariantValidator API: {str(e)}")
             raise VarValAPIError(f"Error fetching data: {str(e)}")
@@ -264,7 +264,7 @@ class VarValClient:
         # Parse the gene data into BED format
         bed_rows = []
         for gene in gene_data:
-            logger.info(f"Gene: {gene}")
+            logger.debug(f"Gene: {gene}")
             transcripts = gene.get('transcripts', [])
             # If no transcripts, create a NoRecord line
             if not transcripts or 'annotations' not in transcripts[0] or 'chromosome' not in transcripts[0]['annotations']:

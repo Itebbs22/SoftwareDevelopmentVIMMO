@@ -24,7 +24,7 @@ try:
         DowngradeParser
     )
     
-    logger.info("Import Success")
+    logger.info("Module Import: Success")
 except Exception as err:
     logger.critical(f"Importing Modules failed, please check {err}")
     sys.exit(1)
@@ -65,6 +65,7 @@ class PanelSearch(Resource):
         # Apply custom validation for the parsed arguments
         try:
             validate_panel_id_or_Rcode_or_hgnc(args,panel_space=True)  # Ensure only one valid parameter is provided
+            logger.info("Format Validation Success")
         except ValueError as e:
             logger.debug(f"Validation for argumemts failed for Panel_id: {args.get("Panel_ID")}, rcode: {args.get("Rcode")}, HGNC_ID: {args.get("HGNC_ID")} with {e}")
             # Return an error response if validation fails
@@ -82,17 +83,23 @@ class PanelSearch(Resource):
             # Fetch panel data by Panel_ID with optional similar matches
             panel_data = query.get_panel_data(panel_id=args.get("Panel_ID"), matches=args.get("Similar_Matches"),
                                               confidence=args.get('Confidence'))
+            logger.debug(f"Args passed to get_panel_data func: panel_id={args.get("Panel_ID")}, matches={args.get("Similar_Matches")},confidence={args.get('Confidence')}")
+            logger.debug(f"Got response: {panel_data}")
             return panel_data
 
         elif args.get("Rcode"):
             # Fetch panel data by Rcode with optional similar matches
             panel_data = query.get_panels_by_rcode(rcode=args.get("Rcode"), matches=args.get("Similar_Matches"),
                                                    confidence=args.get('Confidence'))
+            logger.debug(f"Args passed to get_panels_by_rcode func: panel_id={args.get("Rcode")}, matches={args.get("Similar_Matches")},confidence={args.get('Confidence')}")
+            logger.debug(f"Got response: {panel_data}")
             return panel_data
 
         elif args.get("HGNC_ID"):
             # Fetch panels associated with a specific HGNC_ID with optional similar matches or a using a list
             panels_returned = query.get_panels_from_gene_list(hgnc_ids=args.get("HGNC_ID"), matches=args.get("Similar_Matches"))
+            logger.debug(f"Args passed to get_panels_from_gene_list func: hgnc_ids={args.get("HGNC_ID")}, matches={args.get("Similar_Matches")}")
+            logger.debug(f"Got response: {panels_returned}")
             return panels_returned
             # If no valid parameter is provided, return an error response
 
@@ -129,9 +136,12 @@ class PanelDownload(Resource):
         # # Apply custom validation
         try:
             validate_panel_id_or_Rcode_or_hgnc(args, bed_space=True)
+            logger.info("Format Validation Success")
+            logger.debug(f"Validation for argumemts failed for Panel_id: {args.get("Panel_ID")}, rcode: {args.get("Rcode")}, HGNC_ID: {args.get("HGNC_ID")} with {e}")
         except ValueError as e:
             logger.error(f"error: {str(e)}")
             return {"error": str(e)}, 400
+
 
         panel_id=args.get("Panel_ID",None)
         r_code=args.get("Rcode",None)
@@ -147,30 +157,17 @@ class PanelDownload(Resource):
         logger.info("DB connection made from download endpoint")
         
         if not args["HGNC_ID"]:
-            if panel_id:
-                panel_data = query.get_panel_data(panel_id=args.get("Panel_ID"), matches=args.get("Similar_Matches"),
-                                                   confidence=confidence)
-                if "Message" in panel_data:
-                    logger.info(f"Panel_data: {panel_data}")
-                    return panel_data
-                gene_query={record["HGNC_ID"] for record in panel_data["Associated Gene Records"]}
-            elif r_code:
-                panel_data = query.get_panels_by_rcode(rcode=args.get("Rcode"), matches=args.get("Similar_Matches"),
-                                                       confidence=confidence)
-                if "Message" in panel_data:
-                    logger.info(f"Panel_data: {panel_data}")
-                    return panel_data
-                gene_query={record["HGNC_ID"] for record in panel_data["Associated Gene Records"]}
-
             gene_query=query.get_gene_list(panel_id,r_code,matches,confidence=confidence)
+            logger.debug(f"Args passed to get_gene_list func: panel_id={panel_id}, rcode={r_code}, matches={matches}, confidence={confidence}")
             # Check if gene_query is a set of HGNC IDs
             if isinstance(gene_query, dict) and "Message" in gene_query:
+                logger.info(f"No genes id matched local db")
                 return gene_query, 400
         else:
             gene_query=args["HGNC_ID"]
-        
 
-            
+        logger.info(f"Gene HGNC List for creating a bed file: {gene_query}")
+        
             
         genome_build = args.get('genome_build', 'GRCh38')
         transcript_set = args.get('transcript_set', 'all')
@@ -179,6 +176,7 @@ class PanelDownload(Resource):
 
         # Initialize the VariantValidator client
         var_val_client = VarValClient()
+        logger.info("Variant Validator Client is instantiated in Panel Download space")
 
         try:
             # Generate the BED file content
@@ -208,6 +206,7 @@ class PanelDownload(Resource):
         
          # Return the BED file as a downloadable response
         if bed_file:
+            logger.info(f"Bed file generated with {filename}")
             # Return the BED file using send_file
             return send_file(
                 bed_file,
@@ -216,7 +215,7 @@ class PanelDownload(Resource):
                 download_name=filename
             )
         else:
-            logger.info("error, No BED data could be generated from the provided gene query.")
+            logger.error("error, No BED data could be generated from the provided gene query.")
             return {"error": "No BED data could be generated from the provided gene query."}, 400
 
 
@@ -266,11 +265,14 @@ class LocalPanelDownload(Resource):
         if not HGNC_ID:
             gene_query=query.get_gene_list(panel_id,r_code,matches,confidence)
             # Check if gene_query is a set of HGNC IDs
+            logger.debug(f"Args passed to get_gene_list func: panel_id={panel_id}, rcode={r_code}, matches={matches}, confidence={confidence}")
             if isinstance(gene_query, dict) and "Message" in gene_query:
+                logger.info(f"No genes id matched local db")
                 return gene_query, 400
         else:
             gene_query=HGNC_ID
         
+        logger.info(f"Gene HGNC List for creating a bed file: {gene_query}")
         genome_build = args.get('genome_build', 'GRCh38')
         local_bed_records=query.local_bed(gene_query,genome_build)
         logger.debug(f"query.local_bed({gene_query},{genome_build})")
@@ -279,7 +281,7 @@ class LocalPanelDownload(Resource):
         
 
 
-
+        db.close()
         # Generate a meaningful filename for the download
         if panel_id:
             filename = f"{panel_id}_{genome_build}_Gencode.bed"
@@ -289,6 +291,7 @@ class LocalPanelDownload(Resource):
             filename = f"Genes_{genome_build}_Gencode.bed"
 
         if bed_file:
+            logger.info(f"Bed file generated with {filename}")
             return send_file(
                 bed_file,
                 mimetype='text/plain',
@@ -296,7 +299,8 @@ class LocalPanelDownload(Resource):
                 download_name=filename
             )
         else:
-            logger.debug("Bed was not generated please enable Debug if needed")
+            logger.info("Bed was not generated please enable Debug if needed")
+            logger.debug(f"{local_bed_records}")
             return {"error": "No BED data could be generated from the provided gene query."}, 400
 
 
@@ -469,11 +473,13 @@ class PatientBed(Resource):
         transcript_set = args.get('transcript_set', 'all')
         limit_transcripts = args.get('limit_transcripts', 'mane_select')
         try:
+            logger.debug(f"Converting padding to int type using val: {args.get('Padding', 0)}")
             padding = args.get('Padding', 0)
             padding = int(padding) if padding else 0
             if padding > 0:
                 padding = min(padding, 250)
-        except (ValueError, TypeError):
+        except (ValueError, TypeError) as err:
+            logger.info(f"Converting user padding to int type failed due to {err}. Setting padding to 0")
             padding = 0
         # Fetch the database and connect
         db = get_db()
@@ -691,7 +697,9 @@ class DowngradeClass(Resource):
         panel_app_client = PanelAppClient()
 
         database_version = query.get_db_latest_version(rcode)
+
         if str(database_version) == version:
+            logger.info(f"Database version{database_version} and downgrade version {version} provided by user match. Not downgrading")
             return {
                     "message": "Requested version matches current database version",
                     "current_version": database_version
@@ -699,15 +707,18 @@ class DowngradeClass(Resource):
         else:
             panel_id=query.rcode_to_panelID(rcode)
             if not panel_id:
-                return {"error": "Panel ID could not be identified for {rcode}"}
+                logger.info(f"Panel ID could not be identified for {rcode}")
+                return {"error": f"Panel ID could not be identified for {rcode}"}
 
                         # Get records from PanelApp
             try:
                 panel_records = panel_app_client.dowgrade_records(panel_id=panel_id, version=version)
                 if not panel_records:
+                    logger.info(f"No records found for panel {panel_id} version {version} for downgrading")
                     return {"error": f"No records found for panel {panel_id} version {version}"}
 
                                 # Process and downgrade records
+                logger.debug(f"downgrade.process_downgrade(rcode={rcode},panel_id={panel_id},version={version},panel_records={panel_records})")
                 result = downgrade.process_downgrade(
                     rcode=rcode,
                     panel_id=panel_id,
@@ -716,6 +727,7 @@ class DowngradeClass(Resource):
                 )
 
             except:
+                logger.info("Downgrade failed")
                 pass
 
         return result

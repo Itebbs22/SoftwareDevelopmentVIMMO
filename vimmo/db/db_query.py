@@ -184,11 +184,11 @@ class Query:
             # You would need to dynamically build the query.
             
             # But let's raise a NotImplementedError if needed:
-            logger.warning("Wildcard matching for multiple HGNC_IDs not implemented")
+            logger.error("Wildcard matching for multiple HGNC_IDs not implemented")
             raise NotImplementedError("Wildcard matching for multiple HGNC_IDs not implemented.")
         else:
             # Exact matching using IN clause
-            logger.info("Exact match for HGNC_ID: %s", hgnc_ids)
+            logger.info("Exact match for HGNC_ID was selected: %s", hgnc_ids)
             placeholders = ','.join('?' * len(hgnc_ids))
             query = f'''
             SELECT panel.Panel_ID, panel.rcodes, genes_info.Gene_Symbol
@@ -221,15 +221,17 @@ class Query:
         logger.info("Pulling the gene list associated with Panel_ID: %s, R_code: %s.", panel_id, r_code)
 
         if panel_id:
-            logger.debug("Pulling the panel data for Panel_ID: %s.", panel_id)
+            logger.info("Pulling the panel data for Panel_ID: %s.", panel_id)
             panel_data = self.get_panel_data(panel_id=panel_id, matches=matches,confidence=confidence)
+            logger.debug(f"Args passed to get_panel_data func: panel_id={panel_id}, matches={matches},
+                                              confidence={confidence}")
             if "Message" in panel_data:
-                logger.warning("No panel data found for Panel_ID: %s.", panel_id)
+                logger.info("No panel data found for Panel_ID: %s.", panel_id)
                 return panel_data
             logger.info("Successfully pulled panel data for Panel_ID: %s.", panel_id)
             gene_query={record["HGNC_ID"] for record in panel_data["Associated Gene Records"]}
         elif r_code:
-            logger.debug("Pulling the panel data for R_code: %s.", r_code)
+            logger.info("Pulling the panel data for R_code: %s.", r_code)
             panel_data = self.get_panels_by_rcode(rcode=r_code, matches=matches)
             if "Message" in panel_data:
                 logger.warning("No panel data found for R_code: %s.", r_code)
