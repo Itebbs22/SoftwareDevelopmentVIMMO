@@ -1386,3 +1386,649 @@
 2025-01-03 11:14:34,584 - VIMMO - INFO - sorted key: 17, 43124017, 43124115
 2025-01-03 11:14:34,586 - VIMMO - INFO - Writing the DataFrame to BED file format.
 2025-01-03 11:14:34,587 - VIMMO - INFO - BED file generation completed successfully.
+2025-01-06 14:55:14,505 - VIMMO - INFO - Module Import: Success
+2025-01-06 14:55:23,334 - VIMMO - ERROR - Invalid format for 'HGNC_ID': '45678' must start with 'HGNC:' followed by digits only.
+2025-01-06 14:55:23,337 - VIMMO - ERROR - Invalid format for 'Panel_ID': Must be a number.
+2025-01-06 14:55:23,339 - VIMMO - ERROR - Invalid format for 'Rcode': Must start with 'R' followed by digits only
+2025-01-06 14:55:23,342 - VIMMO - ERROR - Invalid format for 'Rcode': Must start with 'R' followed by digits only
+2025-01-06 14:55:23,352 - VIMMO - ERROR - Invalid format for 'HGNC_ID': 'HGNC:12345,Invalid' must start with 'HGNC:' followed by digits only.
+2025-01-06 14:55:23,355 - VIMMO - INFO - Validated HGNC_ID: HGNC:12345
+2025-01-06 14:55:23,358 - VIMMO - INFO - Validated HGNC_ID: HGNC:45678
+2025-01-06 14:55:23,361 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:55:23,371 - VIMMO - INFO - Validating HGNC_ID
+2025-01-06 14:55:23,372 - VIMMO - ERROR - Invalid format for 'HGNC_ID': '45678' must start with 'HGNC:' followed by digits only.
+2025-01-06 14:55:23,376 - VIMMO - ERROR - Invalid input: 'Panel_ID' must be digits only.
+2025-01-06 14:55:23,389 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:55:23,390 - VIMMO - ERROR - Invalid format for 'Rcode': Must start with 'R' followed by digits only
+2025-01-06 14:55:23,393 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:55:23,393 - VIMMO - INFO - Validating HGNC_ID
+2025-01-06 14:55:23,394 - VIMMO - INFO - Validated HGNC_ID: HGNC:12345
+2025-01-06 14:55:23,394 - VIMMO - ERROR - Invalid format for 'HGNC_ID': 'Invalid' must start with 'HGNC:' followed by digits only.
+2025-01-06 14:55:23,396 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:55:23,397 - VIMMO - INFO - Validating HGNC_ID
+2025-01-06 14:55:23,397 - VIMMO - INFO - Validated HGNC_ID: HGNC:12345
+2025-01-06 14:55:23,397 - VIMMO - INFO - Validated HGNC_ID: HGNC:67890
+2025-01-06 14:55:23,397 - VIMMO - INFO - Validation for HGNC_ID: ['HGNC:12345', 'HGNC:67890'] successful
+2025-01-06 14:55:23,400 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:55:23,400 - VIMMO - INFO - Validating HGNC_ID
+2025-01-06 14:55:23,400 - VIMMO - INFO - Validated HGNC_ID: HGNC:45678
+2025-01-06 14:55:23,400 - VIMMO - INFO - Validation for HGNC_ID: ['HGNC:45678'] successful
+2025-01-06 14:55:23,409 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:55:23,409 - VIMMO - INFO - Validating HGNC_ID
+2025-01-06 14:55:23,409 - VIMMO - INFO - Validated HGNC_ID: HGNC:45678
+2025-01-06 14:55:23,409 - VIMMO - INFO - Validation for HGNC_ID: ['HGNC:45678'] successful
+2025-01-06 14:55:23,412 - VIMMO - INFO - Validated HGNC_ID: HGNC:12345
+2025-01-06 14:55:23,413 - VIMMO - ERROR - Invalid format for 'HGNC_ID': 'Invalid' must start with 'HGNC:' followed by digits only.
+2025-01-06 14:55:23,415 - VIMMO - INFO - Validated HGNC_ID: HGNC:12345
+2025-01-06 14:55:23,416 - VIMMO - INFO - Validated HGNC_ID: HGNC:67890
+2025-01-06 14:55:23,421 - VIMMO - INFO - Validated HGNC_ID: HGNC:12345
+2025-01-06 14:55:23,429 - VIMMO - INFO - validator recieved: {'Rcode': 'r123'},False,True
+2025-01-06 14:55:23,429 - VIMMO - INFO - Validation for bed space
+2025-01-06 14:55:23,430 - VIMMO - ERROR - Invalid format for 'Rcode': Must start with 'R' followed by digits only
+2025-01-06 14:55:23,433 - VIMMO - INFO - validator recieved: {'Panel_ID': 'abc'},True,False
+2025-01-06 14:55:23,433 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:55:23,433 - VIMMO - ERROR - Invalid input: 'Panel_ID' must be digits only.
+2025-01-06 14:55:23,436 - VIMMO - INFO - validator recieved: {'Panel_ID': '123', 'Rcode': 'R123'},False,True
+2025-01-06 14:55:23,437 - VIMMO - ERROR - Provide only one of 'Panel_ID', 'Rcode', or 'HGNC_ID', not multiple.
+2025-01-06 14:55:23,445 - VIMMO - INFO - validator recieved: {},True,False
+2025-01-06 14:55:23,446 - VIMMO - ERROR - At least one of 'Panel_ID', 'Rcode', or 'HGNC_ID' must be provided.
+2025-01-06 14:55:23,449 - VIMMO - INFO - validator recieved: {'Panel_ID': '123'},True,False
+2025-01-06 14:55:23,449 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:55:23,449 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:55:23,453 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:23,454 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:23,470 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:23,471 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:23,471 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:23,472 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:23,475 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:23,476 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:23,540 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:23,541 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:23,542 - VIMMO - INFO - Pulling all records associated with Panel_ID: 999999
+2025-01-06 14:55:23,546 - VIMMO - INFO - Exact match for Panel_ID: 999999
+2025-01-06 14:55:23,549 - VIMMO - INFO - The run was successful for Panel_ID: 999999, and retrieved 0 records.
+2025-01-06 14:55:23,551 - VIMMO - WARNING - No matches found for Panel_ID: 999999.
+2025-01-06 14:55:23,551 - VIMMO - INFO - Pulling all records associated with R_code: R000.00.
+2025-01-06 14:55:23,552 - VIMMO - INFO - Query ran successfully for R_code: R000.00, and retrieved 0 records.
+2025-01-06 14:55:23,552 - VIMMO - WARNING - No matches found for R_code: R000.00.
+2025-01-06 14:55:23,552 - VIMMO - INFO - Pulling all records associated with HGNC_ID: [].
+2025-01-06 14:55:23,552 - VIMMO - INFO - Exact match for HGNC_ID: []
+2025-01-06 14:55:23,556 - VIMMO - INFO - Query ran successfully for HGNC_ID: [], and retrieved 0 records.
+2025-01-06 14:55:23,556 - VIMMO - WARNING - No matches found for HGNC_ID: [].
+2025-01-06 14:55:23,557 - VIMMO - INFO - Pulling the gene_symbol called with IDs to replace: ['HGNC:000000'].
+2025-01-06 14:55:23,559 - VIMMO - INFO - Pulling all records associated with Panel_ID: None
+2025-01-06 14:55:23,559 - VIMMO - ERROR - ValueError- Panel_ID must be provided
+2025-01-06 14:55:23,563 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:23,563 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:23,578 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:23,579 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:23,581 - VIMMO - INFO - Pulling the gene list associated with Panel_ID: 100001, R_code: None.
+2025-01-06 14:55:23,581 - VIMMO - INFO - Pulling all records associated with Panel_ID: 100001
+2025-01-06 14:55:23,581 - VIMMO - INFO - Exact match for Panel_ID: 100001
+2025-01-06 14:55:23,621 - VIMMO - INFO - The run was successful for Panel_ID: 100001, and retrieved 2 records.
+2025-01-06 14:55:23,622 - VIMMO - INFO - Returning 2 records for Panel_ID: 100001.
+2025-01-06 14:55:23,623 - VIMMO - INFO - Successfully pulled panel data for Panel_ID: 100001.
+2025-01-06 14:55:23,624 - VIMMO - INFO - Pulling the gene list associated with Panel_ID: None, R_code: R999.01.
+2025-01-06 14:55:23,624 - VIMMO - INFO - Pulling all records associated with R_code: R999.01.
+2025-01-06 14:55:23,707 - VIMMO - INFO - Query ran successfully for R_code: R999.01, and retrieved 2 records.
+2025-01-06 14:55:23,708 - VIMMO - INFO - Returning 2 records for R_code: R999.01.
+2025-01-06 14:55:23,708 - VIMMO - INFO - Successfully pulled panel data for R_code: R999.01.
+2025-01-06 14:55:23,711 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:23,712 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:23,713 - VIMMO - INFO - Pulling the gene_symbol called with IDs to replace: ['HGNC:123456789', 'HGNC:987654321'].
+2025-01-06 14:55:23,718 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:23,718 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:23,719 - VIMMO - INFO - Pulling all records associated with Panel_ID: 100001
+2025-01-06 14:55:23,719 - VIMMO - INFO - Exact match for Panel_ID: 100001
+2025-01-06 14:55:23,739 - VIMMO - INFO - The run was successful for Panel_ID: 100001, and retrieved 2 records.
+2025-01-06 14:55:23,740 - VIMMO - INFO - Returning 2 records for Panel_ID: 100001.
+2025-01-06 14:55:23,745 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:23,745 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:23,747 - VIMMO - INFO - Pulling all records associated with R_code: R999.01.
+2025-01-06 14:55:23,830 - VIMMO - INFO - Query ran successfully for R_code: R999.01, and retrieved 2 records.
+2025-01-06 14:55:23,830 - VIMMO - INFO - Returning 2 records for R_code: R999.01.
+2025-01-06 14:55:23,833 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:23,834 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:23,836 - VIMMO - INFO - Pulling all records associated with HGNC_ID: ['HGNC:123456789'].
+2025-01-06 14:55:23,836 - VIMMO - INFO - Exact match for HGNC_ID: ['HGNC:123456789']
+2025-01-06 14:55:23,842 - VIMMO - INFO - Query ran successfully for HGNC_ID: ['HGNC:123456789'], and retrieved 2 records.
+2025-01-06 14:55:23,843 - VIMMO - INFO - Returning 2 records for HGNC_ID: ['HGNC:123456789'].
+2025-01-06 14:55:23,843 - VIMMO - INFO - Pulling all records associated with HGNC_ID: ['HGNC:123456789', 'HGNC:987654321'].
+2025-01-06 14:55:23,843 - VIMMO - INFO - Exact match for HGNC_ID: ['HGNC:123456789', 'HGNC:987654321']
+2025-01-06 14:55:23,857 - VIMMO - INFO - Query ran successfully for HGNC_ID: ['HGNC:123456789', 'HGNC:987654321'], and retrieved 3 records.
+2025-01-06 14:55:23,857 - VIMMO - INFO - Returning 3 records for HGNC_ID: ['HGNC:123456789', 'HGNC:987654321'].
+2025-01-06 14:55:23,861 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:23,861 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:23,866 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:23,866 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:23,873 - VIMMO - INFO - Created Dataframe with 1 rows.
+2025-01-06 14:55:23,874 - VIMMO - INFO - DataFrame successfully written to the bedfile
+2025-01-06 14:55:23,878 - VIMMO - WARNING - No database records found
+2025-01-06 14:55:23,881 - VIMMO - WARNING - No database records found
+2025-01-06 14:55:23,899 - VIMMO - INFO - Created Dataframe with 2 rows.
+2025-01-06 14:55:23,920 - VIMMO - INFO - DataFrame successfully written to the bedfile
+2025-01-06 14:55:23,925 - VIMMO - WARNING - HTTP 404 error from PanelApp API: 404 Not Found
+2025-01-06 14:55:23,930 - VIMMO - WARNING - Unexpected error while accessing PanelApp API: Network error
+2025-01-06 14:55:23,939 - VIMMO - INFO - requesting data from endpoint: https://panelapp.genomicsengland.co.uk/api/v1/panels/635/?version=2.5
+2025-01-06 14:55:23,941 - VIMMO - INFO - Successfully fetched data for panel_id: 635, version: 2.5
+2025-01-06 14:55:23,947 - VIMMO - INFO - requesting data from endpoint: https://panelapp.genomicsengland.co.uk/api/v1/panels/635/?version=2.5
+2025-01-06 14:55:23,947 - VIMMO - WARNING - HTTP 404 error from PanelApp API: 404 Not Found
+2025-01-06 14:55:23,948 - VIMMO - ERROR - Failed to fetch data for panel_id: 635, version: 2.5. PanelApp API returned HTTP 404: 404 Not Found
+2025-01-06 14:55:23,963 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 635
+2025-01-06 14:55:23,965 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 635
+2025-01-06 14:55:23,965 - VIMMO - INFO - Extracted version: 2.5 for panel_id: 635
+2025-01-06 14:55:23,972 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 635
+2025-01-06 14:55:23,973 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 635
+2025-01-06 14:55:23,973 - VIMMO - WARNING - Invalid or missing version key in response for panel_id: 635
+2025-01-06 14:55:24,046 - VIMMO - ERROR - Failed to connect to test_url. Please check your internet connection and try again.
+2025-01-06 14:55:24,053 - VIMMO - WARNING - Failed to get data from VarVal API with status code:404
+2025-01-06 14:55:24,060 - VIMMO - INFO - Successfully pulled data from URL: test_url
+2025-01-06 14:55:24,067 - VIMMO - INFO - sorted key: 1, 1000, 2000
+2025-01-06 14:55:24,068 - VIMMO - INFO - sorted key: 23, 500, 1500
+2025-01-06 14:55:24,068 - VIMMO - INFO - sorted key: 2, 750, 1750
+2025-01-06 14:55:24,074 - VIMMO - INFO - sorted key: inf, 500, 1500
+2025-01-06 14:55:24,075 - VIMMO - INFO - sorted key: inf, 300, 400
+2025-01-06 14:55:24,076 - VIMMO - INFO - sorted key: inf, 1, inf
+2025-01-06 14:55:24,087 - VIMMO - INFO - Pulling gene data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/BRCA2/mane_select/all/GRCh38.
+2025-01-06 14:55:24,088 - VIMMO - WARNING - Failed to get data from VarVal API with status code:500
+2025-01-06 14:55:24,095 - VIMMO - INFO - Pulling gene data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/BRCA1/mane_select/all/GRCh38.
+2025-01-06 14:55:24,095 - VIMMO - INFO - Successfully pulled data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/BRCA1/mane_select/all/GRCh38
+2025-01-06 14:55:24,096 - VIMMO - INFO - Pulling gene data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/HGNC%3A1100/mane_select/all/GRCh38.
+2025-01-06 14:55:24,096 - VIMMO - INFO - Successfully pulled data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/HGNC%3A1100/mane_select/all/GRCh38
+2025-01-06 14:55:24,111 - VIMMO - INFO - Loaded problematic gene list successfully.
+2025-01-06 14:55:24,112 - VIMMO - INFO - IDs to replace identified: ['HGNC:12345678']
+2025-01-06 14:55:24,113 - VIMMO - INFO - HGNC_symbols retrieved for ID replacement: {'HGNC:12345678': 'TEST_symbol'}
+2025-01-06 14:55:24,113 - VIMMO - INFO - Gene query output: {'TEST_symbol', 'HGNC:456'}
+2025-01-06 14:55:24,128 - VIMMO - INFO - Loaded problematic gene list successfully.
+2025-01-06 14:55:24,129 - VIMMO - INFO - IDs to replace identified: []
+2025-01-06 14:55:24,129 - VIMMO - INFO - No IDs to replace found.
+2025-01-06 14:55:24,129 - VIMMO - INFO - Gene query output: {'TRAC'}
+2025-01-06 14:55:24,130 - VIMMO - INFO - Pulling gene data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/TRAC/mane_select/all/GRCh38.
+2025-01-06 14:55:24,130 - VIMMO - INFO - Successfully pulled data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/TRAC/mane_select/all/GRCh38
+2025-01-06 14:55:24,130 - VIMMO - INFO - var val params: [{'error': 'Unable to retrieve data from the VVTA, please contact admin', 'requested_symbol': 'TRAC'}]
+2025-01-06 14:55:24,130 - VIMMO - INFO - Gene: {'error': 'Unable to retrieve data from the VVTA, please contact admin', 'requested_symbol': 'TRAC'}
+2025-01-06 14:55:24,130 - VIMMO - INFO - Converting parsed data into DataFrame.
+2025-01-06 14:55:24,132 - VIMMO - INFO - Sorting the DataFrame.
+2025-01-06 14:55:24,142 - VIMMO - INFO - Writing the DataFrame to BED file format.
+2025-01-06 14:55:24,145 - VIMMO - INFO - BED file generation completed successfully.
+2025-01-06 14:55:24,159 - VIMMO - INFO - Loaded problematic gene list successfully.
+2025-01-06 14:55:24,160 - VIMMO - INFO - IDs to replace identified: []
+2025-01-06 14:55:24,161 - VIMMO - INFO - No IDs to replace found.
+2025-01-06 14:55:24,161 - VIMMO - INFO - Gene query output: {'TEST'}
+2025-01-06 14:55:24,161 - VIMMO - INFO - Pulling gene data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/TEST/mane_select/all/GRCh38.
+2025-01-06 14:55:24,162 - VIMMO - INFO - Successfully pulled data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/TEST/mane_select/all/GRCh38
+2025-01-06 14:55:24,162 - VIMMO - INFO - var val params: [{'current_symbol': 'TEST', 'transcripts': [{'annotations': {'chromosome': '1'}, 'reference': 'NM_TEST', 'genomic_spans': {}}]}]
+2025-01-06 14:55:24,163 - VIMMO - INFO - Gene: {'current_symbol': 'TEST', 'transcripts': [{'annotations': {'chromosome': '1'}, 'reference': 'NM_TEST', 'genomic_spans': {}}]}
+2025-01-06 14:55:24,163 - VIMMO - INFO - Converting parsed data into DataFrame.
+2025-01-06 14:55:24,164 - VIMMO - INFO - Sorting the DataFrame.
+2025-01-06 14:55:24,168 - VIMMO - INFO - Writing the DataFrame to BED file format.
+2025-01-06 14:55:24,171 - VIMMO - INFO - BED file generation completed successfully.
+2025-01-06 14:55:24,188 - VIMMO - INFO - Loaded problematic gene list successfully.
+2025-01-06 14:55:24,188 - VIMMO - INFO - IDs to replace identified: []
+2025-01-06 14:55:24,189 - VIMMO - INFO - No IDs to replace found.
+2025-01-06 14:55:24,189 - VIMMO - INFO - Gene query output: {'BRCA1'}
+2025-01-06 14:55:24,189 - VIMMO - INFO - Pulling gene data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/BRCA1/mane_select/all/GRCh38.
+2025-01-06 14:55:24,189 - VIMMO - INFO - Successfully pulled data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/BRCA1/mane_select/all/GRCh38
+2025-01-06 14:55:24,190 - VIMMO - INFO - var val params: [{'current_symbol': 'BRCA1', 'requested_symbol': 'BRCA1', 'transcripts': []}]
+2025-01-06 14:55:24,190 - VIMMO - INFO - Gene: {'current_symbol': 'BRCA1', 'requested_symbol': 'BRCA1', 'transcripts': []}
+2025-01-06 14:55:24,190 - VIMMO - INFO - Converting parsed data into DataFrame.
+2025-01-06 14:55:24,191 - VIMMO - INFO - Sorting the DataFrame.
+2025-01-06 14:55:24,196 - VIMMO - INFO - Writing the DataFrame to BED file format.
+2025-01-06 14:55:24,199 - VIMMO - INFO - BED file generation completed successfully.
+2025-01-06 14:55:24,209 - VIMMO - INFO - Loaded problematic gene list successfully.
+2025-01-06 14:55:24,209 - VIMMO - INFO - IDs to replace identified: []
+2025-01-06 14:55:24,209 - VIMMO - INFO - No IDs to replace found.
+2025-01-06 14:55:24,210 - VIMMO - INFO - Gene query output: {'HGNC:1100'}
+2025-01-06 14:55:24,210 - VIMMO - INFO - Pulling gene data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/HGNC%3A1100/mane_select/all/GRCh38.
+2025-01-06 14:55:24,210 - VIMMO - INFO - Successfully pulled data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/HGNC%3A1100/mane_select/all/GRCh38
+2025-01-06 14:55:24,210 - VIMMO - INFO - var val params: [{'current_symbol': 'BRCA1', 'transcripts': [{'reference': 'NM_007294.4', 'annotations': {'chromosome': '17'}, 'genomic_spans': {'NC_000017.11': {'orientation': -1, 'exon_structure': [{'exon_number': 1, 'genomic_start': 43125271, 'genomic_end': 43125364}, {'exon_number': 2, 'genomic_start': 43124017, 'genomic_end': 43124115}]}}}, {'reference': 'ENST00000357654.9', 'annotations': {'chromosome': '17'}, 'genomic_spans': {'NC_000017.11': {'orientation': -1, 'exon_structure': [{'exon_number': 1, 'genomic_start': 43125271, 'genomic_end': 43125364}, {'exon_number': 2, 'genomic_start': 43124017, 'genomic_end': 43124115}]}}}]}]
+2025-01-06 14:55:24,210 - VIMMO - INFO - Gene: {'current_symbol': 'BRCA1', 'transcripts': [{'reference': 'NM_007294.4', 'annotations': {'chromosome': '17'}, 'genomic_spans': {'NC_000017.11': {'orientation': -1, 'exon_structure': [{'exon_number': 1, 'genomic_start': 43125271, 'genomic_end': 43125364}, {'exon_number': 2, 'genomic_start': 43124017, 'genomic_end': 43124115}]}}}, {'reference': 'ENST00000357654.9', 'annotations': {'chromosome': '17'}, 'genomic_spans': {'NC_000017.11': {'orientation': -1, 'exon_structure': [{'exon_number': 1, 'genomic_start': 43125271, 'genomic_end': 43125364}, {'exon_number': 2, 'genomic_start': 43124017, 'genomic_end': 43124115}]}}}]}
+2025-01-06 14:55:24,211 - VIMMO - INFO - Converting parsed data into DataFrame.
+2025-01-06 14:55:24,212 - VIMMO - INFO - Sorting the DataFrame.
+2025-01-06 14:55:24,213 - VIMMO - INFO - sorted key: 17, 43125271, 43125364
+2025-01-06 14:55:24,214 - VIMMO - INFO - sorted key: 17, 43124017, 43124115
+2025-01-06 14:55:24,214 - VIMMO - INFO - sorted key: 17, 43125271, 43125364
+2025-01-06 14:55:24,214 - VIMMO - INFO - sorted key: 17, 43124017, 43124115
+2025-01-06 14:55:24,219 - VIMMO - INFO - Writing the DataFrame to BED file format.
+2025-01-06 14:55:24,222 - VIMMO - INFO - BED file generation completed successfully.
+2025-01-06 14:55:48,738 - VIMMO - INFO - Module Import: Success
+2025-01-06 14:55:48,764 - VIMMO - ERROR - Invalid format for 'HGNC_ID': '45678' must start with 'HGNC:' followed by digits only.
+2025-01-06 14:55:48,769 - VIMMO - ERROR - Invalid format for 'Panel_ID': Must be a number.
+2025-01-06 14:55:48,777 - VIMMO - ERROR - Invalid format for 'Rcode': Must start with 'R' followed by digits only
+2025-01-06 14:55:48,779 - VIMMO - ERROR - Invalid format for 'Rcode': Must start with 'R' followed by digits only
+2025-01-06 14:55:48,781 - VIMMO - ERROR - Invalid format for 'HGNC_ID': 'HGNC:12345,Invalid' must start with 'HGNC:' followed by digits only.
+2025-01-06 14:55:48,784 - VIMMO - INFO - Validated HGNC_ID: HGNC:12345
+2025-01-06 14:55:48,786 - VIMMO - INFO - Validated HGNC_ID: HGNC:45678
+2025-01-06 14:55:48,798 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:55:48,798 - VIMMO - INFO - Validating HGNC_ID
+2025-01-06 14:55:48,799 - VIMMO - ERROR - Invalid format for 'HGNC_ID': '45678' must start with 'HGNC:' followed by digits only.
+2025-01-06 14:55:48,802 - VIMMO - ERROR - Invalid input: 'Panel_ID' must be digits only.
+2025-01-06 14:55:48,804 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:55:48,805 - VIMMO - ERROR - Invalid format for 'Rcode': Must start with 'R' followed by digits only
+2025-01-06 14:55:48,807 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:55:48,808 - VIMMO - INFO - Validating HGNC_ID
+2025-01-06 14:55:48,808 - VIMMO - INFO - Validated HGNC_ID: HGNC:12345
+2025-01-06 14:55:48,808 - VIMMO - ERROR - Invalid format for 'HGNC_ID': 'Invalid' must start with 'HGNC:' followed by digits only.
+2025-01-06 14:55:48,821 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:55:48,822 - VIMMO - INFO - Validating HGNC_ID
+2025-01-06 14:55:48,822 - VIMMO - INFO - Validated HGNC_ID: HGNC:12345
+2025-01-06 14:55:48,822 - VIMMO - INFO - Validated HGNC_ID: HGNC:67890
+2025-01-06 14:55:48,822 - VIMMO - INFO - Validation for HGNC_ID: ['HGNC:12345', 'HGNC:67890'] successful
+2025-01-06 14:55:48,823 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:55:48,823 - VIMMO - INFO - Validating HGNC_ID
+2025-01-06 14:55:48,824 - VIMMO - INFO - Validated HGNC_ID: HGNC:45678
+2025-01-06 14:55:48,824 - VIMMO - INFO - Validation for HGNC_ID: ['HGNC:45678'] successful
+2025-01-06 14:55:48,825 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:55:48,825 - VIMMO - INFO - Validating HGNC_ID
+2025-01-06 14:55:48,825 - VIMMO - INFO - Validated HGNC_ID: HGNC:45678
+2025-01-06 14:55:48,825 - VIMMO - INFO - Validation for HGNC_ID: ['HGNC:45678'] successful
+2025-01-06 14:55:48,838 - VIMMO - INFO - Validated HGNC_ID: HGNC:12345
+2025-01-06 14:55:48,838 - VIMMO - ERROR - Invalid format for 'HGNC_ID': 'Invalid' must start with 'HGNC:' followed by digits only.
+2025-01-06 14:55:48,843 - VIMMO - INFO - Validated HGNC_ID: HGNC:12345
+2025-01-06 14:55:48,843 - VIMMO - INFO - Validated HGNC_ID: HGNC:67890
+2025-01-06 14:55:48,852 - VIMMO - INFO - Validated HGNC_ID: HGNC:12345
+2025-01-06 14:55:48,855 - VIMMO - INFO - validator recieved: {'Rcode': 'r123'},False,True
+2025-01-06 14:55:48,856 - VIMMO - INFO - Validation for bed space
+2025-01-06 14:55:48,856 - VIMMO - ERROR - Invalid format for 'Rcode': Must start with 'R' followed by digits only
+2025-01-06 14:55:48,858 - VIMMO - INFO - validator recieved: {'Panel_ID': 'abc'},True,False
+2025-01-06 14:55:48,859 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:55:48,859 - VIMMO - ERROR - Invalid input: 'Panel_ID' must be digits only.
+2025-01-06 14:55:48,870 - VIMMO - INFO - validator recieved: {'Panel_ID': '123', 'Rcode': 'R123'},False,True
+2025-01-06 14:55:48,870 - VIMMO - ERROR - Provide only one of 'Panel_ID', 'Rcode', or 'HGNC_ID', not multiple.
+2025-01-06 14:55:48,872 - VIMMO - INFO - validator recieved: {},True,False
+2025-01-06 14:55:48,873 - VIMMO - ERROR - At least one of 'Panel_ID', 'Rcode', or 'HGNC_ID' must be provided.
+2025-01-06 14:55:48,874 - VIMMO - INFO - validator recieved: {'Panel_ID': '123'},True,False
+2025-01-06 14:55:48,874 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:55:48,875 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:55:48,877 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:48,877 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:48,882 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:48,883 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:48,884 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:48,884 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:48,890 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:48,890 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:48,902 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:48,903 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:48,905 - VIMMO - INFO - Pulling all records associated with Panel_ID: 999999
+2025-01-06 14:55:48,906 - VIMMO - INFO - Exact match for Panel_ID: 999999
+2025-01-06 14:55:48,906 - VIMMO - INFO - The run was successful for Panel_ID: 999999, and retrieved 0 records.
+2025-01-06 14:55:48,906 - VIMMO - WARNING - No matches found for Panel_ID: 999999.
+2025-01-06 14:55:48,907 - VIMMO - INFO - Pulling all records associated with R_code: R000.00.
+2025-01-06 14:55:48,907 - VIMMO - INFO - Query ran successfully for R_code: R000.00, and retrieved 0 records.
+2025-01-06 14:55:48,908 - VIMMO - WARNING - No matches found for R_code: R000.00.
+2025-01-06 14:55:48,908 - VIMMO - INFO - Pulling all records associated with HGNC_ID: [].
+2025-01-06 14:55:48,908 - VIMMO - INFO - Exact match for HGNC_ID: []
+2025-01-06 14:55:48,909 - VIMMO - INFO - Query ran successfully for HGNC_ID: [], and retrieved 0 records.
+2025-01-06 14:55:48,909 - VIMMO - WARNING - No matches found for HGNC_ID: [].
+2025-01-06 14:55:48,909 - VIMMO - INFO - Pulling the gene_symbol called with IDs to replace: ['HGNC:000000'].
+2025-01-06 14:55:48,911 - VIMMO - INFO - Pulling all records associated with Panel_ID: None
+2025-01-06 14:55:48,911 - VIMMO - ERROR - ValueError- Panel_ID must be provided
+2025-01-06 14:55:48,916 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:48,918 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:48,926 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:48,926 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:48,931 - VIMMO - INFO - Pulling the gene list associated with Panel_ID: 100001, R_code: None.
+2025-01-06 14:55:48,932 - VIMMO - INFO - Pulling all records associated with Panel_ID: 100001
+2025-01-06 14:55:48,932 - VIMMO - INFO - Exact match for Panel_ID: 100001
+2025-01-06 14:55:48,964 - VIMMO - INFO - The run was successful for Panel_ID: 100001, and retrieved 2 records.
+2025-01-06 14:55:48,965 - VIMMO - INFO - Returning 2 records for Panel_ID: 100001.
+2025-01-06 14:55:48,965 - VIMMO - INFO - Successfully pulled panel data for Panel_ID: 100001.
+2025-01-06 14:55:48,965 - VIMMO - INFO - Pulling the gene list associated with Panel_ID: None, R_code: R999.01.
+2025-01-06 14:55:48,966 - VIMMO - INFO - Pulling all records associated with R_code: R999.01.
+2025-01-06 14:55:49,071 - VIMMO - INFO - Query ran successfully for R_code: R999.01, and retrieved 2 records.
+2025-01-06 14:55:49,071 - VIMMO - INFO - Returning 2 records for R_code: R999.01.
+2025-01-06 14:55:49,071 - VIMMO - INFO - Successfully pulled panel data for R_code: R999.01.
+2025-01-06 14:55:49,075 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:49,075 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:49,076 - VIMMO - INFO - Pulling the gene_symbol called with IDs to replace: ['HGNC:123456789', 'HGNC:987654321'].
+2025-01-06 14:55:49,080 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:49,080 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:49,082 - VIMMO - INFO - Pulling all records associated with Panel_ID: 100001
+2025-01-06 14:55:49,082 - VIMMO - INFO - Exact match for Panel_ID: 100001
+2025-01-06 14:55:49,124 - VIMMO - INFO - The run was successful for Panel_ID: 100001, and retrieved 2 records.
+2025-01-06 14:55:49,124 - VIMMO - INFO - Returning 2 records for Panel_ID: 100001.
+2025-01-06 14:55:49,128 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:49,131 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:49,133 - VIMMO - INFO - Pulling all records associated with R_code: R999.01.
+2025-01-06 14:55:49,227 - VIMMO - INFO - Query ran successfully for R_code: R999.01, and retrieved 2 records.
+2025-01-06 14:55:49,228 - VIMMO - INFO - Returning 2 records for R_code: R999.01.
+2025-01-06 14:55:49,231 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:49,232 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:49,233 - VIMMO - INFO - Pulling all records associated with HGNC_ID: ['HGNC:123456789'].
+2025-01-06 14:55:49,233 - VIMMO - INFO - Exact match for HGNC_ID: ['HGNC:123456789']
+2025-01-06 14:55:49,239 - VIMMO - INFO - Query ran successfully for HGNC_ID: ['HGNC:123456789'], and retrieved 2 records.
+2025-01-06 14:55:49,239 - VIMMO - INFO - Returning 2 records for HGNC_ID: ['HGNC:123456789'].
+2025-01-06 14:55:49,239 - VIMMO - INFO - Pulling all records associated with HGNC_ID: ['HGNC:123456789', 'HGNC:987654321'].
+2025-01-06 14:55:49,239 - VIMMO - INFO - Exact match for HGNC_ID: ['HGNC:123456789', 'HGNC:987654321']
+2025-01-06 14:55:49,258 - VIMMO - INFO - Query ran successfully for HGNC_ID: ['HGNC:123456789', 'HGNC:987654321'], and retrieved 3 records.
+2025-01-06 14:55:49,259 - VIMMO - INFO - Returning 3 records for HGNC_ID: ['HGNC:123456789', 'HGNC:987654321'].
+2025-01-06 14:55:49,262 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:49,263 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:49,267 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:55:49,267 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:55:49,277 - VIMMO - INFO - Created Dataframe with 1 rows.
+2025-01-06 14:55:49,278 - VIMMO - INFO - DataFrame successfully written to the bedfile
+2025-01-06 14:55:49,280 - VIMMO - WARNING - No database records found
+2025-01-06 14:55:49,283 - VIMMO - WARNING - No database records found
+2025-01-06 14:55:49,288 - VIMMO - INFO - Created Dataframe with 2 rows.
+2025-01-06 14:55:49,301 - VIMMO - INFO - DataFrame successfully written to the bedfile
+2025-01-06 14:55:49,313 - VIMMO - WARNING - HTTP 404 error from PanelApp API: 404 Not Found
+2025-01-06 14:55:49,318 - VIMMO - WARNING - Unexpected error while accessing PanelApp API: Network error
+2025-01-06 14:55:49,333 - VIMMO - INFO - requesting data from endpoint: https://panelapp.genomicsengland.co.uk/api/v1/panels/635/?version=2.5
+2025-01-06 14:55:49,334 - VIMMO - INFO - Successfully fetched data for panel_id: 635, version: 2.5
+2025-01-06 14:55:49,340 - VIMMO - INFO - requesting data from endpoint: https://panelapp.genomicsengland.co.uk/api/v1/panels/635/?version=2.5
+2025-01-06 14:55:49,340 - VIMMO - WARNING - HTTP 404 error from PanelApp API: 404 Not Found
+2025-01-06 14:55:49,341 - VIMMO - ERROR - Failed to fetch data for panel_id: 635, version: 2.5. PanelApp API returned HTTP 404: 404 Not Found
+2025-01-06 14:55:49,350 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 635
+2025-01-06 14:55:49,352 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 635
+2025-01-06 14:55:49,352 - VIMMO - INFO - Extracted version: 2.5 for panel_id: 635
+2025-01-06 14:55:49,358 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 635
+2025-01-06 14:55:49,360 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 635
+2025-01-06 14:55:49,361 - VIMMO - WARNING - Invalid or missing version key in response for panel_id: 635
+2025-01-06 14:55:49,415 - VIMMO - ERROR - Failed to connect to test_url. Please check your internet connection and try again.
+2025-01-06 14:55:49,418 - VIMMO - WARNING - Failed to get data from VarVal API with status code:404
+2025-01-06 14:55:49,422 - VIMMO - INFO - Successfully pulled data from URL: test_url
+2025-01-06 14:55:49,428 - VIMMO - INFO - sorted key: 1, 1000, 2000
+2025-01-06 14:55:49,429 - VIMMO - INFO - sorted key: 23, 500, 1500
+2025-01-06 14:55:49,430 - VIMMO - INFO - sorted key: 2, 750, 1750
+2025-01-06 14:55:49,433 - VIMMO - INFO - sorted key: inf, 500, 1500
+2025-01-06 14:55:49,434 - VIMMO - INFO - sorted key: inf, 300, 400
+2025-01-06 14:55:49,435 - VIMMO - INFO - sorted key: inf, 1, inf
+2025-01-06 14:55:49,439 - VIMMO - INFO - Pulling gene data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/BRCA2/mane_select/all/GRCh38.
+2025-01-06 14:55:49,440 - VIMMO - WARNING - Failed to get data from VarVal API with status code:500
+2025-01-06 14:55:49,448 - VIMMO - INFO - Pulling gene data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/BRCA1/mane_select/all/GRCh38.
+2025-01-06 14:55:49,449 - VIMMO - INFO - Successfully pulled data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/BRCA1/mane_select/all/GRCh38
+2025-01-06 14:55:49,450 - VIMMO - INFO - Pulling gene data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/HGNC%3A1100/mane_select/all/GRCh38.
+2025-01-06 14:55:49,451 - VIMMO - INFO - Successfully pulled data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/HGNC%3A1100/mane_select/all/GRCh38
+2025-01-06 14:55:49,465 - VIMMO - INFO - Loaded problematic gene list successfully.
+2025-01-06 14:55:49,466 - VIMMO - INFO - IDs to replace identified: ['HGNC:12345678']
+2025-01-06 14:55:49,467 - VIMMO - INFO - HGNC_symbols retrieved for ID replacement: {'HGNC:12345678': 'TEST_symbol'}
+2025-01-06 14:55:49,467 - VIMMO - INFO - Gene query output: {'HGNC:456', 'TEST_symbol'}
+2025-01-06 14:55:49,497 - VIMMO - INFO - Loaded problematic gene list successfully.
+2025-01-06 14:55:49,497 - VIMMO - INFO - IDs to replace identified: []
+2025-01-06 14:55:49,498 - VIMMO - INFO - No IDs to replace found.
+2025-01-06 14:55:49,498 - VIMMO - INFO - Gene query output: {'TRAC'}
+2025-01-06 14:55:49,498 - VIMMO - INFO - Pulling gene data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/TRAC/mane_select/all/GRCh38.
+2025-01-06 14:55:49,498 - VIMMO - INFO - Successfully pulled data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/TRAC/mane_select/all/GRCh38
+2025-01-06 14:55:49,499 - VIMMO - INFO - var val params: [{'error': 'Unable to retrieve data from the VVTA, please contact admin', 'requested_symbol': 'TRAC'}]
+2025-01-06 14:55:49,499 - VIMMO - INFO - Gene: {'error': 'Unable to retrieve data from the VVTA, please contact admin', 'requested_symbol': 'TRAC'}
+2025-01-06 14:55:49,499 - VIMMO - INFO - Converting parsed data into DataFrame.
+2025-01-06 14:55:49,501 - VIMMO - INFO - Sorting the DataFrame.
+2025-01-06 14:55:49,507 - VIMMO - INFO - Writing the DataFrame to BED file format.
+2025-01-06 14:55:49,511 - VIMMO - INFO - BED file generation completed successfully.
+2025-01-06 14:55:49,528 - VIMMO - INFO - Loaded problematic gene list successfully.
+2025-01-06 14:55:49,529 - VIMMO - INFO - IDs to replace identified: []
+2025-01-06 14:55:49,529 - VIMMO - INFO - No IDs to replace found.
+2025-01-06 14:55:49,531 - VIMMO - INFO - Gene query output: {'TEST'}
+2025-01-06 14:55:49,531 - VIMMO - INFO - Pulling gene data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/TEST/mane_select/all/GRCh38.
+2025-01-06 14:55:49,531 - VIMMO - INFO - Successfully pulled data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/TEST/mane_select/all/GRCh38
+2025-01-06 14:55:49,532 - VIMMO - INFO - var val params: [{'current_symbol': 'TEST', 'transcripts': [{'annotations': {'chromosome': '1'}, 'reference': 'NM_TEST', 'genomic_spans': {}}]}]
+2025-01-06 14:55:49,533 - VIMMO - INFO - Gene: {'current_symbol': 'TEST', 'transcripts': [{'annotations': {'chromosome': '1'}, 'reference': 'NM_TEST', 'genomic_spans': {}}]}
+2025-01-06 14:55:49,533 - VIMMO - INFO - Converting parsed data into DataFrame.
+2025-01-06 14:55:49,535 - VIMMO - INFO - Sorting the DataFrame.
+2025-01-06 14:55:49,543 - VIMMO - INFO - Writing the DataFrame to BED file format.
+2025-01-06 14:55:49,547 - VIMMO - INFO - BED file generation completed successfully.
+2025-01-06 14:55:49,561 - VIMMO - INFO - Loaded problematic gene list successfully.
+2025-01-06 14:55:49,562 - VIMMO - INFO - IDs to replace identified: []
+2025-01-06 14:55:49,563 - VIMMO - INFO - No IDs to replace found.
+2025-01-06 14:55:49,563 - VIMMO - INFO - Gene query output: {'BRCA1'}
+2025-01-06 14:55:49,564 - VIMMO - INFO - Pulling gene data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/BRCA1/mane_select/all/GRCh38.
+2025-01-06 14:55:49,564 - VIMMO - INFO - Successfully pulled data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/BRCA1/mane_select/all/GRCh38
+2025-01-06 14:55:49,566 - VIMMO - INFO - var val params: [{'current_symbol': 'BRCA1', 'requested_symbol': 'BRCA1', 'transcripts': []}]
+2025-01-06 14:55:49,567 - VIMMO - INFO - Gene: {'current_symbol': 'BRCA1', 'requested_symbol': 'BRCA1', 'transcripts': []}
+2025-01-06 14:55:49,569 - VIMMO - INFO - Converting parsed data into DataFrame.
+2025-01-06 14:55:49,571 - VIMMO - INFO - Sorting the DataFrame.
+2025-01-06 14:55:49,577 - VIMMO - INFO - Writing the DataFrame to BED file format.
+2025-01-06 14:55:49,581 - VIMMO - INFO - BED file generation completed successfully.
+2025-01-06 14:55:49,596 - VIMMO - INFO - Loaded problematic gene list successfully.
+2025-01-06 14:55:49,597 - VIMMO - INFO - IDs to replace identified: []
+2025-01-06 14:55:49,597 - VIMMO - INFO - No IDs to replace found.
+2025-01-06 14:55:49,597 - VIMMO - INFO - Gene query output: {'HGNC:1100'}
+2025-01-06 14:55:49,598 - VIMMO - INFO - Pulling gene data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/HGNC%3A1100/mane_select/all/GRCh38.
+2025-01-06 14:55:49,598 - VIMMO - INFO - Successfully pulled data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/HGNC%3A1100/mane_select/all/GRCh38
+2025-01-06 14:55:49,599 - VIMMO - INFO - var val params: [{'current_symbol': 'BRCA1', 'transcripts': [{'reference': 'NM_007294.4', 'annotations': {'chromosome': '17'}, 'genomic_spans': {'NC_000017.11': {'orientation': -1, 'exon_structure': [{'exon_number': 1, 'genomic_start': 43125271, 'genomic_end': 43125364}, {'exon_number': 2, 'genomic_start': 43124017, 'genomic_end': 43124115}]}}}, {'reference': 'ENST00000357654.9', 'annotations': {'chromosome': '17'}, 'genomic_spans': {'NC_000017.11': {'orientation': -1, 'exon_structure': [{'exon_number': 1, 'genomic_start': 43125271, 'genomic_end': 43125364}, {'exon_number': 2, 'genomic_start': 43124017, 'genomic_end': 43124115}]}}}]}]
+2025-01-06 14:55:49,599 - VIMMO - INFO - Gene: {'current_symbol': 'BRCA1', 'transcripts': [{'reference': 'NM_007294.4', 'annotations': {'chromosome': '17'}, 'genomic_spans': {'NC_000017.11': {'orientation': -1, 'exon_structure': [{'exon_number': 1, 'genomic_start': 43125271, 'genomic_end': 43125364}, {'exon_number': 2, 'genomic_start': 43124017, 'genomic_end': 43124115}]}}}, {'reference': 'ENST00000357654.9', 'annotations': {'chromosome': '17'}, 'genomic_spans': {'NC_000017.11': {'orientation': -1, 'exon_structure': [{'exon_number': 1, 'genomic_start': 43125271, 'genomic_end': 43125364}, {'exon_number': 2, 'genomic_start': 43124017, 'genomic_end': 43124115}]}}}]}
+2025-01-06 14:55:49,599 - VIMMO - INFO - Converting parsed data into DataFrame.
+2025-01-06 14:55:49,603 - VIMMO - INFO - Sorting the DataFrame.
+2025-01-06 14:55:49,604 - VIMMO - INFO - sorted key: 17, 43125271, 43125364
+2025-01-06 14:55:49,605 - VIMMO - INFO - sorted key: 17, 43124017, 43124115
+2025-01-06 14:55:49,606 - VIMMO - INFO - sorted key: 17, 43125271, 43125364
+2025-01-06 14:55:49,606 - VIMMO - INFO - sorted key: 17, 43124017, 43124115
+2025-01-06 14:55:49,611 - VIMMO - INFO - Writing the DataFrame to BED file format.
+2025-01-06 14:55:49,615 - VIMMO - INFO - BED file generation completed successfully.
+2025-01-06 14:55:57,262 - VIMMO - INFO - Module Import: Success
+2025-01-06 14:55:58,768 - VIMMO - INFO - Module Import: Success
+2025-01-06 14:56:12,662 - VIMMO - INFO - Module Import: Success
+2025-01-06 14:56:14,153 - VIMMO - INFO - Module Import: Success
+2025-01-06 14:56:39,747 - VIMMO - INFO - Module Import: Success
+2025-01-06 14:56:39,788 - VIMMO - INFO - validator recieved: {'Panel_ID': '123', 'Rcode': None, 'HGNC_ID': None, 'Similar_Matches': False, 'genome_build': 'GRCh38', 'transcript_set': 'all', 'limit_transcripts': 'mane_select', 'Padding': None},False,True
+2025-01-06 14:56:39,788 - VIMMO - INFO - Validation for bed space
+2025-01-06 14:56:39,789 - VIMMO - INFO - Format Validation Success
+2025-01-06 14:56:39,789 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:56:39,789 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:56:39,791 - VIMMO - INFO - DB connection made from download endpoint
+2025-01-06 14:56:40,940 - VIMMO - INFO - validator recieved: {'Panel_ID': None, 'Rcode': 'R208', 'HGNC_ID': None, 'Similar_Matches': False, 'genome_build': 'GRCh38', 'transcript_set': 'all', 'limit_transcripts': 'mane_select', 'Padding': None},False,True
+2025-01-06 14:56:40,942 - VIMMO - INFO - Validation for bed space
+2025-01-06 14:56:40,943 - VIMMO - INFO - Format Validation Success
+2025-01-06 14:56:40,943 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:56:40,944 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:56:40,945 - VIMMO - INFO - DB connection made from download endpoint
+2025-01-06 14:56:42,016 - VIMMO - INFO - validator recieved: {'Panel_ID': None, 'Rcode': None, 'HGNC_ID': ['HGNC:1100'], 'Similar_Matches': False, 'genome_build': 'GRCh38', 'transcript_set': 'refseq', 'limit_transcripts': 'mane_select', 'Padding': None},False,True
+2025-01-06 14:56:42,016 - VIMMO - INFO - Validation for bed space
+2025-01-06 14:56:42,016 - VIMMO - INFO - Validated HGNC_ID: HGNC:1100
+2025-01-06 14:56:42,017 - VIMMO - INFO - Format Validation Success
+2025-01-06 14:56:42,017 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:56:42,017 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:56:42,018 - VIMMO - INFO - DB connection made from download endpoint
+2025-01-06 14:56:42,018 - VIMMO - INFO - Gene HGNC List for creating a bed file: ['HGNC:1100']
+2025-01-06 14:56:42,018 - VIMMO - INFO - Variant Validator Client is instantiated in Panel Download space
+2025-01-06 14:56:42,018 - VIMMO - INFO - var_val_client.parse_to_bed(gene_query=['HGNC:1100'],genome_build=GRCh38,transcript_set=refseq,limit_transcripts=mane_select)
+2025-01-06 14:56:42,023 - VIMMO - INFO - Loaded problematic gene list successfully.
+2025-01-06 14:56:42,023 - VIMMO - INFO - IDs to replace identified: []
+2025-01-06 14:56:42,023 - VIMMO - INFO - No IDs to replace found.
+2025-01-06 14:56:42,023 - VIMMO - INFO - Gene query output: {'HGNC:1100'}
+2025-01-06 14:56:42,023 - VIMMO - INFO - Pulling gene data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/HGNC%3A1100/mane_select/refseq/GRCh38.
+2025-01-06 14:56:42,412 - VIMMO - INFO - Successfully pulled data from URL: https://rest.variantvalidator.org/VariantValidator/tools/gene2transcripts_v2/HGNC%3A1100/mane_select/refseq/GRCh38
+2025-01-06 14:56:42,414 - VIMMO - INFO - var val params: [{'current_name': 'BRCA1 DNA repair associated', 'current_symbol': 'BRCA1', 'hgnc': 'HGNC:1100', 'previous_symbol': '', 'requested_symbol': 'BRCA1', 'transcripts': [{'annotations': {'chromosome': '17', 'db_xref': {'CCDS': 'CCDS11453.1', 'ensemblgene': None, 'hgnc': 'HGNC:1100', 'ncbigene': '672', 'select': 'MANE'}, 'ensembl_select': False, 'mane_plus_clinical': False, 'mane_select': True, 'map': '17q21.31', 'note': 'BRCA1 DNA repair associated', 'refseq_select': True, 'variant': '1'}, 'coding_end': 5705, 'coding_start': 114, 'description': 'Homo sapiens BRCA1 DNA repair associated (BRCA1), transcript variant 1, mRNA', 'genomic_spans': {'NC_000017.11': {'end_position': 43125364, 'exon_structure': [{'cigar': '94=', 'exon_number': 1, 'genomic_end': 43125364, 'genomic_start': 43125271, 'transcript_end': 94, 'transcript_start': 1}, {'cigar': '99=', 'exon_number': 2, 'genomic_end': 43124115, 'genomic_start': 43124017, 'transcript_end': 193, 'transcript_start': 95}, {'cigar': '54=', 'exon_number': 3, 'genomic_end': 43115779, 'genomic_start': 43115726, 'transcript_end': 247, 'transcript_start': 194}, {'cigar': '78=', 'exon_number': 4, 'genomic_end': 43106533, 'genomic_start': 43106456, 'transcript_end': 325, 'transcript_start': 248}, {'cigar': '89=', 'exon_number': 5, 'genomic_end': 43104956, 'genomic_start': 43104868, 'transcript_end': 414, 'transcript_start': 326}, {'cigar': '140=', 'exon_number': 6, 'genomic_end': 43104261, 'genomic_start': 43104122, 'transcript_end': 554, 'transcript_start': 415}, {'cigar': '106=', 'exon_number': 7, 'genomic_end': 43099880, 'genomic_start': 43099775, 'transcript_end': 660, 'transcript_start': 555}, {'cigar': '46=', 'exon_number': 8, 'genomic_end': 43097289, 'genomic_start': 43097244, 'transcript_end': 706, 'transcript_start': 661}, {'cigar': '77=', 'exon_number': 9, 'genomic_end': 43095922, 'genomic_start': 43095846, 'transcript_end': 783, 'transcript_start': 707}, {'cigar': '3426=', 'exon_number': 10, 'genomic_end': 43094860, 'genomic_start': 43091435, 'transcript_end': 4209, 'transcript_start': 784}, {'cigar': '89=', 'exon_number': 11, 'genomic_end': 43091032, 'genomic_start': 43090944, 'transcript_end': 4298, 'transcript_start': 4210}, {'cigar': '172=', 'exon_number': 12, 'genomic_end': 43082575, 'genomic_start': 43082404, 'transcript_end': 4470, 'transcript_start': 4299}, {'cigar': '127=', 'exon_number': 13, 'genomic_end': 43076614, 'genomic_start': 43076488, 'transcript_end': 4597, 'transcript_start': 4471}, {'cigar': '191=', 'exon_number': 14, 'genomic_end': 43074521, 'genomic_start': 43074331, 'transcript_end': 4788, 'transcript_start': 4598}, {'cigar': '311=', 'exon_number': 15, 'genomic_end': 43071238, 'genomic_start': 43070928, 'transcript_end': 5099, 'transcript_start': 4789}, {'cigar': '88=', 'exon_number': 16, 'genomic_end': 43067695, 'genomic_start': 43067608, 'transcript_end': 5187, 'transcript_start': 5100}, {'cigar': '78=', 'exon_number': 17, 'genomic_end': 43063951, 'genomic_start': 43063874, 'transcript_end': 5265, 'transcript_start': 5188}, {'cigar': '41=', 'exon_number': 18, 'genomic_end': 43063373, 'genomic_start': 43063333, 'transcript_end': 5306, 'transcript_start': 5266}, {'cigar': '84=', 'exon_number': 19, 'genomic_end': 43057135, 'genomic_start': 43057052, 'transcript_end': 5390, 'transcript_start': 5307}, {'cigar': '55=', 'exon_number': 20, 'genomic_end': 43051117, 'genomic_start': 43051063, 'transcript_end': 5445, 'transcript_start': 5391}, {'cigar': '74=', 'exon_number': 21, 'genomic_end': 43049194, 'genomic_start': 43049121, 'transcript_end': 5519, 'transcript_start': 5446}, {'cigar': '61=', 'exon_number': 22, 'genomic_end': 43047703, 'genomic_start': 43047643, 'transcript_end': 5580, 'transcript_start': 5520}, {'cigar': '1508=', 'exon_number': 23, 'genomic_end': 43045802, 'genomic_start': 43044295, 'transcript_end': 7088, 'transcript_start': 5581}], 'orientation': -1, 'start_position': 43044295, 'total_exons': 23}}, 'length': 7088, 'reference': 'NM_007294.4', 'translation': 'NP_009225.1'}]}]
+2025-01-06 14:56:42,415 - VIMMO - INFO - Gene: {'current_name': 'BRCA1 DNA repair associated', 'current_symbol': 'BRCA1', 'hgnc': 'HGNC:1100', 'previous_symbol': '', 'requested_symbol': 'BRCA1', 'transcripts': [{'annotations': {'chromosome': '17', 'db_xref': {'CCDS': 'CCDS11453.1', 'ensemblgene': None, 'hgnc': 'HGNC:1100', 'ncbigene': '672', 'select': 'MANE'}, 'ensembl_select': False, 'mane_plus_clinical': False, 'mane_select': True, 'map': '17q21.31', 'note': 'BRCA1 DNA repair associated', 'refseq_select': True, 'variant': '1'}, 'coding_end': 5705, 'coding_start': 114, 'description': 'Homo sapiens BRCA1 DNA repair associated (BRCA1), transcript variant 1, mRNA', 'genomic_spans': {'NC_000017.11': {'end_position': 43125364, 'exon_structure': [{'cigar': '94=', 'exon_number': 1, 'genomic_end': 43125364, 'genomic_start': 43125271, 'transcript_end': 94, 'transcript_start': 1}, {'cigar': '99=', 'exon_number': 2, 'genomic_end': 43124115, 'genomic_start': 43124017, 'transcript_end': 193, 'transcript_start': 95}, {'cigar': '54=', 'exon_number': 3, 'genomic_end': 43115779, 'genomic_start': 43115726, 'transcript_end': 247, 'transcript_start': 194}, {'cigar': '78=', 'exon_number': 4, 'genomic_end': 43106533, 'genomic_start': 43106456, 'transcript_end': 325, 'transcript_start': 248}, {'cigar': '89=', 'exon_number': 5, 'genomic_end': 43104956, 'genomic_start': 43104868, 'transcript_end': 414, 'transcript_start': 326}, {'cigar': '140=', 'exon_number': 6, 'genomic_end': 43104261, 'genomic_start': 43104122, 'transcript_end': 554, 'transcript_start': 415}, {'cigar': '106=', 'exon_number': 7, 'genomic_end': 43099880, 'genomic_start': 43099775, 'transcript_end': 660, 'transcript_start': 555}, {'cigar': '46=', 'exon_number': 8, 'genomic_end': 43097289, 'genomic_start': 43097244, 'transcript_end': 706, 'transcript_start': 661}, {'cigar': '77=', 'exon_number': 9, 'genomic_end': 43095922, 'genomic_start': 43095846, 'transcript_end': 783, 'transcript_start': 707}, {'cigar': '3426=', 'exon_number': 10, 'genomic_end': 43094860, 'genomic_start': 43091435, 'transcript_end': 4209, 'transcript_start': 784}, {'cigar': '89=', 'exon_number': 11, 'genomic_end': 43091032, 'genomic_start': 43090944, 'transcript_end': 4298, 'transcript_start': 4210}, {'cigar': '172=', 'exon_number': 12, 'genomic_end': 43082575, 'genomic_start': 43082404, 'transcript_end': 4470, 'transcript_start': 4299}, {'cigar': '127=', 'exon_number': 13, 'genomic_end': 43076614, 'genomic_start': 43076488, 'transcript_end': 4597, 'transcript_start': 4471}, {'cigar': '191=', 'exon_number': 14, 'genomic_end': 43074521, 'genomic_start': 43074331, 'transcript_end': 4788, 'transcript_start': 4598}, {'cigar': '311=', 'exon_number': 15, 'genomic_end': 43071238, 'genomic_start': 43070928, 'transcript_end': 5099, 'transcript_start': 4789}, {'cigar': '88=', 'exon_number': 16, 'genomic_end': 43067695, 'genomic_start': 43067608, 'transcript_end': 5187, 'transcript_start': 5100}, {'cigar': '78=', 'exon_number': 17, 'genomic_end': 43063951, 'genomic_start': 43063874, 'transcript_end': 5265, 'transcript_start': 5188}, {'cigar': '41=', 'exon_number': 18, 'genomic_end': 43063373, 'genomic_start': 43063333, 'transcript_end': 5306, 'transcript_start': 5266}, {'cigar': '84=', 'exon_number': 19, 'genomic_end': 43057135, 'genomic_start': 43057052, 'transcript_end': 5390, 'transcript_start': 5307}, {'cigar': '55=', 'exon_number': 20, 'genomic_end': 43051117, 'genomic_start': 43051063, 'transcript_end': 5445, 'transcript_start': 5391}, {'cigar': '74=', 'exon_number': 21, 'genomic_end': 43049194, 'genomic_start': 43049121, 'transcript_end': 5519, 'transcript_start': 5446}, {'cigar': '61=', 'exon_number': 22, 'genomic_end': 43047703, 'genomic_start': 43047643, 'transcript_end': 5580, 'transcript_start': 5520}, {'cigar': '1508=', 'exon_number': 23, 'genomic_end': 43045802, 'genomic_start': 43044295, 'transcript_end': 7088, 'transcript_start': 5581}], 'orientation': -1, 'start_position': 43044295, 'total_exons': 23}}, 'length': 7088, 'reference': 'NM_007294.4', 'translation': 'NP_009225.1'}]}
+2025-01-06 14:56:42,415 - VIMMO - INFO - Converting parsed data into DataFrame.
+2025-01-06 14:56:42,418 - VIMMO - INFO - Sorting the DataFrame.
+2025-01-06 14:56:42,420 - VIMMO - INFO - sorted key: 17, 43125271, 43125364
+2025-01-06 14:56:42,421 - VIMMO - INFO - sorted key: 17, 43124017, 43124115
+2025-01-06 14:56:42,421 - VIMMO - INFO - sorted key: 17, 43115726, 43115779
+2025-01-06 14:56:42,421 - VIMMO - INFO - sorted key: 17, 43106456, 43106533
+2025-01-06 14:56:42,421 - VIMMO - INFO - sorted key: 17, 43104868, 43104956
+2025-01-06 14:56:42,421 - VIMMO - INFO - sorted key: 17, 43104122, 43104261
+2025-01-06 14:56:42,421 - VIMMO - INFO - sorted key: 17, 43099775, 43099880
+2025-01-06 14:56:42,422 - VIMMO - INFO - sorted key: 17, 43097244, 43097289
+2025-01-06 14:56:42,422 - VIMMO - INFO - sorted key: 17, 43095846, 43095922
+2025-01-06 14:56:42,423 - VIMMO - INFO - sorted key: 17, 43091435, 43094860
+2025-01-06 14:56:42,424 - VIMMO - INFO - sorted key: 17, 43090944, 43091032
+2025-01-06 14:56:42,424 - VIMMO - INFO - sorted key: 17, 43082404, 43082575
+2025-01-06 14:56:42,424 - VIMMO - INFO - sorted key: 17, 43076488, 43076614
+2025-01-06 14:56:42,425 - VIMMO - INFO - sorted key: 17, 43074331, 43074521
+2025-01-06 14:56:42,425 - VIMMO - INFO - sorted key: 17, 43070928, 43071238
+2025-01-06 14:56:42,425 - VIMMO - INFO - sorted key: 17, 43067608, 43067695
+2025-01-06 14:56:42,426 - VIMMO - INFO - sorted key: 17, 43063874, 43063951
+2025-01-06 14:56:42,426 - VIMMO - INFO - sorted key: 17, 43063333, 43063373
+2025-01-06 14:56:42,426 - VIMMO - INFO - sorted key: 17, 43057052, 43057135
+2025-01-06 14:56:42,427 - VIMMO - INFO - sorted key: 17, 43051063, 43051117
+2025-01-06 14:56:42,427 - VIMMO - INFO - sorted key: 17, 43049121, 43049194
+2025-01-06 14:56:42,427 - VIMMO - INFO - sorted key: 17, 43047643, 43047703
+2025-01-06 14:56:42,427 - VIMMO - INFO - sorted key: 17, 43044295, 43045802
+2025-01-06 14:56:42,433 - VIMMO - INFO - Writing the DataFrame to BED file format.
+2025-01-06 14:56:42,444 - VIMMO - INFO - BED file generation completed successfully.
+2025-01-06 14:56:42,445 - VIMMO - INFO - Bed file generated with Genes_GRCh38_mane_select.bed
+2025-01-06 14:56:47,498 - VIMMO - INFO - validator recieved: {'Panel_ID': '123', 'Rcode': None, 'HGNC_ID': None, 'Similar_Matches': False},True,False
+2025-01-06 14:56:47,498 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:56:47,499 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:56:47,499 - VIMMO - INFO - Format Validation Success
+2025-01-06 14:56:47,499 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:56:47,499 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:56:47,500 - VIMMO - INFO - DB connection made from panel endpoint
+2025-01-06 14:56:48,542 - VIMMO - INFO - validator recieved: {'Panel_ID': None, 'Rcode': 'R123', 'HGNC_ID': None, 'Similar_Matches': False},True,False
+2025-01-06 14:56:48,542 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:56:48,543 - VIMMO - INFO - Format Validation Success
+2025-01-06 14:56:48,543 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:56:48,544 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:56:48,544 - VIMMO - INFO - DB connection made from panel endpoint
+2025-01-06 14:56:49,582 - VIMMO - INFO - validator recieved: {'Panel_ID': None, 'Rcode': None, 'HGNC_ID': ['HGNC:12345'], 'Similar_Matches': False},True,False
+2025-01-06 14:56:49,583 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:56:49,583 - VIMMO - INFO - Validating HGNC_ID
+2025-01-06 14:56:49,583 - VIMMO - INFO - Validated HGNC_ID: HGNC:12345
+2025-01-06 14:56:49,583 - VIMMO - INFO - Validation for HGNC_ID: ['HGNC:12345'] successful
+2025-01-06 14:56:49,583 - VIMMO - INFO - Format Validation Success
+2025-01-06 14:56:49,583 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:56:49,584 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:56:49,584 - VIMMO - INFO - DB connection made from panel endpoint
+2025-01-06 14:56:49,585 - VIMMO - INFO - Pulling all records associated with HGNC_ID: ['HGNC:12345'].
+2025-01-06 14:56:49,585 - VIMMO - INFO - Exact match for HGNC_ID: ['HGNC:12345']
+2025-01-06 14:56:49,599 - VIMMO - INFO - Query ran successfully for HGNC_ID: ['HGNC:12345'], and retrieved 0 records.
+2025-01-06 14:56:49,600 - VIMMO - WARNING - No matches found for HGNC_ID: ['HGNC:12345'].
+2025-01-06 14:56:50,611 - VIMMO - INFO - validator recieved: {'Panel_ID': '123', 'Rcode': 'R456', 'HGNC_ID': None, 'Similar_Matches': False},True,False
+2025-01-06 14:56:50,611 - VIMMO - ERROR - Provide only one of 'Panel_ID', 'Rcode', or 'HGNC_ID', not multiple.
+2025-01-06 14:56:50,611 - VIMMO - ERROR - error: Provide only one of 'Panel_ID', 'Rcode', or 'HGNC_ID', not multiple.
+2025-01-06 14:56:51,620 - VIMMO - INFO - validator recieved: {'Panel_ID': None, 'Rcode': None, 'HGNC_ID': None, 'Similar_Matches': False},True,False
+2025-01-06 14:56:51,620 - VIMMO - ERROR - At least one of 'Panel_ID', 'Rcode', or 'HGNC_ID' must be provided.
+2025-01-06 14:56:51,621 - VIMMO - ERROR - error: At least one of 'Panel_ID', 'Rcode', or 'HGNC_ID' must be provided.
+2025-01-06 14:56:52,633 - VIMMO - INFO - validator recieved: {'Panel_ID': '123', 'Rcode': None, 'HGNC_ID': None, 'Similar_Matches': True},True,False
+2025-01-06 14:56:52,633 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:56:52,633 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:56:52,633 - VIMMO - INFO - Format Validation Success
+2025-01-06 14:56:52,633 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:56:52,634 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:56:52,634 - VIMMO - INFO - DB connection made from panel endpoint
+2025-01-06 14:56:53,688 - VIMMO - INFO - validator recieved: {'Panel_ID': '9999999', 'Rcode': None, 'HGNC_ID': None, 'Similar_Matches': False},True,False
+2025-01-06 14:56:53,688 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:56:53,689 - VIMMO - INFO - Valid Panel_ID: 9999999
+2025-01-06 14:56:53,689 - VIMMO - INFO - Format Validation Success
+2025-01-06 14:56:53,689 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:56:53,689 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:56:53,689 - VIMMO - INFO - DB connection made from panel endpoint
+2025-01-06 14:56:54,730 - VIMMO - INFO - validator recieved: {'Panel_ID': '123', 'Rcode': None, 'HGNC_ID': None, 'Similar_Matches': True},True,False
+2025-01-06 14:56:54,731 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:56:54,731 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:56:54,731 - VIMMO - INFO - Format Validation Success
+2025-01-06 14:56:54,731 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:56:54,731 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:56:54,732 - VIMMO - INFO - DB connection made from panel endpoint
+2025-01-06 14:56:55,775 - VIMMO - INFO - validator recieved: {'Panel_ID': None, 'Rcode': 'R999999', 'HGNC_ID': None, 'Similar_Matches': False},True,False
+2025-01-06 14:56:55,775 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:56:55,775 - VIMMO - INFO - Format Validation Success
+2025-01-06 14:56:55,776 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:56:55,776 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:56:55,776 - VIMMO - INFO - DB connection made from panel endpoint
+2025-01-06 14:56:55,850 - VIMMO - INFO - validator recieved: {'Panel_ID': None, 'Rcode': 'R12', 'HGNC_ID': None, 'Similar_Matches': True},True,False
+2025-01-06 14:56:55,851 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:56:55,851 - VIMMO - INFO - Format Validation Success
+2025-01-06 14:56:55,851 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:56:55,852 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:56:55,852 - VIMMO - INFO - DB connection made from panel endpoint
+2025-01-06 14:56:56,900 - VIMMO - INFO - validator recieved: {'Panel_ID': None, 'Rcode': None, 'HGNC_ID': ['HGNC:12345', 'HGNC:67890'], 'Similar_Matches': False},True,False
+2025-01-06 14:56:56,901 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:56:56,901 - VIMMO - INFO - Validating HGNC_ID
+2025-01-06 14:56:56,901 - VIMMO - INFO - Validated HGNC_ID: HGNC:12345
+2025-01-06 14:56:56,901 - VIMMO - INFO - Validated HGNC_ID: HGNC:67890
+2025-01-06 14:56:56,901 - VIMMO - INFO - Validation for HGNC_ID: ['HGNC:12345', 'HGNC:67890'] successful
+2025-01-06 14:56:56,901 - VIMMO - INFO - Format Validation Success
+2025-01-06 14:56:56,901 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:56:56,901 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:56:56,902 - VIMMO - INFO - DB connection made from panel endpoint
+2025-01-06 14:56:56,902 - VIMMO - INFO - Pulling all records associated with HGNC_ID: ['HGNC:12345', 'HGNC:67890'].
+2025-01-06 14:56:56,902 - VIMMO - INFO - Exact match for HGNC_ID: ['HGNC:12345', 'HGNC:67890']
+2025-01-06 14:56:56,910 - VIMMO - INFO - Query ran successfully for HGNC_ID: ['HGNC:12345', 'HGNC:67890'], and retrieved 0 records.
+2025-01-06 14:56:56,911 - VIMMO - WARNING - No matches found for HGNC_ID: ['HGNC:12345', 'HGNC:67890'].
+2025-01-06 14:56:57,929 - VIMMO - INFO - validator recieved: {'Panel_ID': None, 'Rcode': None, 'HGNC_ID': ['HGNC:12345'], 'Similar_Matches': True},True,False
+2025-01-06 14:56:57,930 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:56:57,930 - VIMMO - INFO - Validating HGNC_ID
+2025-01-06 14:56:57,931 - VIMMO - INFO - Validated HGNC_ID: HGNC:12345
+2025-01-06 14:56:57,931 - VIMMO - INFO - Validation for HGNC_ID: ['HGNC:12345'] successful
+2025-01-06 14:56:57,931 - VIMMO - INFO - Format Validation Success
+2025-01-06 14:56:57,931 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:56:57,931 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:56:57,932 - VIMMO - INFO - DB connection made from panel endpoint
+2025-01-06 14:56:57,932 - VIMMO - INFO - Pulling all records associated with HGNC_ID: ['HGNC:12345'].
+2025-01-06 14:56:57,932 - VIMMO - WARNING - Wildcard matching for multiple HGNC_IDs not implemented
+2025-01-06 14:56:57,984 - VIMMO - INFO - validator recieved: {'Panel_ID': None, 'Rcode': None, 'HGNC_ID': ['HGNC_99999'], 'Similar_Matches': False},True,False
+2025-01-06 14:56:57,984 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:56:57,985 - VIMMO - INFO - Validating HGNC_ID
+2025-01-06 14:56:57,985 - VIMMO - ERROR - Invalid format for 'HGNC_ID': 'HGNC_99999' must start with 'HGNC:' followed by digits only.
+2025-01-06 14:56:57,985 - VIMMO - ERROR - error: Invalid format for 'HGNC_ID': 'HGNC_99999' must start with 'HGNC:' followed by digits only (e.g., 'HGNC:12345').
+2025-01-06 14:56:58,995 - VIMMO - INFO - validator recieved: {'Panel_ID': '123', 'Rcode': 'R208', 'HGNC_ID': ['HGNC:12345'], 'Similar_Matches': False},True,False
+2025-01-06 14:56:58,996 - VIMMO - ERROR - Provide only one of 'Panel_ID', 'Rcode', or 'HGNC_ID', not multiple.
+2025-01-06 14:56:58,996 - VIMMO - ERROR - error: Provide only one of 'Panel_ID', 'Rcode', or 'HGNC_ID', not multiple.
+2025-01-06 14:57:00,008 - VIMMO - INFO - validator recieved: {'Panel_ID': '12', 'Rcode': None, 'HGNC_ID': None, 'Similar_Matches': True},True,False
+2025-01-06 14:57:00,008 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:57:00,009 - VIMMO - INFO - Valid Panel_ID: 12
+2025-01-06 14:57:00,009 - VIMMO - INFO - Format Validation Success
+2025-01-06 14:57:00,009 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:57:00,009 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:57:00,010 - VIMMO - INFO - DB connection made from panel endpoint
+2025-01-06 14:57:01,068 - VIMMO - INFO - validator recieved: {'Panel_ID': '123', 'Rcode': None, 'HGNC_ID': None, 'Similar_Matches': False},True,False
+2025-01-06 14:57:01,068 - VIMMO - INFO - Validation for panel space
+2025-01-06 14:57:01,068 - VIMMO - INFO - Valid Panel_ID: 123
+2025-01-06 14:57:01,069 - VIMMO - INFO - Format Validation Success
+2025-01-06 14:57:01,069 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:57:01,069 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:57:01,070 - VIMMO - INFO - DB connection made from panel endpoint
+2025-01-06 14:57:01,120 - VIMMO - INFO - validator recieved: {'Panel_ID': '123', 'Rcode': None, 'HGNC_ID': None, 'Similar_Matches': False, 'genome_build': 'GRCh38', 'transcript_set': 'Gencode', 'limit_transcripts': 'all', 'Padding': None},False,True
+2025-01-06 14:57:01,121 - VIMMO - INFO - Validation for bed space
+2025-01-06 14:57:01,121 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:57:01,121 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:57:01,122 - VIMMO - INFO - DB connection made from local bed endpoint
+2025-01-06 14:57:01,178 - VIMMO - INFO - validator recieved: {'Panel_ID': None, 'Rcode': 'R208', 'HGNC_ID': None, 'Similar_Matches': False, 'genome_build': 'GRCh38', 'transcript_set': 'Gencode', 'limit_transcripts': 'all', 'Padding': None},False,True
+2025-01-06 14:57:01,178 - VIMMO - INFO - Validation for bed space
+2025-01-06 14:57:01,179 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:57:01,179 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:57:01,179 - VIMMO - INFO - DB connection made from local bed endpoint
+2025-01-06 14:57:01,215 - VIMMO - INFO - validator recieved: {'Panel_ID': None, 'Rcode': None, 'HGNC_ID': ['HGNC:1100'], 'Similar_Matches': False, 'genome_build': 'GRCh38', 'transcript_set': 'Gencode', 'limit_transcripts': 'all', 'Padding': None},False,True
+2025-01-06 14:57:01,215 - VIMMO - INFO - Validation for bed space
+2025-01-06 14:57:01,215 - VIMMO - INFO - Validated HGNC_ID: HGNC:1100
+2025-01-06 14:57:01,216 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:57:01,216 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:57:01,217 - VIMMO - INFO - DB connection made from local bed endpoint
+2025-01-06 14:57:01,217 - VIMMO - INFO - Gene HGNC List for creating a bed file: ['HGNC:1100']
+2025-01-06 14:57:01,235 - VIMMO - INFO - Local bed searched: ['HGNC:1100'], GRCh38
+2025-01-06 14:57:01,242 - VIMMO - INFO - Created Dataframe with 23 rows.
+2025-01-06 14:57:01,252 - VIMMO - INFO - DataFrame successfully written to the bedfile
+2025-01-06 14:57:01,254 - VIMMO - INFO - Bed file generated with Genes_GRCh38_Gencode.bed
+2025-01-06 14:57:01,265 - VIMMO - INFO - validator recieved: {'Panel_ID': None, 'Rcode': None, 'HGNC_ID': ['HGNC:11111', 'HGNC:22222'], 'Similar_Matches': False, 'genome_build': 'GRCh37', 'transcript_set': 'Gencode', 'limit_transcripts': 'all', 'Padding': None},False,True
+2025-01-06 14:57:01,265 - VIMMO - INFO - Validation for bed space
+2025-01-06 14:57:01,266 - VIMMO - INFO - Validated HGNC_ID: HGNC:11111
+2025-01-06 14:57:01,266 - VIMMO - INFO - Validated HGNC_ID: HGNC:22222
+2025-01-06 14:57:01,266 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:57:01,266 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:57:01,267 - VIMMO - INFO - DB connection made from local bed endpoint
+2025-01-06 14:57:01,267 - VIMMO - INFO - Gene HGNC List for creating a bed file: ['HGNC:11111', 'HGNC:22222']
+2025-01-06 14:57:01,299 - VIMMO - INFO - Local bed searched: ['HGNC:11111', 'HGNC:22222'], GRCh37
+2025-01-06 14:57:01,303 - VIMMO - INFO - Created Dataframe with 25 rows.
+2025-01-06 14:57:01,305 - VIMMO - INFO - DataFrame successfully written to the bedfile
+2025-01-06 14:57:01,306 - VIMMO - INFO - Bed file generated with Genes_GRCh37_Gencode.bed
+2025-01-06 14:57:01,322 - VIMMO - INFO - validator recieved: {'Panel_ID': None, 'Rcode': None, 'HGNC_ID': ['HGNC_12345'], 'Similar_Matches': False, 'genome_build': 'GRCh38', 'transcript_set': 'Gencode', 'limit_transcripts': 'all', 'Padding': None},False,True
+2025-01-06 14:57:01,322 - VIMMO - INFO - Validation for bed space
+2025-01-06 14:57:01,322 - VIMMO - ERROR - Invalid format for 'HGNC_ID': 'HGNC_12345' must start with 'HGNC:' followed by digits only.
+2025-01-06 14:57:01,336 - VIMMO - INFO - validator recieved: {'Panel_ID': '99999', 'Rcode': None, 'HGNC_ID': None, 'Similar_Matches': False, 'genome_build': 'GRCh38', 'transcript_set': 'Gencode', 'limit_transcripts': 'all', 'Padding': None},False,True
+2025-01-06 14:57:01,337 - VIMMO - INFO - Validation for bed space
+2025-01-06 14:57:01,337 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:57:01,337 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:57:01,338 - VIMMO - INFO - DB connection made from local bed endpoint
+2025-01-06 14:57:01,386 - VIMMO - INFO - validator recieved: {'Panel_ID': None, 'Rcode': None, 'HGNC_ID': ['HGNC:999999'], 'Similar_Matches': False, 'genome_build': 'GRCh38', 'transcript_set': 'Gencode', 'limit_transcripts': 'all', 'Padding': None},False,True
+2025-01-06 14:57:01,386 - VIMMO - INFO - Validation for bed space
+2025-01-06 14:57:01,387 - VIMMO - INFO - Validated HGNC_ID: HGNC:999999
+2025-01-06 14:57:01,387 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:57:01,387 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:57:01,388 - VIMMO - INFO - DB connection made from local bed endpoint
+2025-01-06 14:57:01,388 - VIMMO - INFO - Gene HGNC List for creating a bed file: ['HGNC:999999']
+2025-01-06 14:57:01,404 - VIMMO - INFO - Local bed searched: ['HGNC:999999'], GRCh38
+2025-01-06 14:57:01,405 - VIMMO - WARNING - No matching records found to write to BED file
+2025-01-06 14:57:01,405 - VIMMO - INFO - Bed was not generated please enable Debug if needed
+2025-01-06 14:57:01,417 - VIMMO - ERROR - Value Error raised by input args Invalid format for 'Patient_ID': Must be a number (e.g., '1234').
+2025-01-06 14:57:01,435 - VIMMO - INFO - Patient space recieved valid input
+2025-01-06 14:57:01,435 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 14:57:01,435 - VIMMO - INFO - Database is in the installed package: /home/mani/SoftwareDevelopmentVIMMO/vimmo/db/panels_data.db
+2025-01-06 14:57:01,436 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-06 14:57:01,437 - VIMMO - INFO - No input Patient ID - Returning all records for Rcode R208
+2025-01-06 14:57:01,449 - VIMMO - ERROR - Value Error raised by input args Invalid format for 'Patient_ID': Must be a number (e.g., '1234').
+2025-01-06 14:57:01,474 - VIMMO - ERROR - Value Error raised by input args Invalid format for 'Patient_ID': Must be a number (e.g., '1234').
