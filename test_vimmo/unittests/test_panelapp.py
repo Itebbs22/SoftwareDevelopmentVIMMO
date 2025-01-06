@@ -10,7 +10,7 @@ class TestPanelAppClient(unittest.TestCase):
     @patch('requests.get')
     def test_check_response_success(self, mock_get):
         # Mock the response to return a valid JSON with status code 200
-        mock_response = {'results': []}  # Just a sample mock data
+        mock_response = {'results': []}  # Sample mock data
         mock_get.return_value.json.return_value = mock_response
         mock_get.return_value.status_code = 200
 
@@ -37,7 +37,6 @@ class TestPanelAppClient(unittest.TestCase):
         with self.assertRaises(PanelAppAPIError):
             client._check_response('https://panelapp.genomicsengland.co.uk/api/v1/panels')
 
-
     # Test for get_genes_HUGO method
     @patch('requests.get')
     def test_get_genes_hugo(self, mock_get):
@@ -56,25 +55,28 @@ class TestPanelAppClient(unittest.TestCase):
         result = client.get_genes_HUGO('R123')
         self.assertEqual(result, ['BRCA1', 'TP53', 'EGFR'])
 
+    # Test for get_genes_HGNC method
+    @patch('requests.get')
+    def test_get_genes_hgnc(self, mock_get):
+        # Mock the API response for get_genes_HGNC
+        mock_response = {
+            "results": [
+                {"gene_data": {"hgnc_id": "HGNC:1234"}, "confidence_level": "3"},
+                {"gene_data": {"hgnc_id": "HGNC:5678"}, "confidence_level": "1"},
+                {"gene_data": {"hgnc_id": "HGNC:91011"}, "confidence_level": "2"}
+            ]
+        }
+        mock_get.return_value.json.return_value = mock_response
+        mock_get.return_value.status_code = 200
 
-    # # Test for get_genes_HGNC method
-    # @patch('requests.get')
-    # def test_get_genes_hgnc(self, mock_get):
-    #     # Mock the API response for get_genes_HGNC
-    #     mock_response = {
-    #         "results": [
-    #             {"gene_data": {"hgnc_id": "HGNC:1234"}},
-    #             {"gene_data": {"hgnc_id": "HGNC:5678"}},
-    #             {"gene_data": {"hgnc_id": "HGNC:91011"}}
-    #         ]
-    #     }
-    #     mock_get.return_value.json.return_value = mock_response
-    #     mock_get.return_value.status_code = 200
-
-    #     client = PanelAppClient()
-    #     result = client.get_genes_HGNC('R123')
-    #     self.assertEqual(result, ['HGNC:1234', 'HGNC:5678', 'HGNC:91011'])
-
+        client = PanelAppClient()
+        result = client.get_genes_HGNC('R123')
+        expected_result = {
+            "HGNC:1234": "3",
+            "HGNC:5678": "1",
+            "HGNC:91011": "2"
+        }
+        self.assertEqual(result, expected_result)
 
     # Test for get_latest_online_version method
     @patch('requests.get')
@@ -98,8 +100,9 @@ class TestPanelAppClient(unittest.TestCase):
         mock_get.return_value.status_code = 200
 
         client = PanelAppClient()
-        result = client.get_latest_online_version('635')
-        self.assertIsInstance(result, KeyError)
+        with self.assertRaises(KeyError):
+            client.get_latest_online_version('635')
+
 
 
     # Test for dowgrade_records method
