@@ -6,6 +6,7 @@ try:
     from flask_restx import Resource
     from vimmo.API import api,get_db
     from vimmo.API.endpoint_process_func import bed_processor
+
     from vimmo.db.db_query import Query
     from vimmo.db.db_update import Update
     from vimmo.db.db_downgrade import Downgrade
@@ -55,6 +56,8 @@ class PanelSearch(Resource):
 
         if args.get("HGNC_ID"):
             args=hgnc_to_list(args=args)
+
+
 
         # Normalize the Rcode to uppercase if it exists
         if args.get("Rcode"):
@@ -270,7 +273,9 @@ class LocalPanelDownload(Resource):
         bed_file=local_bed_formatter(local_bed_records)
         logger.debug(f"local_bed_formatter({local_bed_records})")
         
-        
+
+
+
         # Generate a meaningful filename for the download
         if panel_id:
             filename = f"{panel_id}_{genome_build}_Gencode.bed"
@@ -288,6 +293,7 @@ class LocalPanelDownload(Resource):
             )
         else:
             logger.debug("Bed was not generated please enable Debug if needed")
+
             return {"error": "No BED data could be generated from the provided gene query."}, 400
 
 
@@ -424,10 +430,11 @@ class PatientResource(Resource):
                 version_comparison = query.compare_panel_versions(historic_panel_data,current_panel_data)   # Compare 
                 logger.info("Panel comparison successfully returned")
                 return {"disclaimer": disclaimer,"status": f"Version changed since last {args["Patient ID"]} had {args['R code']}", 
-                        "Version":f"{patient_history} ---> {latest_online_version}", 
+                        "Version":f"{database_version}", 
                         "Genes added": version_comparison[0], 
                         "Genes removed": version_comparison[1], 
                         "Confidence changes (old ver -> new ver)": version_comparison[2]}
+            
 
 
 
@@ -455,6 +462,7 @@ class PatientBed(Resource):
         else:
             # Return message directly to API
             return processed_info["data"]
+
         
 
         # Initialize the VariantValidator client
@@ -633,6 +641,7 @@ class UpdateClass(Resource):
             return {"Status": f"Patient {args["Patient ID"]} already has a record of {args["R code"]} version {is_present}"}
 
                
+
 
 
 

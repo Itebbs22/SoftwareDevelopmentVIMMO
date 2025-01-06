@@ -132,5 +132,4 @@ pytest -m integration
 ```
 
 
-Testing webhooks with PR
 

@@ -48,4 +48,4 @@ test = [
 
 [project.scripts]
 vimmo = "vimmo.main:main"
-dbscheduler = "vimmo.db.scheduler:main"
+dbscheduler = "vimmo.db.scheduler:run_scheduler"

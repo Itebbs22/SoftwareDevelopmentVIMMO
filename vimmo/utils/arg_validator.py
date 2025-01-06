@@ -180,6 +180,7 @@ def hgnc_to_list(args):
                     hgnc_id_list = [h.strip() for h in hgnc_id_value.split(',') if h.strip()]
                     # You can set HGNC_ID to None or remove it to avoid confusion
                     args["HGNC_ID"] = hgnc_id_list
+<<<<<<< HEAD
 
                 except Exception as e:
 
@@ -194,14 +195,19 @@ def hgnc_to_list(args):
 
 def patient_update_validator(args):
     """ Validates patient update inputs (Patient_ID and Rcode).
+=======
+>>>>>>> origin
 
+                except Exception as e:
 
-    Args:
-        args (dict): Dictionary containing `Patient_ID` and `Rcode`.
-        
-    Raises:
-        ValueError: If validation fails due to simultaneous absent identifiers or invalid formats.
+                    
+                    logger.debug(f"'error' : 'Failed to process HGNC_ID list: {str(e)}'")
+                    # If something unexpected happens, return a descriptive error message
+                    return {"error": f"Failed to process HGNC_ID list: {str(e)}"}, 400
+            else:
+                args["HGNC_ID"] = [hgnc_id_value,]
 
+<<<<<<< HEAD
     Notes:
         - At least one identifier must be provided.
         - Rcode should: 1) start with 'r' or 'R' 2) The proceeding values should be either 2 or 3 digits
@@ -232,3 +238,6 @@ def patient_update_validator(args):
         raise ValueError(f"At least one of 'Panel_ID' or 'Rcode' must be provided. {patient_id_value}")
     
     
+=======
+        return args
+>>>>>>> origin

@@ -1,6 +1,7 @@
 from vimmo.logger.logging_config import logger
 from typing import Optional
 
+
 class Query:
     def __init__(self, connection):
         self.conn = connection
@@ -9,8 +10,10 @@ class Query:
         """Retrieve all records associated with a specific Panel_ID."""
         logger.info("Pulling all records associated with Panel_ID: %s", panel_id)
 
+
         if panel_id is None:
             logger.error("ValueError- Panel_ID must be provided")
+
             raise ValueError("Panel_ID must be provided.")
 
         cursor = self.conn.cursor()

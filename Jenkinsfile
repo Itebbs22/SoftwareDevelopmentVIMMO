@@ -1,7 +1,7 @@
 void setBuildStatus(String message, String state) {
   step([
       $class: "GitHubCommitStatusSetter",
-      reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/Mani-varma1/SoftwareDevelopmentVIMMO"],
+      reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/Itebbs22/SoftwareDevelopmentVIMMO"],
       contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "ci/jenkins/build-status"],
       errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
       statusResultSource: [ $class: "ConditionalStatusResultSource", results: [[$class: "AnyBuildResult", message: message, state: state]] ]
@@ -98,7 +98,7 @@ pipeline {
                     attempt_counter=0
                     max_attempts=30
                     
-                    until curl -s http://localhost:5001/health > /dev/null || [ $attempt_counter -eq $max_attempts ]; do
+                    until curl -s http://localhost:5000/health > /dev/null || [ $attempt_counter -eq $max_attempts ]; do
                         printf '.'
                         attempt_counter=$(($attempt_counter+1))
                         sleep 2
