@@ -418,3 +418,335 @@
 2025-01-04 16:15:30,686 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
 2025-01-04 16:15:30,686 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
 2025-01-04 16:15:30,687 - VIMMO - INFO - No change in panel version detected for patient: 405 rcode: R136
+2025-01-05 23:15:02,668 - VIMMO - INFO - Everything imported
+2025-01-05 23:15:05,922 - VIMMO - INFO - Everything imported
+2025-01-05 23:15:31,035 - VIMMO - INFO - Valid arguments given to update space: Patient ID = 400, Rcode = R136
+2025-01-05 23:15:31,035 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-05 23:15:31,036 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-05 23:15:31,039 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-05 23:15:31,041 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-05 23:15:31,423 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-05 23:15:31,424 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-05 23:15:31,436 - VIMMO - INFO - Patient record added: 400 R136 v3.0
+2025-01-05 23:15:59,391 - VIMMO - INFO - Everything imported
+2025-01-05 23:15:59,467 - VIMMO - INFO - Valid arguments given to update space: Patient ID = 400, Rcode = R136
+2025-01-05 23:15:59,467 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-05 23:15:59,468 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-05 23:15:59,469 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-05 23:15:59,475 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-05 23:16:00,012 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-05 23:16:00,013 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-05 23:16:00,014 - VIMMO - INFO - Entry not made in db, patient: 400 already present in db with current version
+2025-01-05 23:16:06,264 - VIMMO - INFO - Valid arguments given to update space: Patient ID = 40999, Rcode = R136
+2025-01-05 23:16:06,264 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-05 23:16:06,265 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-05 23:16:06,266 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-05 23:16:06,267 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-05 23:16:06,952 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-05 23:16:06,952 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-05 23:16:06,961 - VIMMO - INFO - Patient record added: 40999 R136 v3.0
+2025-01-05 23:18:37,627 - VIMMO - INFO - Everything imported
+2025-01-05 23:19:50,545 - VIMMO - INFO - Everything imported
+2025-01-05 23:20:08,649 - VIMMO - INFO - Everything imported
+2025-01-05 23:20:41,617 - VIMMO - INFO - Everything imported
+2025-01-05 23:24:18,334 - VIMMO - INFO - Everything imported
+2025-01-05 23:40:39,813 - VIMMO - INFO - Everything imported
+2025-01-05 23:43:07,992 - VIMMO - INFO - Everything imported
+2025-01-05 23:53:26,227 - VIMMO - INFO - Everything imported
+2025-01-05 23:53:38,645 - VIMMO - INFO - Everything imported
+2025-01-05 23:55:32,327 - VIMMO - INFO - Everything imported
+2025-01-05 23:55:51,076 - VIMMO - INFO - Everything imported
+2025-01-05 23:55:54,514 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-05 23:55:54,515 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-05 23:55:54,540 - VIMMO - INFO - requesting data from endpoint: https://panelapp.genomicsengland.co.uk/api/v1/panels/65/?version=2.2
+2025-01-05 23:55:54,813 - VIMMO - INFO - Successfully fetched data for panel_id: 65, version: 2.2
+2025-01-05 23:55:54,813 - VIMMO - INFO - Db is using transaction to downgrade
+2025-01-05 23:55:54,814 - VIMMO - INFO - Updating panel version: 2.2, 65, R136
+2025-01-05 23:55:54,831 - VIMMO - INFO - Db deleting records 65
+2025-01-05 23:55:54,839 - VIMMO - INFO - Db is updating 65, HGNC:219, 3
+2025-01-05 23:55:54,839 - VIMMO - INFO - Db is updating 65, HGNC:1097, 3
+2025-01-05 23:55:54,839 - VIMMO - INFO - Db is updating 65, HGNC:1541, 3
+2025-01-05 23:55:54,840 - VIMMO - INFO - Db is updating 65, HGNC:29426, 3
+2025-01-05 23:55:54,840 - VIMMO - INFO - Db is updating 65, HGNC:1850, 3
+2025-01-05 23:55:54,840 - VIMMO - INFO - Db is updating 65, HGNC:20626, 3
+2025-01-05 23:55:54,840 - VIMMO - INFO - Db is updating 65, HGNC:3395, 3
+2025-01-05 23:55:54,840 - VIMMO - INFO - Db is updating 65, HGNC:23109, 3
+2025-01-05 23:55:54,840 - VIMMO - INFO - Db is updating 65, HGNC:3767, 3
+2025-01-05 23:55:54,840 - VIMMO - INFO - Db is updating 65, HGNC:3801, 3
+2025-01-05 23:55:54,841 - VIMMO - INFO - Db is updating 65, HGNC:4171, 3
+2025-01-05 23:55:54,841 - VIMMO - INFO - Db is updating 65, HGNC:4274, 3
+2025-01-05 23:55:54,841 - VIMMO - INFO - Db is updating 65, HGNC:17494, 3
+2025-01-05 23:55:54,841 - VIMMO - INFO - Db is updating 65, HGNC:5173, 3
+2025-01-05 23:55:54,841 - VIMMO - INFO - Db is updating 65, HGNC:5961, 3
+2025-01-05 23:55:54,841 - VIMMO - INFO - Db is updating 65, HGNC:6388, 3
+2025-01-05 23:55:54,841 - VIMMO - INFO - Db is updating 65, HGNC:6407, 3
+2025-01-05 23:55:54,841 - VIMMO - INFO - Db is updating 65, HGNC:6742, 3
+2025-01-05 23:55:54,842 - VIMMO - INFO - Db is updating 65, HGNC:6840, 3
+2025-01-05 23:55:54,842 - VIMMO - INFO - Db is updating 65, HGNC:6842, 3
+2025-01-05 23:55:54,842 - VIMMO - INFO - Db is updating 65, HGNC:7765, 3
+2025-01-05 23:55:54,842 - VIMMO - INFO - Db is updating 65, HGNC:7989, 3
+2025-01-05 23:55:54,842 - VIMMO - INFO - Db is updating 65, HGNC:14234, 3
+2025-01-05 23:55:54,842 - VIMMO - INFO - Db is updating 65, HGNC:28993, 3
+2025-01-05 23:55:54,842 - VIMMO - INFO - Db is updating 65, HGNC:9115, 3
+2025-01-05 23:55:54,842 - VIMMO - INFO - Db is updating 65, HGNC:9282, 3
+2025-01-05 23:55:54,842 - VIMMO - INFO - Db is updating 65, HGNC:9644, 3
+2025-01-05 23:55:54,843 - VIMMO - INFO - Db is updating 65, HGNC:9647, 3
+2025-01-05 23:55:54,843 - VIMMO - INFO - Db is updating 65, HGNC:9829, 3
+2025-01-05 23:55:54,843 - VIMMO - INFO - Db is updating 65, HGNC:9871, 3
+2025-01-05 23:55:54,843 - VIMMO - INFO - Db is updating 65, HGNC:10023, 3
+2025-01-05 23:55:54,843 - VIMMO - INFO - Db is updating 65, HGNC:14294, 3
+2025-01-05 23:55:54,843 - VIMMO - INFO - Db is updating 65, HGNC:15454, 3
+2025-01-05 23:55:54,843 - VIMMO - INFO - Db is updating 65, HGNC:11187, 3
+2025-01-05 23:55:54,843 - VIMMO - INFO - Db is updating 65, HGNC:11188, 3
+2025-01-05 23:55:54,843 - VIMMO - INFO - Db is updating 65, HGNC:11194, 3
+2025-01-05 23:55:54,844 - VIMMO - INFO - Db is updating 65, HGNC:20249, 3
+2025-01-05 23:55:54,844 - VIMMO - INFO - Db is updating 65, HGNC:12362, 3
+2025-01-05 23:55:54,844 - VIMMO - INFO - Db is updating 65, HGNC:12363, 3
+2025-01-05 23:55:54,844 - VIMMO - INFO - Db is updating 65, HGNC:12682, 3
+2025-01-05 23:55:54,844 - VIMMO - INFO - Db is updating 65, HGNC:13681, 2
+2025-01-05 23:55:54,844 - VIMMO - INFO - Db is updating 65, HGNC:23161, 1
+2025-01-05 23:55:54,844 - VIMMO - INFO - Db is updating 65, HGNC:449, 1
+2025-01-05 23:55:54,844 - VIMMO - INFO - Db is updating 65, HGNC:633, 1
+2025-01-05 23:55:54,845 - VIMMO - INFO - Db is updating 65, HGNC:25523, 1
+2025-01-05 23:55:54,845 - VIMMO - INFO - Db is updating 65, HGNC:1736, 1
+2025-01-05 23:55:54,845 - VIMMO - INFO - Db is updating 65, HGNC:4893, 1
+2025-01-05 23:55:54,845 - VIMMO - INFO - Db is updating 65, HGNC:7029, 1
+2025-01-05 23:55:54,845 - VIMMO - INFO - Db is updating 65, HGNC:7216, 1
+2025-01-05 23:55:54,845 - VIMMO - INFO - Db is updating 65, HGNC:12405, 1
+2025-01-05 23:55:54,845 - VIMMO - INFO - Db is updating 65, HGNC:12309, 1
+2025-01-05 23:56:07,435 - VIMMO - INFO - Valid arguments given to update space: Patient ID = 2356, Rcode = R136
+2025-01-05 23:56:07,436 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-05 23:56:07,437 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-05 23:56:07,438 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-05 23:56:07,439 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-05 23:56:07,628 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-05 23:56:07,628 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-05 23:56:07,641 - VIMMO - INFO - Patient record added: 2356 R136 v2.2
+2025-01-05 23:56:30,880 - VIMMO - INFO - Patient space recieved valid input
+2025-01-05 23:56:30,880 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-05 23:56:30,880 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-05 23:56:30,881 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-05 23:56:30,882 - VIMMO - INFO - Both Patient ID: 42356 & Rcode: R136 provided
+2025-01-05 23:56:30,885 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-05 23:56:31,087 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-05 23:56:31,087 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-05 23:56:31,088 - VIMMO - INFO - Differerence between Vimmo db and latest online panel version
+2025-01-05 23:56:31,365 - VIMMO - INFO - UPDATE database - R136  2.2 --> 3.0
+2025-01-05 23:56:31,368 - VIMMO - INFO - No records of patient 42356
+2025-01-05 23:56:38,426 - VIMMO - INFO - Patient space recieved valid input
+2025-01-05 23:56:38,427 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-05 23:56:38,427 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-05 23:56:38,428 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-05 23:56:38,428 - VIMMO - INFO - Both Patient ID: 2356 & Rcode: R136 provided
+2025-01-05 23:56:38,429 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-05 23:56:38,603 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-05 23:56:38,604 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-05 23:56:38,611 - VIMMO - INFO - Panel comparison successfully returned
+2025-01-05 23:57:22,937 - VIMMO - INFO - Everything imported
+2025-01-05 23:57:35,915 - VIMMO - INFO - Everything imported
+2025-01-05 23:57:58,381 - VIMMO - INFO - Everything imported
+2025-01-05 23:58:48,763 - VIMMO - INFO - Everything imported
+2025-01-06 00:00:29,790 - VIMMO - INFO - Everything imported
+2025-01-06 00:02:58,810 - VIMMO - INFO - Everything imported
+2025-01-06 00:03:44,556 - VIMMO - INFO - Everything imported
+2025-01-06 00:04:12,148 - VIMMO - INFO - Everything imported
+2025-01-06 00:04:49,761 - VIMMO - INFO - Everything imported
+2025-01-06 07:26:51,719 - VIMMO - INFO - Everything imported
+2025-01-06 07:26:55,487 - VIMMO - INFO - Everything imported
+2025-01-06 07:27:12,295 - VIMMO - INFO - Valid arguments given to update space: Patient ID = 0108, Rcode = R200
+2025-01-06 07:27:12,295 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 07:27:12,295 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 07:27:12,300 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-06 07:27:12,303 - VIMMO - INFO - Starting get_latest_online_version for panel_id: None
+2025-01-06 07:27:12,514 - VIMMO - WARNING - HTTP 400 error from PanelApp API: 400 Client Error: Bad Request for url: https://panelapp.genomicsengland.co.uk/api/v1/panels/signedoff/?panel_id=None&display=latest
+2025-01-06 07:34:21,819 - VIMMO - INFO - Everything imported
+2025-01-06 07:34:57,655 - VIMMO - INFO - Everything imported
+2025-01-06 07:35:00,992 - VIMMO - INFO - Valid arguments given to update space: Patient ID = 0108, Rcode = R200
+2025-01-06 07:35:00,993 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 07:35:00,994 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 07:35:00,996 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-06 07:35:00,997 - VIMMO - INFO - Starting get_latest_online_version for panel_id: None
+2025-01-06 07:35:16,150 - VIMMO - WARNING - Connection error while accessing PanelApp API: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-01-06 07:36:33,068 - VIMMO - INFO - Everything imported
+2025-01-06 07:36:33,899 - VIMMO - INFO - Valid arguments given to update space: Patient ID = 0108, Rcode = R200
+2025-01-06 07:36:33,900 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 07:36:33,900 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 07:36:33,903 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-06 07:36:33,905 - VIMMO - INFO - Starting get_latest_online_version for panel_id: None
+2025-01-06 07:36:35,061 - VIMMO - WARNING - HTTP 400 error from PanelApp API: 400 Client Error: Bad Request for url: https://panelapp.genomicsengland.co.uk/api/v1/panels/signedoff/?panel_id=None&display=latest
+2025-01-06 07:36:35,063 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: None
+2025-01-06 07:36:35,063 - VIMMO - WARNING - Invalid or missing version key in response for panel_id: None
+2025-01-06 07:36:35,063 - VIMMO - INFO - Attempting to update database: Rcode: R200 None --> {'Error': "Invalid or missing rcode. Please check the R code at 'https://panelapp.genomicsengland.co.uk/panels/'"}
+2025-01-06 07:42:38,795 - VIMMO - INFO - Everything imported
+2025-01-06 07:42:38,864 - VIMMO - INFO - Valid arguments given to update space: Patient ID = 0108, Rcode = R200
+2025-01-06 07:42:38,864 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 07:42:38,865 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 07:42:38,866 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-06 07:42:38,868 - VIMMO - INFO - Starting get_latest_online_version for panel_id: None
+2025-01-06 07:42:39,032 - VIMMO - WARNING - HTTP 400 error from PanelApp API: 400 Client Error: Bad Request for url: https://panelapp.genomicsengland.co.uk/api/v1/panels/signedoff/?panel_id=None&display=latest
+2025-01-06 07:42:39,033 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: None
+2025-01-06 07:42:39,033 - VIMMO - WARNING - Invalid or missing version key in response for panel_id: None
+2025-01-06 07:42:39,034 - VIMMO - INFO - Attempting to update database: Rcode: R200 None --> {'Error': "Invalid or missing rcode. Please check the R code at 'https://panelapp.genomicsengland.co.uk/panels/'"}
+2025-01-06 07:46:52,645 - VIMMO - INFO - Everything imported
+2025-01-06 07:46:52,726 - VIMMO - INFO - Valid arguments given to update space: Patient ID = 0108, Rcode = R200
+2025-01-06 07:46:52,727 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 07:46:52,727 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 07:46:52,728 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-06 07:46:52,730 - VIMMO - INFO - Starting get_latest_online_version for panel_id: None
+2025-01-06 07:46:52,906 - VIMMO - WARNING - HTTP 400 error from PanelApp API: 400 Client Error: Bad Request for url: https://panelapp.genomicsengland.co.uk/api/v1/panels/signedoff/?panel_id=None&display=latest
+2025-01-06 08:25:12,539 - VIMMO - INFO - Everything imported
+2025-01-06 08:25:59,741 - VIMMO - INFO - Valid arguments given to update space: Patient ID = 0108, Rcode = R207
+2025-01-06 08:25:59,741 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 08:25:59,741 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 08:25:59,742 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-06 08:25:59,745 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 143
+2025-01-06 08:26:00,406 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 143
+2025-01-06 08:26:00,406 - VIMMO - INFO - Extracted version: 4.0 for panel_id: 143
+2025-01-06 08:26:00,420 - VIMMO - INFO - Patient record added: 0108 R207 v4.0
+2025-01-06 09:56:40,838 - VIMMO - ERROR - Value Error raised by input args At least one of 'Panel_ID' or 'Rcode' must be provided. None
+2025-01-06 09:57:03,108 - VIMMO - INFO - Everything imported
+2025-01-06 10:44:01,096 - VIMMO - INFO - Patient space recieved valid input
+2025-01-06 10:44:01,098 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 10:44:01,101 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 10:44:01,122 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-06 10:44:01,136 - VIMMO - INFO - No input Rcode - Returning all records for patient 123
+2025-01-06 10:44:35,035 - VIMMO - INFO - Patient space recieved valid input
+2025-01-06 10:44:35,037 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 10:44:35,038 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 10:44:35,045 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-06 10:44:35,046 - VIMMO - INFO - No input Patient ID - Returning all records for Rcode R208
+2025-01-06 10:44:59,767 - VIMMO - INFO - Patient space recieved valid input
+2025-01-06 10:44:59,768 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 10:44:59,768 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 10:44:59,769 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-06 10:44:59,772 - VIMMO - INFO - No input Patient ID - Returning all records for Rcode R136
+2025-01-06 10:45:39,698 - VIMMO - INFO - Patient space recieved valid input
+2025-01-06 10:45:39,699 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 10:45:39,701 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 10:45:39,702 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-06 10:45:39,704 - VIMMO - INFO - Both Patient ID: 400 & Rcode: R136 provided
+2025-01-06 10:45:39,706 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-06 10:45:40,024 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-06 10:45:40,024 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-06 10:45:40,028 - VIMMO - INFO - No change in panel version detected for patient: 400 rcode: R136
+2025-01-06 10:47:58,839 - VIMMO - INFO - Everything imported
+2025-01-06 10:48:00,394 - VIMMO - INFO - Patient space recieved valid input
+2025-01-06 10:48:00,395 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 10:48:00,396 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 10:48:00,397 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-06 10:48:00,398 - VIMMO - INFO - Both Patient ID: 400 & Rcode: R136 provided
+2025-01-06 10:48:00,399 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-06 10:48:18,819 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-06 10:48:18,821 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-06 10:48:18,827 - VIMMO - INFO - No change in panel version detected for patient: 400 rcode: R136
+2025-01-06 10:48:42,533 - VIMMO - INFO - Everything imported
+2025-01-06 10:50:23,715 - VIMMO - INFO - Everything imported
+2025-01-06 10:50:38,548 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 10:50:38,548 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 10:50:38,551 - VIMMO - INFO - requesting data from endpoint: https://panelapp.genomicsengland.co.uk/api/v1/panels/65/?version=2.2
+2025-01-06 10:50:39,865 - VIMMO - INFO - Successfully fetched data for panel_id: 65, version: 2.2
+2025-01-06 10:50:39,869 - VIMMO - INFO - Db is using transaction to downgrade
+2025-01-06 10:50:39,869 - VIMMO - INFO - Updating panel version: 2.2, 65, R136
+2025-01-06 10:50:39,882 - VIMMO - INFO - Db deleting records 65
+2025-01-06 10:50:39,889 - VIMMO - INFO - Db is updating 65, HGNC:219, 3
+2025-01-06 10:50:39,890 - VIMMO - INFO - Db is updating 65, HGNC:1097, 3
+2025-01-06 10:50:39,891 - VIMMO - INFO - Db is updating 65, HGNC:1541, 3
+2025-01-06 10:50:39,891 - VIMMO - INFO - Db is updating 65, HGNC:29426, 3
+2025-01-06 10:50:39,891 - VIMMO - INFO - Db is updating 65, HGNC:1850, 3
+2025-01-06 10:50:39,892 - VIMMO - INFO - Db is updating 65, HGNC:20626, 3
+2025-01-06 10:50:39,892 - VIMMO - INFO - Db is updating 65, HGNC:3395, 3
+2025-01-06 10:50:39,892 - VIMMO - INFO - Db is updating 65, HGNC:23109, 3
+2025-01-06 10:50:39,892 - VIMMO - INFO - Db is updating 65, HGNC:3767, 3
+2025-01-06 10:50:39,892 - VIMMO - INFO - Db is updating 65, HGNC:3801, 3
+2025-01-06 10:50:39,893 - VIMMO - INFO - Db is updating 65, HGNC:4171, 3
+2025-01-06 10:50:39,893 - VIMMO - INFO - Db is updating 65, HGNC:4274, 3
+2025-01-06 10:50:39,893 - VIMMO - INFO - Db is updating 65, HGNC:17494, 3
+2025-01-06 10:50:39,893 - VIMMO - INFO - Db is updating 65, HGNC:5173, 3
+2025-01-06 10:50:39,894 - VIMMO - INFO - Db is updating 65, HGNC:5961, 3
+2025-01-06 10:50:39,894 - VIMMO - INFO - Db is updating 65, HGNC:6388, 3
+2025-01-06 10:50:39,894 - VIMMO - INFO - Db is updating 65, HGNC:6407, 3
+2025-01-06 10:50:39,894 - VIMMO - INFO - Db is updating 65, HGNC:6742, 3
+2025-01-06 10:50:39,894 - VIMMO - INFO - Db is updating 65, HGNC:6840, 3
+2025-01-06 10:50:39,894 - VIMMO - INFO - Db is updating 65, HGNC:6842, 3
+2025-01-06 10:50:39,894 - VIMMO - INFO - Db is updating 65, HGNC:7765, 3
+2025-01-06 10:50:39,895 - VIMMO - INFO - Db is updating 65, HGNC:7989, 3
+2025-01-06 10:50:39,895 - VIMMO - INFO - Db is updating 65, HGNC:14234, 3
+2025-01-06 10:50:39,895 - VIMMO - INFO - Db is updating 65, HGNC:28993, 3
+2025-01-06 10:50:39,895 - VIMMO - INFO - Db is updating 65, HGNC:9115, 3
+2025-01-06 10:50:39,895 - VIMMO - INFO - Db is updating 65, HGNC:9282, 3
+2025-01-06 10:50:39,895 - VIMMO - INFO - Db is updating 65, HGNC:9644, 3
+2025-01-06 10:50:39,895 - VIMMO - INFO - Db is updating 65, HGNC:9647, 3
+2025-01-06 10:50:39,896 - VIMMO - INFO - Db is updating 65, HGNC:9829, 3
+2025-01-06 10:50:39,896 - VIMMO - INFO - Db is updating 65, HGNC:9871, 3
+2025-01-06 10:50:39,896 - VIMMO - INFO - Db is updating 65, HGNC:10023, 3
+2025-01-06 10:50:39,896 - VIMMO - INFO - Db is updating 65, HGNC:14294, 3
+2025-01-06 10:50:39,896 - VIMMO - INFO - Db is updating 65, HGNC:15454, 3
+2025-01-06 10:50:39,896 - VIMMO - INFO - Db is updating 65, HGNC:11187, 3
+2025-01-06 10:50:39,897 - VIMMO - INFO - Db is updating 65, HGNC:11188, 3
+2025-01-06 10:50:39,897 - VIMMO - INFO - Db is updating 65, HGNC:11194, 3
+2025-01-06 10:50:39,897 - VIMMO - INFO - Db is updating 65, HGNC:20249, 3
+2025-01-06 10:50:39,897 - VIMMO - INFO - Db is updating 65, HGNC:12362, 3
+2025-01-06 10:50:39,897 - VIMMO - INFO - Db is updating 65, HGNC:12363, 3
+2025-01-06 10:50:39,897 - VIMMO - INFO - Db is updating 65, HGNC:12682, 3
+2025-01-06 10:50:39,898 - VIMMO - INFO - Db is updating 65, HGNC:13681, 2
+2025-01-06 10:50:39,898 - VIMMO - INFO - Db is updating 65, HGNC:23161, 1
+2025-01-06 10:50:39,898 - VIMMO - INFO - Db is updating 65, HGNC:449, 1
+2025-01-06 10:50:39,898 - VIMMO - INFO - Db is updating 65, HGNC:633, 1
+2025-01-06 10:50:39,898 - VIMMO - INFO - Db is updating 65, HGNC:25523, 1
+2025-01-06 10:50:39,899 - VIMMO - INFO - Db is updating 65, HGNC:1736, 1
+2025-01-06 10:50:39,899 - VIMMO - INFO - Db is updating 65, HGNC:4893, 1
+2025-01-06 10:50:39,899 - VIMMO - INFO - Db is updating 65, HGNC:7029, 1
+2025-01-06 10:50:39,899 - VIMMO - INFO - Db is updating 65, HGNC:7216, 1
+2025-01-06 10:50:39,899 - VIMMO - INFO - Db is updating 65, HGNC:12405, 1
+2025-01-06 10:50:39,899 - VIMMO - INFO - Db is updating 65, HGNC:12309, 1
+2025-01-06 10:51:06,515 - VIMMO - INFO - Valid arguments given to update space: Patient ID = 450, Rcode = R136
+2025-01-06 10:51:06,516 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 10:51:06,516 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 10:51:06,517 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-06 10:51:06,519 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-06 10:51:06,706 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-06 10:51:06,708 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-06 10:51:06,729 - VIMMO - INFO - Patient record added: 450 R136 v2.2
+2025-01-06 10:51:52,370 - VIMMO - INFO - Patient space recieved valid input
+2025-01-06 10:51:52,371 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 10:51:52,371 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 10:51:52,372 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-06 10:51:52,373 - VIMMO - INFO - Both Patient ID: 450 & Rcode: R136 provided
+2025-01-06 10:51:52,374 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-06 10:52:15,500 - VIMMO - WARNING - Connection error while accessing PanelApp API: HTTPSConnectionPool(host='panelapp.genomicsengland.co.uk', port=443): Max retries exceeded with url: /api/v1/panels/signedoff/?panel_id=65&display=latest (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1020)')))
+2025-01-06 10:52:15,501 - VIMMO - INFO - Database not updated during query
+2025-01-06 10:52:15,505 - VIMMO - INFO - No change in panel version detected for patient: 450 rcode: R136
+2025-01-06 10:53:24,107 - VIMMO - INFO - Patient space recieved valid input
+2025-01-06 10:53:24,107 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 10:53:24,113 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 10:53:24,114 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-06 10:53:24,114 - VIMMO - INFO - Both Patient ID: 450 & Rcode: R136 provided
+2025-01-06 10:53:24,115 - VIMMO - INFO - Starting get_latest_online_version for panel_id: 65
+2025-01-06 10:53:24,344 - VIMMO - INFO - Successfully retrieved JSON data for panel_id: 65
+2025-01-06 10:53:24,345 - VIMMO - INFO - Extracted version: 3.0 for panel_id: 65
+2025-01-06 10:53:24,346 - VIMMO - INFO - Differerence between Vimmo db and latest online panel version
+2025-01-06 10:53:25,211 - VIMMO - INFO - UPDATE database - R136  2.2 --> 3.0
+2025-01-06 10:53:25,221 - VIMMO - INFO - Panel comparison successfully returned
+2025-01-06 10:56:20,564 - VIMMO - INFO - Patient space recieved valid input
+2025-01-06 10:56:20,564 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 10:56:20,565 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 10:56:20,565 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-06 10:56:20,565 - VIMMO - INFO - Both Patient ID: 450 & Rcode: R200 provided
+2025-01-06 10:56:20,567 - VIMMO - INFO - Starting get_latest_online_version for panel_id: None
+2025-01-06 10:56:20,837 - VIMMO - WARNING - HTTP 400 error from PanelApp API: 400 Client Error: Bad Request for url: https://panelapp.genomicsengland.co.uk/api/v1/panels/signedoff/?panel_id=None&display=latest
+2025-01-06 10:56:20,838 - VIMMO - INFO - Database not updated during query
+2025-01-06 10:56:20,842 - VIMMO - INFO - No record of patient 450 having R200
+2025-01-06 11:08:06,167 - VIMMO - INFO - Patient space recieved valid input
+2025-01-06 11:08:06,169 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 11:08:06,170 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 11:08:06,173 - VIMMO - INFO - DB connection made from patient endpoint
+2025-01-06 11:08:06,175 - VIMMO - INFO - No input Patient ID - Returning all records for Rcode R200
+2025-01-06 11:08:14,871 - VIMMO - INFO - Valid arguments given to update space: Patient ID = 450, Rcode = R200
+2025-01-06 11:08:14,872 - VIMMO - INFO - Attempting to get the database in the installed package
+2025-01-06 11:08:14,873 - VIMMO - INFO - Database is in the installed package: C:\Users\olive\Python\uni_project\SoftwareDevelopmentVIMMO\vimmo\db\panels_data.db
+2025-01-06 11:08:14,873 - VIMMO - INFO - DB connection made from patient update endpoint
+2025-01-06 11:08:14,875 - VIMMO - INFO - Starting get_latest_online_version for panel_id: None
+2025-01-06 11:08:15,300 - VIMMO - WARNING - HTTP 400 error from PanelApp API: 400 Client Error: Bad Request for url: https://panelapp.genomicsengland.co.uk/api/v1/panels/signedoff/?panel_id=None&display=latest
+2025-01-06 11:32:40,683 - VIMMO - INFO - Everything imported
+2025-01-06 12:08:49,445 - VIMMO - INFO - Everything imported
+2025-01-06 12:08:51,761 - VIMMO - INFO - Everything imported
