@@ -571,3 +571,15 @@ class Query:
             
 
         return [genes_added, genes_removed, conf_changes] # Return the panel comparison information
+    
+    def rcode_checker(self, rcode_value):
+        """ Function to check the validity of input rcodes"""
+        cursor = self.conn.cursor()
+
+        valid_rcodes = cursor.execute(f'''
+        SELECT rcodes
+        FROM panel
+        WHERE rcodes = ?
+        ''', (rcode_value,)).fetchall() 
+
+        return valid_rcodes

@@ -1,6 +1,6 @@
 from vimmo.logger.logging_config import logger
-
-
+from vimmo.db.db_query import Query
+from vimmo.API import get_db
 import re
 
 
@@ -208,7 +208,9 @@ def patient_update_validator(args):
         """
     # Extract values from input arguments
     patient_id_value = args.get('Patient ID', None)  
-    rcode_value = args.get('R code', None) 
+    rcode_value = args.get('R code', None)
+    db = get_db()
+    query_obj = Query(db.conn)
 
      # Pattern for Patient_ID: Matches numeric strings (e.g., '1234')
     patient_pattern = r"^[a-zA-Z\d]+$"
@@ -230,7 +232,9 @@ def patient_update_validator(args):
     if not any([patient_id_value, rcode_value]):
         raise ValueError(f"At least one of 'Panel_ID' or 'Rcode' must be provided. {patient_id_value}")
     
+    
     # Ensure R code exists from panel APP
-    # Instantiate query 
+    if not query_obj.rcode_checker(rcode_value):
+        raise ValueError(f"Rcode: {rcode_value} not within our records - please select a valid rcode")
     # Query function to check if rcode is in db
     # raise error is not found 
