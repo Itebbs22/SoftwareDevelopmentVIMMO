@@ -145,8 +145,8 @@ def test_panel_search_non_existing_panel_id():
     # For your Query.get_panel_data(), if no matches are found, you return:
     #   {"Panel_ID": panel_id, "Message": "No matches found."}
     # Adjust if your code differs.
-    assert "Message" in json_data, "Expected a 'Message' key with 'No matches found.'"
-    assert json_data["Message"] == "No matches found.", "Should return 'No matches found.' for missing panel."
+    assert "Message" in json_data, "Expected a 'Message' key with 'No matches found for this panel id with confidence : All.'"
+    assert json_data["Message"] == "No matches found for this panel id with confidence : All.", "Should return 'No matches found for this panel id with confidence : All.' for missing panel."
 
 
 @pytest.mark.integration
@@ -196,7 +196,7 @@ def test_panel_search_non_existing_rcode():
     
     # Query.get_panels_by_rcode() returns:
     #   {"Rcode": rcode, "Message": "No matches found for this rcode."} if none found
-    assert json_data.get("Message") == "No matches found for this rcode.", "Did not get the expected error message."
+    assert json_data.get("Message") == "No matches found for this rcode with confidence : All.", "Did not get the expected error message."
 
 
 @pytest.mark.integration
@@ -356,8 +356,8 @@ def test_panel_search_non_existing_panel_id():
     # For your Query.get_panel_data(), if no matches are found, you return:
     #   {"Panel_ID": panel_id, "Message": "No matches found."}
     # Adjust if your code differs.
-    assert "Message" in json_data, "Expected a 'Message' key with 'No matches found.'"
-    assert json_data["Message"] == "No matches found.", "Should return 'No matches found.' for missing panel."
+    assert "Message" in json_data, "Expected a 'Message' key with 'No matches found for this panel id with confidence : All.'"
+    assert json_data["Message"] == "No matches found for this panel id with confidence : All.", "Should return 'No matches found with confidence : All.' for missing panel."
 
 
 
@@ -406,7 +406,7 @@ def test_panel_search_non_existing_rcode():
     
     # Query.get_panels_by_rcode() returns:
     #   {"Rcode": rcode, "Message": "No matches found for this rcode."} if none found
-    assert json_data.get("Message") == "No matches found for this rcode.", "Did not get the expected error message."
+    assert json_data.get("Message") == "No matches found for this rcode with confidence : All.", "Did not get the expected error message."
 
 @pytest.mark.integration
 def test_panel_search_with_similar_matches_for_rcode():

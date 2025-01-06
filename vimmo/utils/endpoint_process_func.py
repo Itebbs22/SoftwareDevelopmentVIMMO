@@ -30,10 +30,10 @@ def bed_processor(query, patient_id, r_code, version, args, logger):
                 
                 r_code = record_data[0]
                 version = record_data[1]
+                gene_query = query.get_gene_list(r_code=r_code,confidence="Green")
                 
             except (StopIteration, KeyError, IndexError) as e:
                 logger.error(f"Failed to extract record data: {e}")
-                gene_query = query.get_gene_list(r_code)
                 response["type"] = "Error"
                 response["data"] = e
                 return response
@@ -88,6 +88,7 @@ def bed_processor(query, patient_id, r_code, version, args, logger):
         if not str(version) == str(patient_record_version):
             response["type"] = "message"
             response["data"] = {f"{r_code}": f"No record found for this panel for Patient ID {patient_id}, please check version"}
+            logger.info(f"No {r_code} record found for Patient ID {patient_id}")
             return response
 
         
@@ -107,7 +108,7 @@ def bed_processor(query, patient_id, r_code, version, args, logger):
         response["data"] = gene_query
         return response
     else:
-        panel_ids = query.get_panels_by_rcode(rcode=r_code)
+        panel_ids = query.get_panels_by_rcode(rcode=r_code, confidence='Green')
         if "Message" in panel_ids:
             logger.info(f"Missing panel IDs for {r_code}:{panel_ids}")
             response["type"] = "message"

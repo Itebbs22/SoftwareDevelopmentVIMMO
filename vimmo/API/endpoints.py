@@ -23,6 +23,7 @@ try:
         PatientLocalBedParser,
         DowngradeParser
     )
+    
     logger.info("Module Import: Success")
 except Exception as err:
     logger.critical(f"Importing Modules failed, please check {err}")
@@ -464,7 +465,7 @@ class PatientBed(Resource):
             if padding > 0:
                 padding = min(padding, 250)
         except (ValueError, TypeError) as err:
-            logger.warning(f"Converting user padding to int type failed due to {err}. Setting padding to 0")
+            logger.info(f"Converting user padding to int type failed due to {err}. Setting padding to 0")
             padding = 0
         # Fetch the database and connect
         db = get_db()

@@ -33,7 +33,7 @@ class Downgrade:
         """, (new_version, panel_id, rcode))
         
         if cursor.rowcount == 0:
-            logger.debug(f"No matching record found for Panel_ID: {panel_id} and R_code: {rcode}.")
+            logger.error(f"No matching record found for Panel_ID: {panel_id} and R_code: {rcode}.")
             raise ValueError(f"No matching record found for Panel_ID: {panel_id} and rcode: {rcode}")
         
 
@@ -53,9 +53,6 @@ class Downgrade:
         return genes_data
 
 
-    def change_gene_contents(self, panel_id: str, new_genes: list) -> dict:
-
-        cursor = self.conn.cursor()
         
     def change_gene_contents(self, panel_id: str, new_genes: list) -> dict:
         """
@@ -143,6 +140,7 @@ class Downgrade:
             
             
             # Update panel version
+            logger.info(f"Downgrading {rcode} to {version}")
             self.change_panels_version(rcode, version, panel_id)
             
             # Extract and process genes from panel_records
