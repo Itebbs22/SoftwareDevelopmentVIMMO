@@ -378,7 +378,6 @@ class Query:
 
         cursor = self.conn.cursor()
 
-        
         panel_id = cursor.execute(f'''
         SELECT Panel_ID
         FROM panel
