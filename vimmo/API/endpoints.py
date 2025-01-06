@@ -67,6 +67,7 @@ class PanelSearch(Resource):
             validate_panel_id_or_Rcode_or_hgnc(args,panel_space=True)  # Ensure only one valid parameter is provided
             logger.info("Format Validation Success")
         except ValueError as e:
+            logger.error(f"error: {str(e)}")
             logger.debug(f"Validation for argumemts failed for Panel_id: {args.get("Panel_ID")}, rcode: {args.get("Rcode")}, HGNC_ID: {args.get("HGNC_ID")} with {e}")
             # Return an error response if validation fails
             return {"error": str(e)}, 400
@@ -137,8 +138,8 @@ class PanelDownload(Resource):
         try:
             validate_panel_id_or_Rcode_or_hgnc(args, bed_space=True)
             logger.info("Format Validation Success")
-            logger.debug(f"Validation for argumemts failed for Panel_id: {args.get("Panel_ID")}, rcode: {args.get("Rcode")}, HGNC_ID: {args.get("HGNC_ID")} with {e}")
         except ValueError as e:
+            logger.debug(f"Validation for argumemts failed for Panel_id: {args.get("Panel_ID")}, rcode: {args.get("Rcode")}, HGNC_ID: {args.get("HGNC_ID")} with {e}")
             logger.error(f"error: {str(e)}")
             return {"error": str(e)}, 400
 

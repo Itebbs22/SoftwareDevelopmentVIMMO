@@ -223,8 +223,7 @@ class Query:
         if panel_id:
             logger.info("Pulling the panel data for Panel_ID: %s.", panel_id)
             panel_data = self.get_panel_data(panel_id=panel_id, matches=matches,confidence=confidence)
-            logger.debug(f"Args passed to get_panel_data func: panel_id={panel_id}, matches={matches},
-                                              confidence={confidence}")
+            logger.debug(f"Args passed to get_panel_data func: panel_id={panel_id}, matches={matches}, confidence={confidence}")
             if "Message" in panel_data:
                 logger.info("No panel data found for Panel_ID: %s.", panel_id)
                 return panel_data
@@ -484,7 +483,7 @@ class Query:
         SELECT HGNC_ID, Confidence
         FROM panel_genes 
         WHERE Panel_ID = ?
-"""
+        """
         current_panel_data = cursor.execute(query, (panelID,)).fetchall()
         current_data = {} # Instantiation of object for output dict{}
         for tuple in current_panel_data:  # Loop through the tuples (HGNC ID, Confidence)
