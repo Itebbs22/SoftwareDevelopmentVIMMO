@@ -23,6 +23,9 @@ dependencies = [
     "flask-restx",
     "requests",
     "pandas",
+    "pytest",
+    "pytest-cov",
+    "unittest2"
 ]
 
 [tool.setuptools]
@@ -40,12 +43,7 @@ include = ["vimmo*", "test_vimmo*"]  # Added test directory
     "db/logs/*"     # Added to include logs
 ]
 
-[project.optional-dependencies]
-test = [
-    "pytest",
-    "pytest-cov",
-    "unittest2"
-]
+
 
 [project.scripts]
 vimmo = "vimmo.main:main"
