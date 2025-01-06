@@ -35,7 +35,7 @@ conda activate VIMMO
 3. Install the package:
 ```bash
 # Install in development mode
-pip install -e .[test]
+pip install -e .
 ```
 
 The package installation will automatically handle all dependencies listed in `pyproject.toml`.
