@@ -1,7 +1,7 @@
 import pytest
 import requests
 
-BASE_URL = "http://127.0.0.1:5000"  # or wherever your Flask app is running
+BASE_URL = "http://127.0.0.1:5001"  # or wherever your Flask app is running
 
 @pytest.mark.integration
 def test_local_download_with_panel_id():

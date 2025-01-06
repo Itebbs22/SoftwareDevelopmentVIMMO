@@ -70,8 +70,45 @@ python -m vimmo.main
 ```
 
 The API will be available at:
-- Main API: http://127.0.0.1:5000/
-- Swagger UI Documentation: http://127.0.0.1:5000/
+- Main API: http://127.0.0.1:5001/
+- Swagger UI Documentation: http://127.0.0.1:5001/
+
+## Schedule Database Updates
+
+To set up a scheduled cron job on your system to update the 
+panel database, run the following command:
+
+```bash
+# this will prompt you for input...
+dbscheduler
+```
+
+### Choose a Schedule
+
+When prompted, type a number and press **Enter** to select the desired schedule:
+
+1. **Every minute**  
+2. **Every day at midnight**  
+3. **Every week at midnight (Sunday)**  
+4. **Every month at midnight (1st)**  
+5. **Remove schedule**  
+
+**Enter your choice (1-5):**
+
+### Managing Scheduled Updates
+
+Entering **5** in the dbscheduler will remove the scheduled update. Alternatively, you can use the following commands:
+
+```bash
+# To list cron jobs
+crontab -l
+
+# To edit the crontab (e.g. to further customise schedule)
+crontab -e
+
+# To remove all cron jobs
+crontab -r
+````
 
 
 ## Version Update
@@ -92,24 +129,23 @@ bumpversion major
 # to run docker make sure you are in route directory of the project
 cd <your_file_path>/SoftwareDevelopmentVIMMO
 
-# if you are on linux use
-sudo systemctl start docker
 
-#Tp build and run the image
-docker build -t vimmo_app .
-docker run -d --name my_vimmo_app -p 5000:5000 vimmo_app
+
+
+
+# <m>ake sure your docker daemon is running by starting the docker desktop
+# Note: requires docker desktop to use the docker compose command
+
+# # to build the image and to run the container 
+docker-compose up --build
+
+# to run it in the background use
+docker compose up -d --build
 
 #to exit
 docker stop my_vimmo_app
 docker rm my_vimmo_app
 
-# <m>ake sure your docker daemon is running if you are on mac/windows use docker desktop
-  
-# # to build the image and to run the container 
-docker-compose up --build
-
-# to run it in the background use
-docker-compose up -d --build
 ````
 
 ## Testing
