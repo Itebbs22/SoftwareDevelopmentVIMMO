@@ -211,7 +211,7 @@ def patient_update_validator(args):
     rcode_value = args.get('R code', None) 
 
      # Pattern for Patient_ID: Matches numeric strings (e.g., '1234')
-    patient_pattern = r"^\d+$"
+    patient_pattern = r"^[a-zA-Z\d]+$"
      # Pattern for Rcode: Matches strings like 'R123'
     rcode_pattern = r"^[R]\d+$"
     
