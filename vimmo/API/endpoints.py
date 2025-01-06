@@ -306,11 +306,10 @@ class PatientResource(Resource):
          
         Parameters
         ----------
-        patient_id : str
-        Numerical identifier for a patient
-
-        rcode: str 
-        Panel app code for a rare disease gene panel
+        - patient_id : str
+          Numerical identifier for a patient
+        - rcode: str 
+          Panel app code for a rare disease gene panel
 
         Notes
         -----
@@ -378,8 +377,13 @@ class PatientResource(Resource):
                     try: # If our local version NOT same as panel app latest, then update database and continue
                     #  Update the database to match the latest online version.
                         update.update_panels_version(args["R code"], latest_online_version, panel_id)
+                        logger.info("panel version updated successfully")
+
                         update.archive_panel_contents(panel_id, database_version)
+                        logger.info(f"{args["R code"]} v{database_version} archived successfully")
+
                         update.update_gene_contents(args["R code"],panel_id)
+                        logger.info(f"{args['Patient ID']} v{latest_online_version} inserted successfully")
                         disclaimer = 'Panel comparison up to date'
                         logger.info(f"UPDATE database - {args['R code']}  {database_version} --> {latest_online_version}")
                         database_version = query.get_db_latest_version(args["R code"])  # get newly updated database version
@@ -400,7 +404,7 @@ class PatientResource(Resource):
                 if patient_records:  # if any record of patient exists - print records
                     logger.info(f"No record of patient {args['Patient ID']} having {args["R code"]}")
                     return {"Status": f"There is NO record of patient {args['Patient ID']} recieving {args['R code']} within our records", "Patient records": patient_records} # Re
-                else: # if no record esists
+                else: # If no record esists
                     logger.info(f"No records of patient {args['Patient ID']}")
                     return {"Status":f"There is NO record of patient {args['Patient ID']} recieving any R code within our records"} # Return explanatory message
             
@@ -409,7 +413,7 @@ class PatientResource(Resource):
                 logger.info(f"No change in panel version detected for patient: {args["Patient ID"]} rcode: {args['R code']}")
                 logger.debug(f"patient history : {patient_history}, database version: {database_version}")
                 current_panel_data = query.current_panel_contents(panel_id)                                 # Retreieve current panel contents
-                return {"disclaimer": disclaimer,"status": f"No version change since last {args["Patient ID"]} had {args['R code']}", 
+                return {"disclaimer": disclaimer,"status": f"No version change since patient: {args["Patient ID"]} last had {args['R code']}", 
                         "Version":f"{database_version}", "current_panel": current_panel_data ,"Tip": f"For more information on {args["R code"]} v{database_version}, please use the panels space."}
 
                  
@@ -551,11 +555,10 @@ class UpdateClass(Resource):
          
         Parameters
         ----------
-        patient_id : str 
-        Numerical identifier for a patient
-
-        rcode: str 
-        Panel app code for a rare disease gene panel
+        - patient_id : str 
+          Numerical identifier for a patient
+        - rcode: str 
+          Panel app code for a rare disease gene panel
 
         Notes
         -----
@@ -600,13 +603,17 @@ class UpdateClass(Resource):
                 # Update version and panel contents (panel and panel_contents tables)
             
             try:
+                logger.info(f"Attempting to update database: Rcode: {args["R code"]} {database_version} --> {latest_online_version}")
                 # Update the panel version in 'panels' table
                 update.update_panels_version(args["R code"], latest_online_version, panel_id)
+                logger.info("panel version updated successfully")
                 # Archive the old panel verison to 'archive_panel_genes'
-                update.archive_panel_contents(panel_id, database_version)         
+                update.archive_panel_contents(panel_id, database_version)
+                logger.info(f"{args["R code"]} v{database_version} archived successfully")         
                 # Update the version in the 'panel_genes' table
                 update.update_gene_contents(args["R code"],panel_id)
-                logger.info(f"UPDATE database - {args['R code']}  {database_version} --> {latest_online_version}")
+                logger.info(f"{args['Patient ID']} v{latest_online_version} inserted successfully")
+                logger.info(f"UPDATE database success - {args['R code']}  {database_version} --> {latest_online_version}")
                 database_version = query.get_db_latest_version(args["R code"])  # Retrieve newly updated db panel version
 
             except KeyError: 
@@ -619,11 +626,10 @@ class UpdateClass(Resource):
         is_present = update.check_presence(args["Patient ID"], args["R code"])  # Check presence pre-existing record with patient ID, R code and Version
         if is_present is False:
             updated_record = update.add_record(args["Patient ID"], args["R code"])  # If propsed patient record isn't in db, add record
-            
             logger.info(f"Patient record added: {args['Patient ID']} {args["R code"]} v{database_version}")
             return updated_record
         else:
-            logger.info(f"Entry not made in db, patient: {args['Patient ID']} already present in db with current version")
+            logger.warning(f"Entry not made in db, patient: {args['Patient ID']} already present in db with current version")
             return {"Status": f"Patient {args["Patient ID"]} already has a record of {args["R code"]} version {is_present}"}
 
                
