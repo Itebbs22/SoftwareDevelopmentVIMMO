@@ -122,21 +122,6 @@ def test_patient_only_id():
     # Optionally check the contents of "patient records"
 
 
-# @pytest.mark.integration
-# def test_patient_no_params():
-#     """
-#     If neither 'Patient ID' nor 'R code' is provided, presumably
-#     your validator or endpoint logic might fail with 400.
-#     """
-#     url = f"{BASE_URL}/patient"
-#     response = requests.get(url)  # no params
-#     print("Status:", response.status_code, "Response JSON:", response.text)
-
-#     # Depending on your implementation, you might get 400 or a custom error
-#     # We'll assume 400 for "no valid param"
-#     assert response.status_code == 400
-
-
 @pytest.mark.integration
 def test_patient_both_no_record():
     """
