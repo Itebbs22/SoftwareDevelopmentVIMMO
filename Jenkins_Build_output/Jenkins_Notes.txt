@@ -1,0 +1,36 @@
+Please check the image to see the build status of each stages
+
+
+Please Check the log to gain more information but it is really verbose:
+
+
+
+In order to run Jenkins in a simpler manner in docker:
+1) Setup Docker in Docker image and create a bridge network
+2)install Jenkins and setup as per the installation guide (https://www.jenkins.io/doc/book/installing/docker/)
+3) Once inside create a new item and select pipeline.
+4) In the pipeline sectionselect  "Pipeline script from SCM" and provide a git repository url, select branch if necessary and provide the path to Jenkins file
+5) Apply and click on build to run the pipeline
+
+
+Since our Build also manages webhooks to set GitHub status with Success/Failure message (Note can only perform if you own the repository):
+1) setup user global credentials and personal access tokens (make sure to enable manage webhooks), see this guide:  https://medium.com/@nikhil.nagarajappa/configuring-the-git-credentials-in-jenkins-4b584a797b45
+2) Manage webhooks on Github to send the appropriate payloads to Jenkins see guide https://medium.com/@sangeetv09/how-to-configure-webhook-in-github-and-jenkins-for-automatic-trigger-with-cicd-pipeline-34133e9de0ea
+3) make sure jenkins is running on pulic ip either by opening the prot to web traffic or creating a reverse proxy server e.g, (Nginx, ngrok, etc)
+4) when configuring Builds, check "GitHub hook trigger for GITScm polling" in the build trigger section
+5) apply changes
+6) Now push a Commit to the branch with the jenkins file and specified in Jenkins Job (Jenkins recommends to only on single branch, please check https://stackoverflow.com/questions/72646757/why-does-jenkins-allow-specifying-multiple-git-branches)
+7) should run the CI/CD
+
+
+
+
+Pipeline Steps for Vimmo:
+We use docker as agen to build our application virtually
+
+stage 1) Get the docker condinium image
+stage 2) set up the conda environment using the environment.yaml and install the application using pip install -e .
+stage 3) run unit tests
+stage 4) Create and RUN the Docker image using the docker file provided and also run integration tests as it requires the application to be activate to make like requests
+stage 5) Clearn up and set git hub status 
+

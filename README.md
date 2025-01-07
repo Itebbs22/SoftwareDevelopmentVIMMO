@@ -1,4 +1,4 @@
-# For Documentation manual please visit [this page](https://softwaredevelopmentvimmo.readthedocs.io/en/latest/)
+~~For Documentation manual please visit [this page](https://softwaredevelopmentvimmo.readthedocs.io/en/latest/)~~ (STILL IN DEVELOPMENT)
 
 # SoftwareDevelopmentVIMMO
 
@@ -20,7 +20,7 @@ A Flask-based API application for panel data analysis.
 1. Clone the repository:
 ```bash
 git clone https://github.com/yourusername/VIMMO.git
-cd VIMMO
+cd SoftwareDevelopmentVIMMO/
 ```
 
 2. Create and activate the conda environment:
@@ -32,30 +32,11 @@ conda env create -f environment.yaml
 conda activate VIMMO
 ```
 
-3. Install the package:
+3. Install the package using pyproject.toml:
+The package installation will automatically handle all dependencies listed in `pyproject.toml`.
 ```bash
 # Install in development mode
 pip install -e .
-```
-
-The package installation will automatically handle all dependencies listed in `pyproject.toml`.
-
-### Building the Package for Production
-
-If you want to build the distribution files:
-```bash
-# This will create both wheel and source distribution
-python -m build
-```
-
-This will create:
-- A wheel file (*.whl) in the `dist/` directory
-- A source distribution (*.tar.gz) in the `dist/` directory
-
-Install using:
-```bash
-# This will create both wheel and source distribution
-pip install dist/*.whl
 ```
 
 ## Usage
@@ -65,13 +46,69 @@ After installation, you can run the API server:
 # Using the console script
 vimmo
 
-# Or using the module directly
-python -m vimmo.main
+```
+OR
+
+
+## Build using Docker
+```bash
+# to run docker make sure you are in route directory of the project
+cd <your_file_path>/SoftwareDevelopmentVIMMO
+
+
+# make sure your docker daemon is running by starting the docker desktop
+# Note: requires docker desktop to use the docker compose command
+
+# # to build the image and to run the container 
+docker compose up --build
+
+# to run it in the background use
+docker compose up -d --build
+
+#to exit and remove
+docker stop my_vimmo_app
+docker rm my_vimmo_app
 ```
 
 The API will be available at:
 - Main API: http://127.0.0.1:5001/
 - Swagger UI Documentation: http://127.0.0.1:5001/
+
+# For endpoint information please refer to User guide in docs/vimmo.pdf
+
+
+## Testing
+
+Make sure you are in root directory (<you_file_path>/SoftwareDevelopmentVIMMO/) :
+Testing requires an instance of the application to be running depending on the test type you will be running as it checks for various live responses
+Please run the App in a seperate terminal or have an instance of Docker running in the background in port 5001
+```bash
+pytest #Tests everything requires (vimmo api to run in the background/new terminal)
+
+# for extra debugging purposes use 
+pytest -s # this prints out some of the info we recieve and should only be used for debugging purposes e.g, change in panelapp or variant validator.
+
+# To test just integration
+pytest -m integration
+
+# To test just unittest modules
+ pytest -m "not integration" #Note: this does not require an instance of the app to run as it mocks responses with dummy data
+
+```
+
+
+## Change Logging Levels
+To change the logging levels, need to modify the source code before building the application
+in the folder vimmo/logger/logging_config.py
+```bash
+# Set file loggin on line 17 to required options [DEBUG, INFO, WARNING, ERROR, CRITICAL]
+logger.setLevel(logging.DEBUG) # making the default logger at DEBUG level to log all messages
+
+
+#Set console log level on line 29 to required options [DEBUG, INFO, WARNING, ERROR, CRITICAL]
+console_handler.setLevel(logging.CRITICAL) # Logs INFO level and  above to the console
+```
+
 
 ## Schedule Database Updates
 
@@ -111,7 +148,9 @@ crontab -r
 ````
 
 
-## Version Update
+
+
+## Version Update for developer purposes
 Use after git commit -m "message"
 ```bash
 # Patch version (0.1.0 → 0.1.1) 
@@ -124,50 +163,26 @@ bumpversion minor
 bumpversion major
 ```
 
-## Docker
+
+
+
+### Building the Package for Production ( purpose but not being used for easy code changes)
+
+If you want to build the distribution files:
 ```bash
-# to run docker make sure you are in route directory of the project
-cd <your_file_path>/SoftwareDevelopmentVIMMO
-
-
-
-
-
-# <m>ake sure your docker daemon is running by starting the docker desktop
-# Note: requires docker desktop to use the docker compose command
-
-# # to build the image and to run the container 
-docker-compose up --build
-
-# to run it in the background use
-docker compose up -d --build
-
-#to exit
-docker stop my_vimmo_app
-docker rm my_vimmo_app
-
-````
-
-## Testing
-
-In root directory (<path>/SoftwareDevelopmentVIMMO) :
-Testing requires an instance of the application to be running as it checks for various responses
-Please run the App in a seperate terminal or have an instance of Docker running in the background
-```bash
-pytest #Tests everything
-
-# for extra debugging purposes use 
-pytest -s # this prints out some of the info we recieve and should only be used for debugging purposes e.g, change in panelapp or variant validator.
-
-# To test just integration
-pytest -m integration
-
-# To test just unittest modules
- pytest -m "not integration"
- #Note: this does not require an instance of the app to run as it mocks responses with dummy data
+# This will create both wheel and source distribution
+python -m build
 ```
 
-This is to test for ollie conflict
+This will create:
+- A wheel file (*.whl) in the `dist/` directory
+- A source distribution (*.tar.gz) in the `dist/` directory
+
+Install using:
+```bash
+# This will create both wheel and source distribution
+pip install dist/*.whl
+```
 
 
 

@@ -23,13 +23,13 @@ classifiers = [
 ]
 requires-python = ">=3.13"
 dependencies = [
-    "flask",
-    "flask-restx",
-    "requests",
-    "pandas",
-    "pytest",
-    "pytest-cov",
-    "unittest2"
+    "Flask==3.1.0",
+    "flask-restx==1.3.0",
+    "requests==2.32.3",
+    "pandas==2.2.3",
+    "pytest==8.3.4",
+    "pytest-cov==6.0.0",
+    "unittest2==1.1.0"
 ]
 
 [tool.setuptools]
