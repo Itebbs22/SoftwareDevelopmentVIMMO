@@ -123,39 +123,48 @@ class PanelAppClient:
 
         Notes
         -----
-        - This function substitues the input panel id into the signedoff URL
-        - Using the response module, sends and recieves a GET HTTP request and response
+        - This function substitutes the input panel id into the signedoff URL
+        - Using the response module, sends and receives a GET HTTP request and response
         - It extracts the .json response format
-        - Indexs the results nested dictionary, and extracts the 'version'
+        - Indexes the results nested dictionary, and extracts the 'version'
 
         Example
         -----
         User UI input: R208
         Query class method: rcode_to_panelID(R208) -> 635 # converts rcode to panel_id (see db.py)
         get_latest_online_version(635) -> 2.5
-
-        Here 2.5 is the version of R208, as of (26/11/24)
         """
         logger.info(f"Starting get_latest_online_version for panel_id: {panel_id}")
 
         url = f'{self.base_url}/signedoff/?panel_id={panel_id}&display=latest'  # Set the URL
-        logger.info(f"Constructed URL Panel app api: {url}")
+        logger.info(f"Constructed URL Panel app API: {url}")
         json_data = self._check_response(url)  # Send get request to URL, if 200 return json format of the response
         logger.info(f"Successfully retrieved JSON data for panel_id: {panel_id}")
 
         try:
-            # Safely extract the version
-            version_value = json_data["results"][0]["version"]  # Extract the version number from the json response
+            # Check if 'results' is empty
+            if not json_data.get("results"):
+                raise KeyError(f"Error: No results found for panel_id: {panel_id}")
+
+            # Extract the version from the first result
+            version_value = json_data["results"][0]["version"]
             version = float(version_value)
             logger.info(f"Extracted version: {version} for panel_id: {panel_id}")
-
-        except:
-            logger.warning(f"Invalid or missing version key in response for panel_id: {panel_id}")
-            return KeyError({"Error": "Invalid or missing rcode. Please check the R code at 'https://panelapp.genomicsengland.co.uk/panels/'"})
-
-        else:
             return version
-    
+
+        except KeyError as e:
+            logger.warning(f"Invalid or missing version key in response for panel_id: {panel_id}")
+            raise e
+
+        except IndexError as e:
+            # Handle the case where 'results' is an empty list
+            logger.warning(f"No results found for panel_id: {panel_id}")
+            raise KeyError(f"Error: No results found for panel_id: {panel_id}")
+
+        except Exception as e:
+            logger.warning(f"Unexpected error: {str(e)}")
+            raise Exception(f"Unexpected error occurred: {str(e)}")
+
 
     def dowgrade_records(self, panel_id: str, version:str ) -> str: 
         """
