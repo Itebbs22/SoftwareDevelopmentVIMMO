@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vimmo"
-version = "1.0.0"
+version = "1.1.0"
 description = "App that gives you stuff"
 readme = "README.md"
 #"Update before release"
