@@ -1,4 +1,4 @@
-# For Documentation manual please visit [this page](https://softwaredevelopmentvimmo.readthedocs.io/en/latest/)
+~~For Documentation manual please visit [this page](https://softwaredevelopmentvimmo.readthedocs.io/en/latest/)~~ (STILL IN DEVELOPMENT)
 
 # SoftwareDevelopmentVIMMO
 
