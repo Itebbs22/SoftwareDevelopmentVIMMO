@@ -111,7 +111,7 @@ def test_patient_only_id():
         "Patient ID": "T123"  # change to a patient ID you know is in your DB
     }
     response = requests.get(url, params=params)
-    assert response.status_code == 400, f"Expected 200, got {response.status_code}"
+    assert response.status_code == 200, f"Expected 200, got {response.status_code}"
 
     data = response.json()
     print("PatientID-only response:", data)
