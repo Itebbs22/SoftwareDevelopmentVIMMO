@@ -96,6 +96,20 @@ pytest -m integration
 
 ```
 
+
+## Change Logging Levels
+To change the logging levels, need to modify the source code before building the application
+in the folder vimmo/logger/logging_config.py
+```bash
+# Set file loggin on line 17 to required options [DEBUG, INFO, WARNING, ERROR, CRITICAL]
+logger.setLevel(logging.DEBUG) # making the default logger at DEBUG level to log all messages
+
+
+#Set console log level on line 29 to required options [DEBUG, INFO, WARNING, ERROR, CRITICAL]
+console_handler.setLevel(logging.CRITICAL) # Logs INFO level and  above to the console
+```
+
+
 ## Schedule Database Updates
 
 To set up a scheduled cron job on your system to update the 
@@ -132,6 +146,8 @@ crontab -e
 # To remove all cron jobs
 crontab -r
 ````
+
+
 
 
 ## Version Update for developer purposes
