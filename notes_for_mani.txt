@@ -23,3 +23,6 @@ ngrok http --domain=baboon-wired-emu.ngrok-free.app 8080
 
 check url for jenkins-cotroller
 https://baboon-wired-emu.ngrok-free.app
+
+
+Port 22 blocked at my trust so need to recreat the pr for jenkins to run :(
