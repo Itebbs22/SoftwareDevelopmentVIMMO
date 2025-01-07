@@ -1,5 +1,6 @@
 from vimmo.logger.logging_config import logger
-
+from vimmo.db.db_query import Query
+from vimmo.API import get_db
 import re
 
 
@@ -168,8 +169,6 @@ def validate_panel_id_or_Rcode_or_hgnc(args, panel_space=False, bed_space=False)
         bed_space_validator(panel_id_value, rcode_value, hgnc_id_value)
 
 
-
-
 def hgnc_to_list(args):
             # Check if HGNC_ID is provided
         hgnc_id_value = args.get("HGNC_ID",None)
@@ -191,3 +190,51 @@ def hgnc_to_list(args):
                 args["HGNC_ID"] = [hgnc_id_value,]
 
         return args
+
+
+def patient_update_validator(args):
+    """ Validates patient update inputs (Patient_ID and Rcode).
+
+    Args:
+        args (dict): Dictionary containing `Patient_ID` and `Rcode`.
+        
+    Raises:
+        ValueError: If validation fails due to simultaneous absent identifiers or invalid formats.
+
+    Notes:
+        - At least one identifier must be provided.
+        - Rcode should: 1) start with 'r' or 'R' 2) The proceeding values should be either 2 or 3 digits
+        - Patient ID has to contain only digits of any length >= 1.
+        """
+    # Extract values from input arguments
+    patient_id_value = args.get('Patient ID', None)  
+    rcode_value = args.get('R code', None)
+    db = get_db()
+    query_obj = Query(db.conn)
+
+     # Pattern for Patient_ID: Matches numeric strings (e.g., '1234')
+    patient_pattern = r"^[a-zA-Z\d]+$"
+     # Pattern for Rcode: Matches strings like 'R123'
+    rcode_pattern = r"^[R]\d+$"
+    # Ensure at least one identifier is provided
+    if not any([patient_id_value, rcode_value]):
+        raise ValueError(f"At least one of 'Panel_ID' or 'Rcode' must be provided. {patient_id_value}")
+    
+         # Validate Panel_ID
+    if patient_id_value:
+        if not re.fullmatch(patient_pattern, str(patient_id_value)):
+            raise ValueError("Invalid format for 'Patient_ID': Must be alphanumeric.")
+    if rcode_value:
+        if not re.fullmatch(rcode_pattern, rcode_value):
+            raise ValueError("Invalid format for 'Rcode': Must start with 'R' followed by digits only (e.g., 'R123').")
+                # Ensure R code exists from panel APP
+        else:
+            if not query_obj.rcode_checker(rcode_value):
+                raise ValueError(f"Rcode: {rcode_value} not within our records - please select a valid rcode")
+        
+
+    
+    
+   
+    # Query function to check if rcode is in db
+    # raise error is not found 

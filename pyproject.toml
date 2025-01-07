@@ -4,11 +4,16 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "vimmo"
-version = "1.0.0"
+version = "1.1.0"
 description = "App that gives you stuff"
 readme = "README.md"
+#"Update before release"
 authors = [
-    {name = "The Boys", email = "theboys.email@example.com"}
+    {name = "Vincent"},
+    {name = "Iwan"},
+    {name = "Moe"},
+    {name = "Mani"},
+    {name = "Ollie"},
 ]
 license = {text = "MIT"}
 classifiers = [
@@ -22,6 +27,9 @@ dependencies = [
     "flask-restx",
     "requests",
     "pandas",
+    "pytest",
+    "pytest-cov",
+    "unittest2"
 ]
 
 [tool.setuptools]
@@ -39,13 +47,8 @@ include = ["vimmo*", "test_vimmo*"]  # Added test directory
     "db/logs/*"     # Added to include logs
 ]
 
-[project.optional-dependencies]
-test = [
-    "pytest",
-    "pytest-cov",
-    "unittest2"
-]
+
 
 [project.scripts]
 vimmo = "vimmo.main:main"
-dbscheduler = "vimmo.db.scheduler:run_scheduler"
+dbscheduler = "vimmo.db.scheduler:main"

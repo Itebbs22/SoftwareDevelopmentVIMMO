@@ -40,6 +40,13 @@ class IDParser:
             required=False,
             default=False
         )
+        parser.add_argument(
+            'Confidence',
+            choices=['Green', 'Amber', 'Red', 'All'],
+            help="Specify the gene confidence to restrict gene relevence.",
+            required=False,
+            default='All'
+        )
         
         return parser
 
@@ -136,6 +143,13 @@ class PatientBedParser:
             ),
             required=True,
             default='mane_select'
+        )
+
+        parser.add_argument(
+            'Padding',
+            type=int,
+            help='Please provide a value to pad the bed records by +/- N bp',
+            required=False
         )
 
         return parser
@@ -252,12 +266,6 @@ class DownloadParser:
             required=True,
             default='mane_select'
         )
-        parser.add_argument(
-            'Padding',
-            type=int,
-            help='Please provide a value to pad the bed records by +/- N bp',
-            required=False
-        )
 
 
         return parser
@@ -308,12 +316,6 @@ class LocalDownloadParser:
             required=True,
             default='all'
         )
-        parser.add_argument(
-            'Padding',
-            type=int,
-            help='Please provide a value to pad the bed records by +/- N bp',
-            required=False
-        )
 
 
         return parser
@@ -340,7 +342,7 @@ class UpdateParser:
         )
         parser.add_argument(
             'R code',
-            type=str,
+            type=UpdateParser.upper_rcode,
             help='Type in R code (Required)',
             required = True
         )
@@ -364,7 +366,8 @@ class DowngradeParser:
         parser.add_argument(
             'version',
             type=str,
-            help='type in a previous version',
+            help=("WARNING!!!!! >>> This is for productions use only and should not be used without knowledge of databse"
+                  "Type in a previous version"),
             required = True
         )
 

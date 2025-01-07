@@ -1,7 +1,8 @@
 import pytest
 import requests
+import time
 
-BASE_URL = "http://127.0.0.1:5000"  # or wherever your Flask app is running
+BASE_URL = "http://127.0.0.1:5001"  # or wherever your Flask app is running
 
 @pytest.mark.integration
 def test_download_with_panel_id():
@@ -17,7 +18,7 @@ def test_download_with_panel_id():
         "limit_transcripts": "mane_select"
     }
     response = requests.get(url, params=params)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
     # Because the endpoint uses `send_file`, we expect 'text/plain' or 'application/octet-stream', etc.
     assert "text/plain" in response.headers.get("Content-Type", ""), "Response should be a text/plain for BED."
@@ -48,7 +49,7 @@ def test_download_with_rcode():
         "limit_transcripts": "mane_select"
     }
     response = requests.get(url, params=params)
-
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
     assert "text/plain" in response.headers.get("Content-Type", "")
     
@@ -70,7 +71,7 @@ def test_download_with_hgnc_id():
         "limit_transcripts": "mane_select"
     }
     response = requests.get(url, params=params)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     # We might get 200 if HGNC:1100 is valid, or 400/500 if no data or an error occurs.
     print("Status code:", response.status_code, "Response text:", response.text[:200])
     assert "text/plain" in response.headers.get("Content-Type", "")
@@ -91,7 +92,7 @@ def test_download_multiple_hgnc_ids():
         "limit_transcripts": "all"
     }
     response = requests.get(url, params=params)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     print("Status code:", response.status_code)
     bed_content = response.content.decode("utf-8")
     print("BED content sample:\n", bed_content[:300])
@@ -107,6 +108,7 @@ def test_download_no_params():
     """
     url = f"{BASE_URL}/panels/download"
     response = requests.get(url)  # no params
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 400, f"Expected 400, got {response.status_code}"
 
     error_json = response.json()
@@ -124,7 +126,7 @@ def test_download_invalid_hgnc():
         "HGNC_ID": "HGNC_12345",  # invalid (underscore instead of colon)
     }
     response = requests.get(url, params=params)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 400, f"Expected 400, got {response.status_code}"
     error_data = response.json()
     print("Invalid HGNC format ->", error_data)
@@ -142,7 +144,7 @@ def test_download_no_matches_panel_id():
         "Panel_ID": "99999"  # an ID you know doesn't exist
     }
     response = requests.get(url, params=params)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     print("Status code:", response.status_code, response.text[:300])
     if response.status_code == 200:
         # Possibly you get JSON with "No matches found." or bed_file might be empty -> 400

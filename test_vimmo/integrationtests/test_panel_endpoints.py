@@ -2,10 +2,10 @@
 
 import pytest
 import requests
-
+import time
 # Adjust this to match the actual URL where your Flask app runs.
 # If running locally:
-BASE_URL = "http://127.0.0.1:5000"
+BASE_URL = "http://127.0.0.1:5001"
 # Or if using Docker, it might be "http://localhost:5000" or something else.
 
 @pytest.mark.integration
@@ -19,6 +19,7 @@ def test_panel_search_with_panel_id():
         "Panel_ID": "123",  # Example ID
     }
     response = requests.get(url, params=params)
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     
     assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
     
@@ -40,7 +41,7 @@ def test_panel_search_with_rcode():
         "Rcode": "R123",  # Must match the pattern [Rr]digits
     }
     response = requests.get(url, params=params)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
     
     json_data = response.json()
@@ -61,7 +62,7 @@ def test_panel_search_with_hgnc_id():
         "HGNC_ID": "HGNC:12345"  # example
     }
     response = requests.get(url, params=params)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
     
     json_data = response.json()
@@ -80,7 +81,7 @@ def test_panel_search_with_multiple_params_should_fail():
         "Rcode": "R456",
     }
     response = requests.get(url, params=params)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     # The validate_panel_id_or_Rcode_or_hgnc function raises a ValueError if multiple are present,
     # so we expect a 400.
     assert response.status_code == 400, f"Expected 400 but got {response.status_code}"
@@ -99,7 +100,7 @@ def test_panel_search_with_no_params_should_fail():
     """
     url = f"{BASE_URL}/panels"
     response = requests.get(url)  # no params at all
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 400, f"Expected 400 but got {response.status_code}"
     error_data = response.json()
     print("Response JSON for no params -->", error_data)
@@ -117,7 +118,7 @@ def test_panel_search_with_similar_matches():
         "Similar_Matches": "true"
     }
     response = requests.get(url, params=params)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 200, f"Expected 200 but got {response.status_code}"
     
     json_data = response.json()
@@ -135,7 +136,7 @@ def test_panel_search_non_existing_panel_id():
         "Panel_ID": "9999999"  # Use an ID you know doesn't exist in your DB
     }
     response = requests.get(url, params=params)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 200, f"Expected 200, got {response.status_code}"
     
     json_data = response.json()
@@ -144,8 +145,8 @@ def test_panel_search_non_existing_panel_id():
     # For your Query.get_panel_data(), if no matches are found, you return:
     #   {"Panel_ID": panel_id, "Message": "No matches found."}
     # Adjust if your code differs.
-    assert "Message" in json_data, "Expected a 'Message' key with 'No matches found.'"
-    assert json_data["Message"] == "No matches found.", "Should return 'No matches found.' for missing panel."
+    assert "Message" in json_data, "Expected a 'Message' key with 'No matches found for this panel id with confidence : All.'"
+    assert json_data["Message"] == "No matches found for this panel id with confidence : All.", "Should return 'No matches found for this panel id with confidence : All.' for missing panel."
 
 
 @pytest.mark.integration
@@ -161,7 +162,7 @@ def test_panel_search_with_similar_matches_for_panel_id():
         "Similar_Matches": "true"
     }
     response = requests.get(url, params=params)
-
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 200, f"Expected 200, got {response.status_code}"
     json_data = response.json()
     print("Similar matches for panel_id=123 ->", json_data)
@@ -187,7 +188,7 @@ def test_panel_search_non_existing_rcode():
         "Rcode": "R999999"
     }
     response = requests.get(url, params=params)
-
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 200, f"Expected 200, got {response.status_code}"
     
     json_data = response.json()
@@ -195,7 +196,7 @@ def test_panel_search_non_existing_rcode():
     
     # Query.get_panels_by_rcode() returns:
     #   {"Rcode": rcode, "Message": "No matches found for this rcode."} if none found
-    assert json_data.get("Message") == "No matches found for this rcode.", "Did not get the expected error message."
+    assert json_data.get("Message") == "No matches found for this rcode with confidence : All.", "Did not get the expected error message."
 
 
 @pytest.mark.integration
@@ -210,7 +211,7 @@ def test_panel_search_with_similar_matches_for_rcode():
         "Similar_Matches": "true"
     }
     response = requests.get(url, params=params)
-
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 200, f"Expected 200, got {response.status_code}"
     
     json_data = response.json()
@@ -235,7 +236,7 @@ def test_panel_search_with_multiple_hgnc_ids():
         "HGNC_ID": "HGNC:12345,HGNC:67890"  # Adjust to real IDs in your DB
     }
     response = requests.get(url, params=params)
-
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 200, f"Expected 200, got {response.status_code}"
     
     json_data = response.json()
@@ -266,7 +267,7 @@ def test_panel_search_with_hgnc_matches_not_implemented():
         "Similar_Matches": "true"
     }
     response = requests.get(url, params=params)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     # If your code doesn't catch NotImplementedError, you'll get a 500
     # (internal server error). You might want to handle it and return 501 or 400.
     print("Wildcard HGNC_ID test ->", response.status_code, response.text)
@@ -288,7 +289,7 @@ def test_panel_search_invalid_hgnc_format():
         "HGNC_ID": "HGNC_99999"  # underscores, not a colon
     }
     response = requests.get(url, params=params)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 400, f"Expected 400, got {response.status_code}"
     error_data = response.json()
     print("Invalid HGNC format error response:", error_data)
@@ -307,7 +308,7 @@ def test_panel_search_with_panel_rcode_hgnc():
         "HGNC_ID": "HGNC:12345"
     }
     response = requests.get(url, params=params)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 400, f"Expected 400, got {response.status_code}"
     error_json = response.json()
     print("Panel + Rcode + HGNC => error JSON:", error_json)
@@ -326,7 +327,7 @@ def test_panel_search_with_numeric_like():
         "Similar_Matches": "true"
     }
     response = requests.get(url, params=params)
-
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     # Could be 200 with partial matches or "No matches found."
     assert response.status_code == 200, f"Expected 200, got {response.status_code}"
     json_data = response.json()
@@ -346,7 +347,7 @@ def test_panel_search_non_existing_panel_id():
         "Panel_ID": "9999999"  # Use an ID you know doesn't exist in your DB
     }
     response = requests.get(url, params=params)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 200, f"Expected 200, got {response.status_code}"
     
     json_data = response.json()
@@ -355,8 +356,8 @@ def test_panel_search_non_existing_panel_id():
     # For your Query.get_panel_data(), if no matches are found, you return:
     #   {"Panel_ID": panel_id, "Message": "No matches found."}
     # Adjust if your code differs.
-    assert "Message" in json_data, "Expected a 'Message' key with 'No matches found.'"
-    assert json_data["Message"] == "No matches found.", "Should return 'No matches found.' for missing panel."
+    assert "Message" in json_data, "Expected a 'Message' key with 'No matches found for this panel id with confidence : All.'"
+    assert json_data["Message"] == "No matches found for this panel id with confidence : All.", "Should return 'No matches found with confidence : All.' for missing panel."
 
 
 
@@ -373,7 +374,7 @@ def test_panel_search_with_similar_matches_for_panel_id():
         "Similar_Matches": "true"
     }
     response = requests.get(url, params=params)
-
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 200, f"Expected 200, got {response.status_code}"
     json_data = response.json()
     print("Similar matches for panel_id=123 ->", json_data)
@@ -399,13 +400,13 @@ def test_panel_search_non_existing_rcode():
     response = requests.get(url, params=params)
 
     assert response.status_code == 200, f"Expected 200, got {response.status_code}"
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     json_data = response.json()
     print("Non-existing Rcode JSON:", json_data)
     
     # Query.get_panels_by_rcode() returns:
     #   {"Rcode": rcode, "Message": "No matches found for this rcode."} if none found
-    assert json_data.get("Message") == "No matches found for this rcode.", "Did not get the expected error message."
+    assert json_data.get("Message") == "No matches found for this rcode with confidence : All.", "Did not get the expected error message."
 
 @pytest.mark.integration
 def test_panel_search_with_similar_matches_for_rcode():
@@ -419,7 +420,7 @@ def test_panel_search_with_similar_matches_for_rcode():
         "Similar_Matches": "true"
     }
     response = requests.get(url, params=params)
-
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 200, f"Expected 200, got {response.status_code}"
     
     json_data = response.json()
@@ -443,7 +444,7 @@ def test_panel_search_with_multiple_hgnc_ids():
         "HGNC_ID": "HGNC:12345,HGNC:67890"  # Adjust to real IDs in your DB
     }
     response = requests.get(url, params=params)
-
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 200, f"Expected 200, got {response.status_code}"
     
     json_data = response.json()
@@ -494,7 +495,7 @@ def test_panel_search_invalid_hgnc_format():
         "HGNC_ID": "HGNC_99999"  # underscores, not a colon
     }
     response = requests.get(url, params=params)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 400, f"Expected 400, got {response.status_code}"
     error_data = response.json()
     print("Invalid HGNC format error response:", error_data)
@@ -512,7 +513,7 @@ def test_panel_search_with_panel_rcode_hgnc():
         "HGNC_ID": "HGNC:12345"
     }
     response = requests.get(url, params=params)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     assert response.status_code == 400, f"Expected 400, got {response.status_code}"
     error_json = response.json()
     print("Panel + Rcode + HGNC => error JSON:", error_json)
@@ -530,7 +531,7 @@ def test_panel_search_with_numeric_like():
         "Similar_Matches": "true"
     }
     response = requests.get(url, params=params)
-
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     # Could be 200 with partial matches or "No matches found."
     assert response.status_code == 200, f"Expected 200, got {response.status_code}"
     json_data = response.json()
@@ -552,7 +553,7 @@ def test_panel_search_basic_existing_data():
     assert response.status_code == 200, f"Expected 200, got {response.status_code}"
     json_data = response.json()
     print("Smoke test for Panel_ID=123 ->", json_data)
-    
+    time.sleep(1) # sleeping so doesnt exceed rate limit
     # If your DB definitely has records for Panel_ID=123, 
     # ensure we get "Associated Gene Records" and it's non-empty:
     assert "Associated Gene Records" in json_data, "Expected 'Associated Gene Records' key in the response."

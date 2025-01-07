@@ -98,7 +98,7 @@ pipeline {
                     attempt_counter=0
                     max_attempts=30
                     
-                    until curl -s http://localhost:5000/health > /dev/null || [ $attempt_counter -eq $max_attempts ]; do
+                    until curl -s http://localhost:5001/health > /dev/null || [ $attempt_counter -eq $max_attempts ]; do
                         printf '.'
                         attempt_counter=$(($attempt_counter+1))
                         sleep 2

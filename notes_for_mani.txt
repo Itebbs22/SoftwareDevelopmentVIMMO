@@ -1,0 +1,25 @@
+start container that connects a bridge network thats on port 2376 so our jenkins can use docker in docker
+docker run --name jenkins-docker --rm --detach \
+  --privileged --network jenkins --network-alias docker \
+  --env DOCKER_TLS_CERTDIR=/certs \
+  --volume jenkins-docker-certs:/certs/client \
+  --volume jenkins-data:/var/jenkins_home \
+  --publish 2376:2376 \
+  docker:dind --storage-driver overlay2
+
+
+
+start jenkins docker 
+docker start jenkins-blueocean
+
+exec into docker image and test mount
+docker exec -u root -it  jenkins-blueocean bash
+check for docker mount inside it 
+docker -H tcp://docker:2376 info
+
+
+for reverse proxy the server with static domain from ngrock
+ngrok http --domain=baboon-wired-emu.ngrok-free.app 8080
+
+check url for jenkins-cotroller
+https://baboon-wired-emu.ngrok-free.app

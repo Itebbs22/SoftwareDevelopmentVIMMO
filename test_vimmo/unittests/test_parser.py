@@ -33,12 +33,14 @@ class TestParsers(unittest.TestCase):
             'Panel_ID': '12345',
             'Rcode': '',
             'HGNC_ID': '',
-            'Similar_Matches': 'true'
+            'Similar_Matches': 'true',
+            'Confidence': 'All'
         }):
             parser = IDParser.create_parser()
             args = parser.parse_args()
             self.assertEqual(args['Panel_ID'], '12345')
             self.assertEqual(args['Similar_Matches'], True)
+            self.assertEqual(args['Confidence'], 'All')
 
     def test_patient_parser(self):
         with app.test_request_context('/test', method='GET', query_string={
@@ -69,7 +71,7 @@ class TestParsers(unittest.TestCase):
             'Patient ID': 'P003',
             'genome_build': 'GRCh37',
             'transcript_set': 'Gencode',
-            'limit_transcripts': 'all'
+            'limit_transcripts': 'all',
         }):
             parser = PatientLocalBedParser.create_parser()
             args = parser.parse_args()
@@ -83,7 +85,8 @@ class TestParsers(unittest.TestCase):
             'Panel_ID': '12345',
             'genome_build': 'GRCh38',
             'transcript_set': 'all',
-            'limit_transcripts': 'canonical'
+            'limit_transcripts': 'canonical',
+            'Confidence': 'All'
         }):
             parser = DownloadParser.create_parser()
             args = parser.parse_args()
@@ -91,13 +94,15 @@ class TestParsers(unittest.TestCase):
             self.assertEqual(args['genome_build'], 'GRCh38')
             self.assertEqual(args['transcript_set'], 'all')
             self.assertEqual(args['limit_transcripts'], 'canonical')
+            self.assertEqual(args['Confidence'], 'All')
 
     def test_local_download_parser(self):
         with app.test_request_context('/test', method='GET', query_string={
             'Panel_ID': '12345',
             'genome_build': 'GRCh38',
             'transcript_set': 'Gencode',
-            'limit_transcripts': 'all'
+            'limit_transcripts': 'all',
+            'Confidence' : 'All'
         }):
             parser = LocalDownloadParser.create_parser()
             args = parser.parse_args()
@@ -105,6 +110,7 @@ class TestParsers(unittest.TestCase):
             self.assertEqual(args['genome_build'], 'GRCh38')
             self.assertEqual(args['transcript_set'], 'Gencode')
             self.assertEqual(args['limit_transcripts'], 'all')
+            self.assertEqual(args['Confidence'], 'All')
 
     def test_update_parser(self):
         with app.test_request_context('/test', method='POST', query_string={
