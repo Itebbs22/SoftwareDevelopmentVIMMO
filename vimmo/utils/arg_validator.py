@@ -224,15 +224,14 @@ def patient_update_validator(args):
     if patient_id_value:
         if not re.fullmatch(patient_pattern, str(patient_id_value)):
             raise ValueError("Invalid format for 'Patient_ID': Must be alphanumeric.")
-
-    else:
+    if rcode_value:
         if not re.fullmatch(rcode_pattern, rcode_value):
             raise ValueError("Invalid format for 'Rcode': Must start with 'R' followed by digits only (e.g., 'R123').")
-             # Ensure R code exists from panel APP
+                # Ensure R code exists from panel APP
         else:
             if not query_obj.rcode_checker(rcode_value):
                 raise ValueError(f"Rcode: {rcode_value} not within our records - please select a valid rcode")
-    
+        
 
     
     
