@@ -1,6 +1,7 @@
 from vimmo.logger.logging_config import logger
 from typing import Optional
 
+
 class Query:
     def __init__(self, connection):
         self.conn = connection
@@ -412,7 +413,6 @@ class Query:
 
         cursor = self.conn.cursor()
 
-        
         panel_id = cursor.execute(f'''
         SELECT Panel_ID
         FROM panel
@@ -435,7 +435,7 @@ class Query:
 
         Returns
         -------
-        patient_records: list[list[]]
+        patient_records: dict{dict{list}}
         The list of Rcodes, versions and dates that a patient has had
 
 
@@ -464,13 +464,51 @@ class Query:
         return patient_records
     
     def return_all_patients(self, Rcode: str) -> dict:       
+        """ 
+        Returns all patients with record of R code
+
+        Parameters
+        ----------
+        - Rcode: str
+          The R code to search for in the Vimmo's database
+        
+        Returns
+        -------
+        rcode_records: dict{dict{list[]}}
+        The patient records containing the queried R code
+
+
+        Notes
+        -----
+        - Executes a simple SQL query to Vimmo's 'panel_genes_archive' table (see db schema in repository)
+        - The dictionaries first key is the index from the SQL query 
+        - The second key is the date of entry for each record. 
+
+        Example
+        -----
+        Input: R167
+        Query class method: return_all_patients(635,2.1) -> 
+        "0": {
+            "2022-5-16": [
+                "T456",
+                1.5
+        ]
+        },
+        "1": {
+            "2024-5-17": [
+                    "T456",
+                    1.5
+        ]
+        }
+        """
+        
         cursor = self.conn.cursor()
         rcode_records_rows = cursor.execute(f"""
         SELECT Patient_ID, Version, Date
         FROM patient_data
         WHERE Rcode = ?
         """, (Rcode,)).fetchall() 
-        
+    
         rcode_records = {} # Instantiation of object for output dict
         for i,record in enumerate(rcode_records_rows):
             rcode_records.update({i:{record["Date"]:[record["Patient_ID"], record["Version"]]}})
@@ -478,6 +516,34 @@ class Query:
     
 
     def current_panel_contents(self, panelID: str) -> dict:
+        """ 
+        Returns contetns of latest panel version
+
+        Parameters
+        ----------
+        - PanelID: str
+          The panelApp panelID for the queried R code
+
+        Returns
+        -------
+        current_data: dict{}
+        The contents of the current panel version
+
+
+        Notes
+        -----
+        - Executes a simple SQL query to Vimmo's 'panel_genes' table (see db schema in repository)
+        - The dictionary returns key value pairs as follows {HGNC_ID:Confidence} 
+
+        Example
+        -----
+        Input: PanelID 635, version 3
+        Query class method: current_panel_contents(635,2.1) -> {
+        "HGNC:1071": 3,
+        "HGNC:2186": 2,
+        "HGNC:20000": 3
+        }
+        """
         cursor = self.conn.cursor()
         query = f"""
         SELECT HGNC_ID, Confidence
@@ -486,11 +552,11 @@ class Query:
         """
         current_panel_data = cursor.execute(query, (panelID,)).fetchall()
         current_data = {} # Instantiation of object for output dict{}
+        
         for tuple in current_panel_data:  # Loop through the tuples (HGNC ID, Confidence)
             current_data.update({tuple["HGNC_ID"]: tuple["Confidence"]})   # Insert gene, conf pair into output dict
         return current_data
-    
-    
+
 
 
     def historic_panel_retrieval(self, panelID: str, version: float):
@@ -499,11 +565,11 @@ class Query:
 
         Parameters
         ----------
-        PanelID: str
-        The panelApp panelID for the queried R code
+        - PanelID: str
+          The panelApp panelID for the queried R code
 
-        version: float
-        The version number of the archived panel
+        - version: float
+          The version number of the archived panel
 
         Returns
         -------
@@ -520,10 +586,10 @@ class Query:
         -----
         Input: PanelID 635, version 2.1
         Query class method: historic_panel_retrieval(635,2.1) -> {
-                                                                "HGNC:1071": 3,
-                                                                "HGNC:2186": 2,
-                                                                "HGNC:20000": 3
-                                                                }
+        "HGNC:1071": 3,
+        "HGNC:2186": 2,
+        "HGNC:20000": 3
+        }
         """
         
         cursor = self.conn.cursor()
@@ -544,6 +610,38 @@ class Query:
         return historic_data
 
     def compare_panel_versions(self, historic_version: dict, current_version: dict) -> dict:
+        """ Compares historic and current panel contents
+
+        Parameters
+        ----------
+        - historic_version : dict
+         Historic contents of a panel version
+         
+
+        - current_version: dict
+          Current contents of a panel version 
+
+        Returns
+        -------
+        genes_added: dict
+        Genes added from the current panel, not present in historic version 
+
+        genes_removed: dict
+        Genes removed from the historic version, not present in current version
+        
+        confidence_changes: dict
+        Genes with confidence changes between versions
+        
+        Notes
+        -----
+        - Executes a simple SQL query to Vimmo's 'panel' table (see db schema in repository root)
+        - All dicts, except conf changes are Key:Value = HGNC_ID:Confidence
+        - Comparison is done via 3 seperate loops through the two input dicts
+
+        Example
+        -----
+        For a detailed example, see user manual (vimmo.docx)
+        """ 
         # find genes added
         genes_added = {}
         for gene in current_version.keys():
@@ -571,3 +669,42 @@ class Query:
             
 
         return [genes_added, genes_removed, conf_changes] # Return the panel comparison information
+    
+    def rcode_checker(self, rcode_value):
+        """ Checks the validity of input rcodes
+        Parameters
+        ----------
+        rcode_value : str
+        The proposed Rcode input by user
+
+        Returns
+        -------
+        valid_rcode: str
+        The input Rcode extracted from vimmo db 
+
+
+        Notes
+        -----
+        - Executes a simple SQL query to Vimmo's 'panel' table (see db schema in repository root)
+        - If present, the R code is returned
+        - If absent, a ValueError is raised
+
+        Example
+        -----
+        Absent Rcode
+        User input: R200
+        Query class method: rcode_checker(R200) -> ValueError
+        
+        Present Rcode
+        User input: R208
+        Query class method: rcode_checker(R208) -> R208 (str)
+        """
+        cursor = self.conn.cursor()
+
+        valid_rcode = cursor.execute(f'''
+        SELECT rcodes
+        FROM panel
+        WHERE rcodes = ?
+        ''', (rcode_value,)).fetchall() 
+
+        return valid_rcode

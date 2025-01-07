@@ -12,7 +12,7 @@ def fetch_latest_versions(api_url):
         api_url (str): The initial URL of the API (page 1) to fetch panel versions.
 
     Returns:
-        latest_versions: A dictionary where the keys are panel IDs and the values are their latest versions.
+        latest_versions: A list of lists containing panel id, R codes and version
     """
     latest_versions = []
 
@@ -27,26 +27,40 @@ def fetch_latest_versions(api_url):
             break
 
         # Process results in the current page
-        results = data.get("results", [])
+        results = data.get("results", []) # extract relevant part from JSON data
         for item in results:
             try:
                 panel_id = item.get("id")
                 version = float(item.get("version"))  # Convert version to a float for comparison with current version
                 r_code = item.get("relevant_disorders", [])
-                r_code = ", ".join(extract_rcodes(r_code))
-                latest_versions.append([panel_id, r_code, version])
+                r_code = ", ".join(extract_rcodes(r_code)) # extract R codes from list which could contain worded
+                                                           # descriptions and join in a string
+                latest_versions.append([panel_id, r_code, version]) # add list of panels to list of lists
             except ValueError as e:
                 logging.warning(f"Skipping invalid version for panel {item.get('id')}: {e}")
 
-        # Move to the next page if available
+        # Move to the next page of the API data if available (automated paginating, stops when no more pages)
         api_url = data.get("next")
 
-    logging.info(f"Fetched {len(latest_versions)} panels from PanelApp API.")
+    logging.info(f"Fetched {len(latest_versions)} panels from PanelApp API.") # log number of panels fetched
     return latest_versions
 
 def fetch_latest_version_genes(id, latest_version):
+    """
+
+    Fetches the genes for the latest version of a given panel
+
+    Args:
+        id (str): The panel id
+        latest_version (list): A list of lists containing panel id, R codes and version
+
+    Returns:
+        list of lists containing panel ID, HGNC ID and confidence for a given panel
+    """
+
     latest_genes = []
 
+    # genes_url will change dependent on the ID and latest version provided
     genes_url = f"https://panelapp.genomicsengland.co.uk/api/v1/panels/{id}/?format=json&version={latest_version}"
 
     try:
@@ -79,6 +93,7 @@ def update_or_insert_panel_versions(cursor, latest_versions):
     Returns:
         bool: True if any updates or inserts were made, False otherwise.
     """
+    # updates variable will be changed to true if updates are made, to decide on logging
     updates = False
 
     for panel_info in latest_versions:
@@ -125,6 +140,8 @@ def update_or_insert_panel_versions(cursor, latest_versions):
                 logging.info(
                     f"{panel_id} --> {added_genes} added, {removed_genes} removed. Confidence changes: {confidence_changes}")
         else:
+            # calling func to retrieve the genes that are in the panel so they can be added in to the database if
+            # the panel doesnt yet exist in it
             latest_genes = fetch_latest_version_genes(panel_id, latest_version)
             # Insert new panel if it doesn't exist
             cursor.execute(
@@ -139,10 +156,31 @@ def update_or_insert_panel_versions(cursor, latest_versions):
             updates = True
 
     if not updates:
-        logging.info("0 updates made.")
+        logging.info("0 updates made.") # hence the updates boolean
     return updates
 
 def fetch_gene_changes(cursor, panel_id, old_version):
+    """
+    Fetches the genes that have been added, removed, or had changes in confidence between
+    the current version of a panel and its archived version. This can be used to log changes
+    made during an update.
+
+    Args:
+        cursor: SQLite database cursor for executing queries.
+        panel_id (int): The ID of the panel being compared.
+        old_version (str): The version of the panel to compare against (stored in the archive table).
+
+    Returns:
+        tuple: A tuple containing three lists:
+            - added_genes (list of tuple): Genes added in the current version, each represented
+              as a tuple (HGNC_ID, Confidence).
+            - removed_genes (list of tuple): Genes removed in the current version, each represented
+              as a tuple (HGNC_ID, Confidence).
+            - confidence_changed (list of tuple): Genes whose confidence levels have changed between
+              versions, each represented as a tuple (HGNC_ID, old_confidence, new_confidence).
+    """
+
+
     # Fetch genes from the old version
     cursor.execute(
         '''
