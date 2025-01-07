@@ -33,6 +33,7 @@ conda activate VIMMO
 ```
 
 3. Install the package using pyproject.toml:
+The package installation will automatically handle all dependencies listed in `pyproject.toml`.
 ```bash
 # Install in development mode
 pip install -e .
@@ -45,20 +46,42 @@ After installation, you can run the API server:
 # Using the console script
 vimmo
 
+```
+OR
 
+
+## Build using Docker
+```bash
+# to run docker make sure you are in route directory of the project
+cd <your_file_path>/SoftwareDevelopmentVIMMO
+
+
+# make sure your docker daemon is running by starting the docker desktop
+# Note: requires docker desktop to use the docker compose command
+
+# # to build the image and to run the container 
+docker compose --build
+
+# to run it in the background use
+docker compose up -d --build
+
+#to exit and remove
+docker stop my_vimmo_app
+docker rm my_vimmo_app
 ```
 
 The API will be available at:
 - Main API: http://127.0.0.1:5001/
 - Swagger UI Documentation: http://127.0.0.1:5001/
 
-## Testing
-````
+# For endpoint information please refer to User guide in docs/vimmo.pdf
+
+
 ## Testing
 
-In root directory (<path>/SoftwareDevelopmentVIMMO) :
-Testing requires an instance of the application to be running as it checks for various responses
-Please run the App in a seperate terminal or have an instance of Docker running in the background
+Make sure you are in root directory (<you_file_path>/SoftwareDevelopmentVIMMO/) :
+Testing requires an instance of the application to be running depending on the test type you will be running as it checks for various live responses
+Please run the App in a seperate terminal or have an instance of Docker running in the background in port 5001
 ```bash
 pytest #Tests everything requires (vimmo api to run in the background/new terminal)
 
@@ -69,8 +92,8 @@ pytest -s # this prints out some of the info we recieve and should only be used 
 pytest -m integration
 
 # To test just unittest modules
- pytest -m "not integration"
- #Note: this does not require an instance of the app to run as it mocks responses with dummy data
+ pytest -m "not integration" #Note: this does not require an instance of the app to run as it mocks responses with dummy data
+
 ```
 
 ## Schedule Database Updates
@@ -111,7 +134,7 @@ crontab -r
 ````
 
 
-## Version Update
+## Version Update for developer purposes
 Use after git commit -m "message"
 ```bash
 # Patch version (0.1.0 → 0.1.1) 
@@ -124,33 +147,10 @@ bumpversion minor
 bumpversion major
 ```
 
-## Docker
-```bash
-# to run docker make sure you are in route directory of the project
-cd <your_file_path>/SoftwareDevelopmentVIMMO
 
 
 
-
-
-# <m>ake sure your docker daemon is running by starting the docker desktop
-# Note: requires docker desktop to use the docker compose command
-
-# # to build the image and to run the container 
-docker-compose up --build
-
-# to run it in the background use
-docker compose up -d --build
-
-#to exit
-docker stop my_vimmo_app
-docker rm my_vimmo_app
-
-
-
-The package installation will automatically handle all dependencies listed in `pyproject.toml`.
-
-### Building the Package for Production
+### Building the Package for Production ( purpose but not being used for easy code changes)
 
 If you want to build the distribution files:
 ```bash
