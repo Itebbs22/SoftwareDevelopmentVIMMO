@@ -675,7 +675,7 @@ class UpdateClass(Resource):
 
 
   
-downgrade_space = api.namespace('DowngradeRecords', description='Downgrade the Vimmo database with a panel and version from panel app')
+downgrade_space = api.namespace('DowngradeRecords', description='WARNING please use the guide before using this functionality !!!! > Downgrade the Vimmo database with a panel and version from panel app')
 downgrade_parser = DowngradeParser.create_parser()
 @downgrade_space.route("")
 class DowngradeClass(Resource):
