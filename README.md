@@ -60,7 +60,7 @@ cd <your_file_path>/SoftwareDevelopmentVIMMO
 # Note: requires docker desktop to use the docker compose command
 
 # # to build the image and to run the container 
-docker compose --build
+docker compose up --build
 
 # to run it in the background use
 docker compose up -d --build
