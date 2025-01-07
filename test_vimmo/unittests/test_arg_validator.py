@@ -1,11 +1,13 @@
 import unittest
-from vimmo.utils.arg_validator import (
+from unittest.mock import patch
+
+with patch('vimmo.API.app'):  # Ensures Flask/DB init order
+    from vimmo.utils.arg_validator import (
     panel_space_validator,
     bed_space_validator,
     validate_panel_id_or_Rcode_or_hgnc,
     validate_hgnc_ids
 )
-
 class TestValidationFunctions(unittest.TestCase):
 
     #Panel Space Validator Tests
