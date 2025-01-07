@@ -20,7 +20,7 @@ A Flask-based API application for panel data analysis.
 1. Clone the repository:
 ```bash
 git clone https://github.com/yourusername/VIMMO.git
-cd VIMMO
+cd SoftwareDevelopmentVIMMO/
 ```
 
 2. Create and activate the conda environment:
@@ -32,30 +32,10 @@ conda env create -f environment.yaml
 conda activate VIMMO
 ```
 
-3. Install the package:
+3. Install the package using pyproject.toml:
 ```bash
 # Install in development mode
 pip install -e .
-```
-
-The package installation will automatically handle all dependencies listed in `pyproject.toml`.
-
-### Building the Package for Production
-
-If you want to build the distribution files:
-```bash
-# This will create both wheel and source distribution
-python -m build
-```
-
-This will create:
-- A wheel file (*.whl) in the `dist/` directory
-- A source distribution (*.tar.gz) in the `dist/` directory
-
-Install using:
-```bash
-# This will create both wheel and source distribution
-pip install dist/*.whl
 ```
 
 ## Usage
@@ -65,13 +45,33 @@ After installation, you can run the API server:
 # Using the console script
 vimmo
 
-# Or using the module directly
-python -m vimmo.main
+
 ```
 
 The API will be available at:
 - Main API: http://127.0.0.1:5001/
 - Swagger UI Documentation: http://127.0.0.1:5001/
+
+## Testing
+````
+## Testing
+
+In root directory (<path>/SoftwareDevelopmentVIMMO) :
+Testing requires an instance of the application to be running as it checks for various responses
+Please run the App in a seperate terminal or have an instance of Docker running in the background
+```bash
+pytest #Tests everything requires (vimmo api to run in the background/new terminal)
+
+# for extra debugging purposes use 
+pytest -s # this prints out some of the info we recieve and should only be used for debugging purposes e.g, change in panelapp or variant validator.
+
+# To test just integration
+pytest -m integration
+
+# To test just unittest modules
+ pytest -m "not integration"
+ #Note: this does not require an instance of the app to run as it mocks responses with dummy data
+```
 
 ## Schedule Database Updates
 
@@ -146,28 +146,27 @@ docker compose up -d --build
 docker stop my_vimmo_app
 docker rm my_vimmo_app
 
-````
 
-## Testing
 
-In root directory (<path>/SoftwareDevelopmentVIMMO) :
-Testing requires an instance of the application to be running as it checks for various responses
-Please run the App in a seperate terminal or have an instance of Docker running in the background
+The package installation will automatically handle all dependencies listed in `pyproject.toml`.
+
+### Building the Package for Production
+
+If you want to build the distribution files:
 ```bash
-pytest #Tests everything
-
-# for extra debugging purposes use 
-pytest -s # this prints out some of the info we recieve and should only be used for debugging purposes e.g, change in panelapp or variant validator.
-
-# To test just integration
-pytest -m integration
-
-# To test just unittest modules
- pytest -m "not integration"
- #Note: this does not require an instance of the app to run as it mocks responses with dummy data
+# This will create both wheel and source distribution
+python -m build
 ```
 
-This is to test for ollie conflict
+This will create:
+- A wheel file (*.whl) in the `dist/` directory
+- A source distribution (*.tar.gz) in the `dist/` directory
+
+Install using:
+```bash
+# This will create both wheel and source distribution
+pip install dist/*.whl
+```
 
 
 
