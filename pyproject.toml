@@ -9,7 +9,11 @@ description = "App that gives you stuff"
 readme = "README.md"
 #"Update before release"
 authors = [
-    {name = "The Boys", email = "theboys.email@example.com"}
+    {name = "Vincent"},
+    {name = "Iwan"},
+    {name = "Moe"},
+    {name = "Mani"},
+    {name = "Ollie"},
 ]
 license = {text = "MIT"}
 classifiers = [
